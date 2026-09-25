@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — HamirStudios</title>
+  <meta name="description" content="Contacta a HamirStudios — feedback, parcerias, imprensa.">
+  <link rel="icon" href="../assets/logoonara.png">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="site-header" id="header">
+  <div class="container">
+    <a href="../" class="brand">
+      <img src="../assets/logo-hamir.jpeg" alt="HamirStudios">
+      <span class="brand-text">HamirStudios</span>
+    </a>
+    <nav class="site-nav">
+      <a href="../">Início</a>
+      <a href="../onara-ai/">Onara.AI</a>
+      <a href="../apoie/">Apoie</a>
+      <a href="../sobre/">Sobre</a>
+      <a href="../contacto/" class="active">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="../assets/logo-hamir.jpeg" class="watermark" alt="">
+  <div class="container hero-content">
+    <h1>Contacto</h1>
+    <p class="tagline">Fala connosco</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title reveal">Como contactar-nos</h2>
+    <p class="section-subtitle reveal">
+      Para feedback, sugestões, bugs, parcerias ou imprensa, usa um dos canais abaixo.
+    </p>
+
+    <div class="card-grid">
+      <div class="card reveal">
+        <h3>✉️ Email</h3>
+        <p>Para assuntos gerais, feedback ou suporte.</p>
+        <a href="mailto:yannickmatos.ym@gmail.com" class="card-link">yannickmatos.ym@gmail.com</a>
+      </div>
+
+      <div class="card reveal">
+        <h3>💼 LinkedIn</h3>
+        <p>Para parcerias profissionais e contacto empresarial.</p>
+        <a href="https://linkedin.com/in/yannickmatos" target="_blank" rel="noopener" class="card-link">linkedin.com/in/yannickmatos</a>
+      </div>
+
+      <div class="card reveal">
+        <h3>💻 GitHub</h3>
+        <p>Para reportar bugs ou sugerir funcionalidades nos projectos.</p>
+        <a href="https://github.com/matrixangola" target="_blank" rel="noopener" class="card-link">github.com/matrixangola</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title reveal">Para imprensa</h2>
+    <p class="section-subtitle reveal">
+      Se estás a escrever sobre o Onara.AI ou sobre tecnologia angolana e queres incluir a HamirStudios, contacta-nos por email. Podemos fornecer logos, screenshots, informações sobre o projecto e uma entrevista com o fundador.
+    </p>
+    <div class="reveal">
+      <a href="mailto:yannickmatos.ym@gmail.com?subject=Imprensa%20-%20HamirStudios" class="btn btn-primary">Contactar para imprensa</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <img src="../assets/logo-hamir.jpeg" class="footer-logo" alt="HamirStudios">
+    <p class="footer-text">© 2026 HamirStudios · Luanda, Angola 🇦🇴</p>
+    <p class="footer-text">Fundada por Yannick Hamir Branco Pereira de Matos</p>
+    <p class="footer-slogan">Software com raízes angolanas</p>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('header');
+  if (window.scrollY > 50) header.classList.add('scrolled');
+  else header.classList.remove('scrolled');
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HamirStudios — Software com raízes angolanas</title>
+  <meta name="description" content="HamirStudios — desenvolvedora independente de software em Luanda, Angola. Criadores do Onara.AI.">
+  <link rel="icon" href="assets/logoonara.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header" id="header">
+  <div class="container">
+    <a href="/" class="brand">
+      <img src="assets/logo-hamir.jpeg" alt="HamirStudios">
+      <span class="brand-text">HamirStudios</span>
+    </a>
+    <nav class="site-nav">
+      <a href="/" class="active">Início</a>
+      <a href="onara-ai/">Onara.AI</a>
+      <a href="apoie/">Apoie</a>
+      <a href="sobre/">Sobre</a>
+      <a href="contacto/">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="assets/logo-hamir.jpeg" class="watermark" alt="">
+  <div class="container hero-content">
+    <img src="assets/logo-hamir.jpeg" class="hero-logo" alt="HamirStudios">
+    <h1>HamirStudios</h1>
+    <p class="tagline">Software com raízes angolanas</p>
+    <div class="cta-buttons">
+      <a href="onara-ai/" class="btn btn-primary">Conhecer o Onara.AI</a>
+      <a href="sobre/" class="btn btn-secondary">Sobre a empresa</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="stats reveal">
+      <div class="stat">
+        <div class="stat-value">1</div>
+        <div class="stat-label">Projecto activo</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">100%</div>
+        <div class="stat-label">Offline</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">0</div>
+        <div class="stat-label">Anúncios</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">🇦🇴</div>
+        <div class="stat-label">Feito em Angola</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title reveal">Projectos</h2>
+    <p class="section-subtitle reveal">
+      Construímos software que resolve problemas reais em África — com foco em acessibilidade, privacidade e independência tecnológica.
+    </p>
+
+    <div class="card-grid">
+      <article class="card reveal">
+        <img src="assets/logoonara.png" class="card-icon" alt="Onara.AI">
+        <h3>Onara.AI</h3>
+        <p>Assistente de estudo offline para estudantes africanos. Corre modelos de IA localmente no telemóvel, sem internet, sem custos e sem tracking.</p>
+        <a href="onara-ai/" class="card-link">Ver projecto →</a>
+      </article>
+
+      <article class="card reveal" style="opacity: 0.6;">
+        <div class="card-icon" style="background: var(--dark-3); display:flex; align-items:center; justify-content:center; font-size:28px; color: var(--text-muted);">?</div>
+        <h3>Próximo projecto</h3>
+        <p>Estamos a construir algo novo. Volta em breve para descobrir.</p>
+        <span class="card-link" style="color: var(--text-muted);">Em breve</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="text-align: center;">
+    <h2 class="section-title reveal">Apoie os nossos projectos</h2>
+    <p class="section-subtitle reveal" style="margin: 0 auto 40px;">
+      Todo o software da HamirStudios é gratuito e será sempre gratuito. Se quiseres apoiar o desenvolvimento, considera uma doação.
+    </p>
+    <div class="reveal">
+      <a href="apoie/" class="btn btn-primary">Ver formas de apoiar</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <img src="assets/logo-hamir.jpeg" class="footer-logo" alt="HamirStudios">
+    <p class="footer-text">© 2026 HamirStudios · Luanda, Angola 🇦🇴</p>
+    <p class="footer-text">Fundada por Yannick Hamir Branco Pereira de Matos</p>
+    <p class="footer-slogan">Software com raízes angolanas</p>
+  </div>
+</footer>
+
+<script>
+// Header scroll effect
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('header');
+  if (window.scrollY > 50) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

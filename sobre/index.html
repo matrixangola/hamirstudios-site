@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre — HamirStudios</title>
+  <meta name="description" content="HamirStudios — desenvolvedora independente de software em Luanda, Angola. Fundada por Yannick Hamir Branco Pereira de Matos.">
+  <link rel="icon" href="../assets/logoonara.png">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="site-header" id="header">
+  <div class="container">
+    <a href="../" class="brand">
+      <img src="../assets/logo-hamir.jpeg" alt="HamirStudios">
+      <span class="brand-text">HamirStudios</span>
+    </a>
+    <nav class="site-nav">
+      <a href="../">Início</a>
+      <a href="../onara-ai/">Onara.AI</a>
+      <a href="../apoie/">Apoie</a>
+      <a href="../sobre/" class="active">Sobre</a>
+      <a href="../contacto/">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="../assets/logo-hamir.jpeg" class="watermark" alt="">
+  <div class="container hero-content">
+    <h1>Sobre a HamirStudios</h1>
+    <p class="tagline">Software com raízes angolanas</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title reveal">A empresa</h2>
+    <p class="section-subtitle reveal">
+      A HamirStudios é uma desenvolvedora independente de software, sediada em Luanda, Angola. Construímos aplicações que resolvem problemas reais em África — com foco em acessibilidade, privacidade e independência tecnológica.
+    </p>
+    <p class="section-subtitle reveal">
+      Acreditamos que tecnologia de qualidade não precisa de estar dependente de grandes empresas nem de ligações à internet constantes. Construímos para o contexto real do continente africano.
+    </p>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title reveal">O fundador</h2>
+
+    <div class="about-grid">
+      <img src="../assets/yannick.png" class="about-photo reveal" alt="Yannick Hamir Branco Pereira de Matos">
+
+      <div class="about-text reveal">
+        <h2>Yannick Hamir Branco Pereira de Matos</h2>
+        <p class="role">Fundador · Engenheiro de Software · Luanda, Angola</p>
+
+        <p>
+          Yannick Hamir Branco Pereira de Matos é um profissional multifacetado natural das Ingombotas, Luanda, com uma actuação de destaque na interseção entre tecnologia, engenharia, inovação digital e artes.
+        </p>
+
+        <p>
+          Com frequência universitária em Engenharia Informática e certificações em Ciência de Dados, Inteligência Artificial, Cisco e Google Analytics 4, consolidou a sua carreira liderando operações de TI, análise de dados e gestão logística. Paralelamente, actua como desenvolvedor independente de tecnologia, criando projectos inovadores que vão desde aplicações móveis focadas em valorização cultural até assistentes de inteligência artificial de processamento local.
+        </p>
+
+        <p>
+          No âmbito artístico e cultural, destaca-se como músico — actuando como baixista e compositor no cenário rock angolano —, produtor audiovisual e criador de conteúdos narrativos. A sua visão criativa combina uma profunda ligação às raízes angolanas com uma linguagem tecnológica contemporânea.
+        </p>
+
+        <div class="about-links">
+          <a href="https://linkedin.com/in/yannickmatos" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/matrixangola" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title reveal">Valores</h2>
+    <div class="card-grid">
+      <div class="card reveal">
+        <h3>🇦🇴 Feito em Angola</h3>
+        <p>Construímos a partir de Luanda, com orgulho nas nossas raízes e no potencial tecnológico do continente africano.</p>
+      </div>
+      <div class="card reveal">
+        <h3>🔓 Acesso livre</h3>
+        <p>Todo o nosso software é gratuito e será sempre gratuito. Acreditamos que a tecnologia deve servir as pessoas, não o contrário.</p>
+      </div>
+      <div class="card reveal">
+        <h3>🛡️ Privacidade primeiro</h3>
+        <p>Sem tracking, sem venda de dados, sem publicidade invasiva. Os utilizadores são donos da sua experiência.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <img src="../assets/logo-hamir.jpeg" class="footer-logo" alt="HamirStudios">
+    <p class="footer-text">© 2026 HamirStudios · Luanda, Angola 🇦🇴</p>
+    <p class="footer-text">Fundada por Yannick Hamir Branco Pereira de Matos</p>
+    <p class="footer-slogan">Software com raízes angolanas</p>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('header');
+  if (window.scrollY > 50) header.classList.add('scrolled');
+  else header.classList.remove('scrolled');
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apoie — HamirStudios</title>
+  <meta name="description" content="Apoie os projectos da HamirStudios. Transfira para uma das contas abaixo.">
+  <link rel="icon" href="../assets/logoonara.png">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="site-header" id="header">
+  <div class="container">
+    <a href="../" class="brand">
+      <img src="../assets/logo-hamir.jpeg" alt="HamirStudios">
+      <span class="brand-text">HamirStudios</span>
+    </a>
+    <nav class="site-nav">
+      <a href="../">Início</a>
+      <a href="../onara-ai/">Onara.AI</a>
+      <a href="../apoie/" class="active">Apoie</a>
+      <a href="../sobre/">Sobre</a>
+      <a href="../contacto/">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-content">
+    <h1>Apoie os nossos projectos</h1>
+    <p class="tagline">Todo o software da HamirStudios é gratuito — e será sempre</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title reveal">Porquê doar?</h2>
+    <p class="section-subtitle reveal">
+      O Onara.AI e todos os projectos da HamirStudios são desenvolvidos de forma independente, sem financiamento externo. Não temos anúncios, não cobramos subscrições, não vendemos dados.
+    </p>
+    <p class="section-subtitle reveal">
+      Se o nosso trabalho te tem ajudado a estudar, a aprender ou a resolver problemas, podes contribuir com uma transferência para uma das contas abaixo. Cada contribuição ajuda a manter os projectos vivos e a criar novos.
+    </p>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title reveal">Contas para doação</h2>
+    <p class="section-subtitle reveal">
+      Escolhe o banco que preferires. Todas as contas estão em nome de <strong>Yannick Hamir Branco Pereira de Matos</strong>.
+    </p>
+
+    <div class="card-grid">
+      <div class="iban-card reveal">
+        <div class="bank-name">Banco Angolano de Investimentos (BAI)</div>
+        <div class="iban-code" id="iban-bai">AO06 0040 0000 9017 3536 1017 7</div>
+        <div class="holder">Titular: Yannick Hamir Branco Pereira de Matos</div>
+        <button class="copy-btn" onclick="copyIban('iban-bai', this)">Copiar IBAN</button>
+      </div>
+
+      <div class="iban-card reveal">
+        <div class="bank-name">Banco de Fomento Angola (BFA)</div>
+        <div class="iban-code" id="iban-bfa">AO06 0006 0000 3548 1831 3018 3</div>
+        <div class="holder">Titular: Yannick Hamir Branco Pereira de Matos</div>
+        <button class="copy-btn" onclick="copyIban('iban-bfa', this)">Copiar IBAN</button>
+      </div>
+
+      <div class="iban-card reveal">
+        <div class="bank-name">Banco BIC</div>
+        <div class="iban-code" id="iban-bic">AO06 0051 0000 5283 4421 1419 1</div>
+        <div class="holder">Titular: Yannick Hamir Branco Pereira de Matos</div>
+        <button class="copy-btn" onclick="copyIban('iban-bic', this)">Copiar IBAN</button>
+      </div>
+
+      <div class="iban-card reveal">
+        <div class="bank-name">Banco Atlântico (ATL)</div>
+        <div class="iban-code" id="iban-atl">AO06 0055 0000 3391 5465 1011 2</div>
+        <div class="holder">Titular: Yannick Hamir Branco Pereira de Matos</div>
+        <button class="copy-btn" onclick="copyIban('iban-atl', this)">Copiar IBAN</button>
+      </div>
+    </div>
+
+    <p class="reveal" style="margin-top: 40px; font-size: 13px; color: var(--text-muted); font-style: italic;">
+      Nota: se estiveres em Angola, podes usar apenas os 21 dígitos após o prefixo <strong>AO06</strong>. Se estiveres no estrangeiro, usa o IBAN completo.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="text-align: center;">
+    <h2 class="section-title reveal">Obrigado</h2>
+    <p class="section-subtitle reveal" style="margin: 0 auto 40px;">
+      Cada doação, grande ou pequena, faz uma diferença real. Obrigado por acreditares em tecnologia independente feita em Angola. 🇦🇴
+    </p>
+    <div class="reveal">
+      <a href="../contacto/" class="btn btn-secondary">Contactar a HamirStudios</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <img src="../assets/logo-hamir.jpeg" class="footer-logo" alt="HamirStudios">
+    <p class="footer-text">© 2026 HamirStudios · Luanda, Angola 🇦🇴</p>
+    <p class="footer-text">Fundada por Yannick Hamir Branco Pereira de Matos</p>
+    <p class="footer-slogan">Software com raízes angolanas</p>
+  </div>
+</footer>
+
+<script>
+function copyIban(id, btn) {
+  const el = document.getElementById(id);
+  const text = el.innerText.replace(/\s/g, '');
+  navigator.clipboard.writeText(text).then(() => {
+    const original = btn.innerText;
+    btn.innerText = '✓ Copiado';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.innerText = original;
+      btn.classList.remove('copied');
+    }, 2000);
+  }).catch(() => {
+    const range = document.createRange();
+    range.selectNode(el);
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+    document.execCommand('copy');
+    btn.innerText = '✓ Copiado';
+    setTimeout(() => { btn.innerText = 'Copiar IBAN'; }, 2000);
+  });
+}
+
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('header');
+  if (window.scrollY > 50) header.classList.add('scrolled');
+  else header.classList.remove('scrolled');
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
+
