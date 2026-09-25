@@ -31,10 +31,11 @@ body {
     "Helvetica Neue", Arial, sans-serif;
   background: var(--black);
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.75;
   font-size: 16px;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 .container {
@@ -250,6 +251,7 @@ body {
               background 0.3s;
   position: relative;
   overflow: hidden;
+  text-align: center;
 }
 
 .btn::before {
@@ -309,22 +311,25 @@ body {
 }
 
 .section-title {
-  font-size: 48px;
+  font-size: 44px;
   font-weight: 900;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   margin-bottom: 20px;
+  text-align: center;
   background: linear-gradient(135deg, #fff 0%, #aaa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  line-height: 1.2;
 }
 
 .section-subtitle {
-  font-size: 18px;
+  font-size: 17px;
   color: var(--text-muted);
-  margin-bottom: 56px;
-  max-width: 720px;
-  line-height: 1.7;
+  margin: 0 auto 56px auto;
+  max-width: 750px;
+  text-align: center;
+  line-height: 1.8;
 }
 
 /* Scroll reveal */
@@ -400,6 +405,7 @@ body {
               box-shadow 0.4s;
   position: relative;
   overflow: hidden;
+  text-align: left;
 }
 
 .card::before {
@@ -432,16 +438,18 @@ body {
 }
 
 .card h3 {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 800;
   margin-bottom: 12px;
   color: var(--white);
+  line-height: 1.3;
 }
 
 .card p {
   color: var(--text-muted);
-  margin-bottom: 20px;
-  line-height: 1.6;
+  margin-bottom: 16px;
+  line-height: 1.7;
+  font-size: 15px;
 }
 
 .card .card-link {
@@ -456,6 +464,97 @@ body {
 
 .card .card-link:hover {
   gap: 12px;
+}
+
+/* ─────────────────────────────────────────
+   Download cards (verso em 2 versões)
+   ───────────────────────────────────────── */
+
+.download-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+}
+
+.download-card {
+  background: linear-gradient(135deg, var(--dark-2) 0%, var(--dark-1) 100%);
+  border-radius: 20px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              border-color 0.3s,
+              box-shadow 0.4s;
+  text-align: left;
+  position: relative;
+}
+
+.download-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+}
+
+.download-card.recommended {
+  border: 2px solid var(--red);
+  box-shadow: 0 0 40px rgba(227, 6, 19, 0.15);
+}
+
+.download-card.recommended:hover {
+  box-shadow: 0 24px 60px rgba(227, 6, 19, 0.3);
+}
+
+.download-card .badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  align-self: flex-start;
+}
+
+.download-card.recommended .badge {
+  background: var(--red);
+  color: var(--white);
+}
+
+.download-card:not(.recommended) .badge {
+  background: var(--dark-3);
+  color: var(--text-muted);
+}
+
+.download-card h3 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.download-card .version {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  font-family: "Courier New", monospace;
+}
+
+.download-card p {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.download-card .btn {
+  width: 100%;
+  padding: 14px 24px;
+  font-size: 15px;
 }
 
 /* ─────────────────────────────────────────
@@ -500,6 +599,51 @@ body {
 }
 
 /* ─────────────────────────────────────────
+   Info box (como instalar)
+   ───────────────────────────────────────── */
+
+.info-box {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: left;
+  background: var(--dark-2);
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+}
+
+.info-box h3 {
+  margin-bottom: 20px;
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.info-box ol {
+  color: var(--text-muted);
+  line-height: 2.2;
+  padding-left: 24px;
+  font-size: 15px;
+}
+
+.info-box ol li {
+  margin-bottom: 4px;
+}
+
+.info-box .reqs {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.info-box .reqs strong {
+  color: var(--white);
+}
+
+/* ─────────────────────────────────────────
    IBAN cards
    ───────────────────────────────────────── */
 
@@ -509,6 +653,7 @@ body {
   padding: 24px;
   border: 1px solid var(--border);
   transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  text-align: left;
 }
 
 .iban-card:hover {
@@ -587,22 +732,27 @@ body {
 }
 
 .about-text h2 {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 900;
   margin-bottom: 8px;
   color: var(--white);
+  line-height: 1.2;
 }
 
 .about-text .role {
   color: var(--red);
   font-weight: 600;
   margin-bottom: 24px;
+  font-size: 15px;
 }
 
 .about-text p {
   margin-bottom: 16px;
   color: var(--text-muted);
-  line-height: 1.7;
+  line-height: 1.85;
+  font-size: 15px;
+  text-align: justify;
+  hyphens: auto;
 }
 
 .about-links {
@@ -649,6 +799,7 @@ body {
   color: var(--text-muted);
   font-size: 14px;
   margin-bottom: 8px;
+  line-height: 1.7;
 }
 
 .site-footer .footer-slogan {
@@ -684,11 +835,17 @@ body {
   }
 
   .section-title {
-    font-size: 32px;
+    font-size: 30px;
+    letter-spacing: 1px;
   }
 
   .section-subtitle {
-    font-size: 16px;
+    font-size: 15px;
+    margin-bottom: 40px;
+  }
+
+  .download-grid {
+    grid-template-columns: 1fr;
   }
 
   .about-grid {
@@ -700,6 +857,10 @@ body {
   .about-photo {
     max-width: 200px;
     margin: 0 auto;
+  }
+
+  .about-text p {
+    text-align: left;
   }
 
   .about-links {
@@ -717,5 +878,13 @@ body {
 
   .stat .stat-value {
     font-size: 32px;
+  }
+
+  .info-box {
+    padding: 24px;
+  }
+
+  .info-box ol {
+    font-size: 14px;
   }
 }
