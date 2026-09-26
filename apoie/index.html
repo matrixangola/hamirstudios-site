@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apoie — HamirStudios</title>
-  <meta name="description" content="Apoie os projectos da HamirStudios. Transfira para uma das contas abaixo.">
+  <meta name="description" content="Apoie os projectos da HamirStudios. Transfira via Multicaixa Express ou IBAN.">
   <link rel="icon" href="../assets/logoonara.png">
   <link rel="stylesheet" href="../style.css">
 </head>
@@ -27,6 +27,7 @@
 </header>
 
 <section class="hero">
+  <img src="../assets/logoonara.png" class="watermark" alt="">
   <div class="container hero-content">
     <h1>Apoie os nossos projectos</h1>
     <p class="tagline">Todo o software da HamirStudios é gratuito — e será sempre</p>
@@ -40,16 +41,78 @@
       O Onara.AI e todos os projectos da HamirStudios são desenvolvidos de forma independente, sem financiamento externo. Não temos anúncios, não cobramos subscrições, não vendemos dados.
     </p>
     <p class="section-subtitle reveal">
-      Se o nosso trabalho te tem ajudado a estudar, a aprender ou a resolver problemas, podes contribuir com uma transferência para uma das contas abaixo. Cada contribuição ajuda a manter os projectos vivos e a criar novos.
+      Se o nosso trabalho te tem ajudado a estudar, a aprender ou a resolver problemas, podes contribuir com uma transferência. Cada contribuição ajuda a manter os projectos vivos e a criar novos.
     </p>
   </div>
 </section>
 
 <section class="section section-alt">
   <div class="container">
-    <h2 class="section-title reveal">Contas para doação</h2>
+    <h2 class="section-title reveal">Multicaixa Express</h2>
     <p class="section-subtitle reveal">
-      Escolhe o banco que preferires. Todas as contas estão em nome de <strong>Yannick Hamir Branco Pereira de Matos</strong>.
+      A forma mais rápida de doar em Angola. Transfere pelo teu banco para o número abaixo:
+    </p>
+
+    <div class="reveal" style="max-width: 500px; margin: 0 auto 40px;">
+      <div class="iban-card" style="text-align: center; padding: 32px;">
+        <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+          <div style="width: 72px; height: 72px; border-radius: 50%; background: var(--red); display: flex; align-items: center; justify-content: center;">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+              <line x1="12" y1="18" x2="12.01" y2="18"></line>
+            </svg>
+          </div>
+        </div>
+
+        <div style="font-size: 13px; letter-spacing: 1.5px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 12px;">
+          Número para transferência
+        </div>
+
+        <div class="iban-code" id="multicaixa-num" style="font-size: 26px; font-weight: 700; font-family: 'Courier New', monospace; letter-spacing: 2px; padding: 16px; margin-bottom: 16px;">
+          931 291 602
+        </div>
+
+        <div class="holder" style="margin-bottom: 20px;">
+          Titular: Yannick Hamir Branco Pereira de Matos
+        </div>
+
+        <button class="copy-btn" onclick="copyMulticaixa(this)" style="font-size: 15px; padding: 14px;">
+          Copiar número
+        </button>
+      </div>
+    </div>
+
+    <div class="info-box reveal" style="max-width: 640px; margin: 0 auto;">
+      <h3>Como doar via Multicaixa Express</h3>
+      <ol style="color: var(--text-muted); line-height: 2.2; padding-left: 24px; margin-bottom: 0;">
+        <li>Abre a app <strong>Multicaixa Express</strong> no teu telemóvel</li>
+        <li>Escolhe <strong>"Transferência"</strong> ou <strong>"Enviar dinheiro"</strong></li>
+        <li>Insere o número <strong>931 291 602</strong></li>
+        <li>Confirma o nome do titular: <strong>Yannick H. B. P. de Matos</strong></li>
+        <li>Introduz o valor que queres doar</li>
+        <li>Confirma com o teu PIN</li>
+      </ol>
+    </div>
+
+    <div class="reveal" style="max-width: 640px; margin: 24px auto 0; padding: 16px; border-radius: 12px; background: rgba(245, 166, 35, 0.1); border: 1px solid rgba(245, 166, 35, 0.3);">
+      <div style="display: flex; align-items: flex-start; gap: 12px;">
+        <span style="font-size: 20px;">⚠️</span>
+        <div>
+          <strong style="color: #F5A623; display: block; margin-bottom: 6px;">Aviso de segurança</strong>
+          <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin: 0;">
+            A HamirStudios <strong>nunca</strong> te vai pedir o PIN do Multicaixa Express, códigos de verificação por SMS, ou qualquer dado sensível por telefone, email ou redes sociais. Se receberes esse tipo de pedido, é burla. Confirma sempre o nome do titular <strong>antes</strong> de confirmar a transferência.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title reveal">Transferência bancária</h2>
+    <p class="section-subtitle reveal">
+      Se preferires transferência bancária tradicional, podes usar uma das contas abaixo. Todas as contas estão em nome de <strong>Yannick Hamir Branco Pereira de Matos</strong>.
     </p>
 
     <div class="card-grid">
@@ -82,13 +145,13 @@
       </div>
     </div>
 
-    <p class="reveal" style="margin-top: 40px; font-size: 13px; color: var(--text-muted); font-style: italic;">
+    <p class="reveal" style="margin-top: 32px; font-size: 13px; color: var(--text-muted); font-style: italic;">
       Nota: se estiveres em Angola, podes usar apenas os 21 dígitos após o prefixo <strong>AO06</strong>. Se estiveres no estrangeiro, usa o IBAN completo.
     </p>
   </div>
 </section>
 
-<section class="section">
+<section class="section section-alt">
   <div class="container" style="text-align: center;">
     <h2 class="section-title reveal">Obrigado</h2>
     <p class="section-subtitle reveal" style="margin: 0 auto 40px;">
@@ -106,7 +169,6 @@
     <p class="footer-text">© 2026 HamirStudios · Luanda, Angola 🇦🇴</p>
     <p class="footer-text">Fundada por Yannick Hamir Branco Pereira de Matos</p>
     <p class="footer-slogan">Software com raízes angolanas</p>
-    <p style="margin-top: 24px; font-size: 13px;"><a href="/hamirstudios-site/privacidade/" style="color: var(--text-muted); text-decoration: none;">Política de Privacidade</a></p>
   </div>
 </footer>
 
@@ -133,6 +195,28 @@ function copyIban(id, btn) {
   });
 }
 
+function copyMulticaixa(btn) {
+  const el = document.getElementById('multicaixa-num');
+  const text = el.innerText.replace(/\s/g, '');
+  navigator.clipboard.writeText(text).then(() => {
+    const original = btn.innerText;
+    btn.innerText = '✓ Copiado';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.innerText = original;
+      btn.classList.remove('copied');
+    }, 2000);
+  }).catch(() => {
+    const range = document.createRange();
+    range.selectNode(el);
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+    document.execCommand('copy');
+    btn.innerText = '✓ Copiado';
+    setTimeout(() => { btn.innerText = 'Copiar número'; }, 2000);
+  });
+}
+
 window.addEventListener('scroll', () => {
   const header = document.getElementById('header');
   if (window.scrollY > 50) header.classList.add('scrolled');
@@ -150,4 +234,3 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 </body>
 </html>
-
