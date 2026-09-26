@@ -77,11 +77,11 @@
         <a href="onara-ai/" class="card-link">Ver projecto →</a>
       </article>
 
-      <article class="card reveal">
-        <div class="card-icon" style="background: linear-gradient(135deg, #E30613 0%, #a00410 100%); display:flex; align-items:center; justify-content:center; font-size:32px;">⚖️</div>
-        <h3>Leis Angolanas Offline</h3>
-        <p>Consultor de legislação angolana, totalmente offline. Combina IA local, RAG e PDFs de leis como o Código Penal, a Lei Geral do Trabalho e a Constituição da República.</p>
-        <span class="card-link" style="color: var(--yellow);">🔧 Em desenvolvimento</span>
+      <article class="card reveal" style="opacity: 0.6;">
+        <div class="card-icon" style="background: var(--dark-3); display:flex; align-items:center; justify-content:center; font-size:28px; color: var(--text-muted);">?</div>
+        <h3>Próximo projecto</h3>
+        <p>Estamos a construir algo novo. Volta em breve para descobrir.</p>
+        <span class="card-link" style="color: var(--text-muted);">Em breve</span>
       </article>
     </div>
   </div>
