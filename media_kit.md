@@ -1,5 +1,11 @@
-# HamirStudios — Media Kit
-## Tecnologia angolana para o mundo
+---
+title: "HamirStudios — Media Kit"
+subtitle: "Tecnologia angolana para o mundo"
+author: "Yannick Hamir Branco Pereira de Matos"
+date: "Setembro 2026"
+---
+
+![HamirStudios](assets/logo-hamir.png)
 
 ---
 
