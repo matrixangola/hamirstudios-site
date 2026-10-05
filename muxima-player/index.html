@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>K7-Player — Media player com modo DJ</title>
-  <meta name="description" content="K7-Player — media player gratuito e sem anúncios com modo DJ integrado. Toca todos os formatos de áudio. Em desenvolvimento.">
+  <title>Muxima Player — Media player com modo DJ</title>
+  <meta name="description" content="Muxima Player — media player gratuito e sem anúncios com modo DJ integrado. Toca todos os formatos de áudio. Em desenvolvimento.">
   <link rel="icon" href="../assets/logoonara.png">
   <link rel="stylesheet" href="../style.css">
   <style>
     :root {
-      --k7-navy: #0C2036;
-      --k7-blue: #2B5F98;
-      --k7-orange: #E1A44E;
-      --k7-orange-dark: #BD5F3D;
-      --k7-green: #49826D;
-      --k7-bg-light: #F8F5DD;
+      --muxima-navy: #0C2036;
+      --muxima-blue: #2B5F98;
+      --muxima-orange: #E1A44E;
+      --muxima-orange-dark: #BD5F3D;
+      --muxima-green: #49826D;
+      --muxima-bg-light: #F8F5DD;
     }
 
     .badge-dev {
@@ -22,7 +22,7 @@
       padding: 6px 16px;
       border-radius: 20px;
       background: rgba(225, 164, 78, 0.15);
-      color: var(--k7-orange);
+      color: var(--muxima-orange);
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 1px;
@@ -30,13 +30,13 @@
       margin-bottom: 24px;
     }
 
-    .k7-hero-icon {
+    .muxima-hero-icon {
       font-size: 80px;
       margin-bottom: 20px;
       filter: drop-shadow(0 0 40px rgba(225, 164, 78, 0.5));
     }
 
-    .k7-card {
+    .muxima-card {
       background: linear-gradient(135deg, var(--dark-2) 0%, var(--dark-1) 100%);
       border-radius: 16px;
       padding: 28px;
@@ -47,56 +47,56 @@
       overflow: hidden;
     }
 
-    .k7-card::before {
+    .muxima-card::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, transparent, var(--k7-orange), transparent);
+      background: linear-gradient(90deg, transparent, var(--muxima-orange), transparent);
       opacity: 0;
       transition: opacity 0.3s;
     }
 
-    .k7-card:hover {
+    .muxima-card:hover {
       transform: translateY(-4px);
       border-color: rgba(225, 164, 78, 0.4);
       box-shadow: 0 16px 40px rgba(225, 164, 78, 0.2);
     }
 
-    .k7-card:hover::before {
+    .muxima-card:hover::before {
       opacity: 1;
     }
 
-    .k7-card h3 {
+    .muxima-card h3 {
       color: var(--white);
       font-size: 20px;
       font-weight: 700;
       margin-bottom: 10px;
     }
 
-    .k7-card p {
+    .muxima-card p {
       color: var(--text-muted);
       font-size: 14px;
       line-height: 1.6;
       margin: 0;
     }
 
-    .k7-btn-primary {
-      background: linear-gradient(135deg, var(--k7-orange) 0%, var(--k7-orange-dark) 100%);
-      color: var(--k7-navy);
+    .muxima-btn-primary {
+      background: linear-gradient(135deg, var(--muxima-orange) 0%, var(--muxima-orange-dark) 100%);
+      color: var(--muxima-navy);
       box-shadow: 0 4px 20px rgba(225, 164, 78, 0.3);
       font-weight: 700;
     }
 
-    .k7-btn-primary:hover {
+    .muxima-btn-primary:hover {
       transform: translateY(-3px);
       box-shadow: 0 12px 40px rgba(225, 164, 78, 0.6);
     }
 
-    .k7-accent-text {
-      color: var(--k7-orange);
+    .muxima-accent-text {
+      color: var(--muxima-orange);
     }
 
     .dj-feature {
@@ -134,7 +134,7 @@
       padding: 6px 14px;
       border-radius: 8px;
       background: var(--dark-3);
-      color: var(--k7-orange);
+      color: var(--muxima-orange);
       font-size: 13px;
       font-weight: 700;
       font-family: 'Courier New', monospace;
@@ -143,7 +143,7 @@
       border: 1px solid rgba(225, 164, 78, 0.2);
     }
 
-    .k7-watermark {
+    .muxima-watermark {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -180,8 +180,8 @@
             JurisAO
             <span class="status">Em dev</span>
           </a>
-          <a href="../k7-player/">
-            K7-Player
+          <a href="../muxima-player/">
+            Muxima Player
             <span class="status">Em dev</span>
           </a>
         </div>
@@ -194,15 +194,15 @@
   </div>
 </header>
 
-<section class="hero" style="background: linear-gradient(135deg, var(--k7-navy) 0%, var(--black) 100%);">
-  <img src="../assets/k7-player.png" class="k7-watermark" alt="">
+<section class="hero" style="background: linear-gradient(135deg, var(--muxima-navy) 0%, var(--black) 100%);">
+  <img src="../assets/muxima-player.png" class="muxima-watermark" alt="">
   <div class="container hero-content">
-    <div class="k7-hero-icon">🎧</div>
-    <h1>K7-Player</h1>
+    <div class="muxima-hero-icon">🎧</div>
+    <h1>Muxima Player</h1>
     <p class="tagline">O teu media player, o teu palco</p>
     <span class="badge-dev">⏳ Em desenvolvimento</span>
     <div class="cta-buttons" style="margin-top: 24px;">
-      <a href="#funcionalidades" class="btn k7-btn-primary">Ver funcionalidades</a>
+      <a href="#funcionalidades" class="btn muxima-btn-primary">Ver funcionalidades</a>
       <a href="../contacto/" class="btn btn-secondary">Falar connosco</a>
     </div>
   </div>
@@ -210,12 +210,12 @@
 
 <section class="section">
   <div class="container">
-    <h2 class="section-title reveal">O que é o K7-Player</h2>
+    <h2 class="section-title reveal">O que é o Muxima Player</h2>
     <p class="section-subtitle reveal">
-      O <strong>K7-Player</strong> será um media player <strong>gratuito, sem anúncios e 100% offline</strong> para Android. Toca todos os formatos de áudio mais usados — e traz uma funcionalidade que nenhuma app gratuita oferece: um <strong>modo DJ completo</strong>.
+      O <strong>Muxima Player</strong> será um media player <strong>gratuito, sem anúncios e 100% offline</strong> para Android. Toca todos os formatos de áudio mais usados — e traz uma funcionalidade que nenhuma app gratuita oferece: um <strong>modo DJ completo</strong>.
     </p>
     <p class="section-subtitle reveal">
-      Ouvir música é simples. Mixar música devia também ser. O K7-Player junta as duas coisas numa app só, com um design angolano moderno e sem cobrar nada.
+      Ouvir música é simples. Mixar música devia também ser. O Muxima Player junta as duas coisas numa app só, com um design angolano moderno e sem cobrar nada.
     </p>
   </div>
 </section>
@@ -250,27 +250,27 @@
     </p>
 
     <div class="card-grid">
-      <div class="k7-card reveal">
+      <div class="muxima-card reveal">
         <h3>🎵 Player completo</h3>
         <p>Toca todos os formatos de áudio. Interface limpa, gestos simples, e suporte a playlists.</p>
       </div>
-      <div class="k7-card reveal">
+      <div class="muxima-card reveal">
         <h3>🎚️ Modo DJ</h3>
         <p>Transforma o teu telemóvel numa mesa de DJ profissional com dois decks, faders e crossfader.</p>
       </div>
-      <div class="k7-card reveal">
+      <div class="muxima-card reveal">
         <h3>🎛️ Efeitos em tempo real</h3>
         <p>Aplica filtros, echos, reverbs e samples durante a reprodução — como numa mesa de DJ física.</p>
       </div>
-      <div class="k7-card reveal">
+      <div class="muxima-card reveal">
         <h3>📁 Gestão de biblioteca</h3>
         <p>Organiza por artista, álbum, género ou pasta. Importa e exporta playlists facilmente.</p>
       </div>
-      <div class="k7-card reveal">
+      <div class="muxima-card reveal">
         <h3>🎨 Design angolano</h3>
-        <p>Interface moderna com as cores da marca K7. Cada detalhe pensado com identidade angolana.</p>
+        <p>Interface moderna com as cores da marca Muxima. Cada detalhe pensado com identidade angolana.</p>
       </div>
-      <div class="k7-card reveal">
+      <div class="muxima-card reveal">
         <h3>🔒 100% offline e privado</h3>
         <p>Sem internet. Sem anúncios. Sem tracking. A tua música é só tua.</p>
       </div>
@@ -282,7 +282,7 @@
   <div class="container">
     <h2 class="section-title reveal">Modo DJ — o diferencial</h2>
     <p class="section-subtitle reveal">
-      O K7-Player é o único media player gratuito no mercado com um modo DJ completo integrado. Sem apps separadas, sem subscrições, sem limites.
+      O Muxima Player é o único media player gratuito no mercado com um modo DJ completo integrado. Sem apps separadas, sem subscrições, sem limites.
     </p>
 
     <div class="reveal" style="max-width: 780px; margin: 0 auto;">
@@ -341,7 +341,7 @@
   <div class="container" style="text-align: center;">
     <h2 class="section-title reveal">Estado do desenvolvimento</h2>
     <p class="section-subtitle reveal" style="margin: 0 auto 40px;">
-      O K7-Player está em fase inicial de desenvolvimento. Ainda não tem data de lançamento definida.
+      O Muxima Player está em fase inicial de desenvolvimento. Ainda não tem data de lançamento definida.
     </p>
 
     <div class="info-box reveal" style="max-width: 640px;">
@@ -360,7 +360,7 @@
       <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 24px;">
         És DJ, produtor ou simplesmente apaixonado por música? Queremos ouvir-te.
       </p>
-      <a href="../contacto/" class="btn k7-btn-primary">Contactar a HamirStudios</a>
+      <a href="../contacto/" class="btn muxima-btn-primary">Contactar a HamirStudios</a>
     </div>
   </div>
 </section>
@@ -369,7 +369,7 @@
   <div class="container">
     <img src="../assets/logo-hamir.jpeg" class="footer-logo" alt="HamirStudios">
     <p class="footer-text">© 2026 HamirStudios · Luanda, Angola 🇦🇴</p>
-    <p class="footer-text">K7-Player é um projecto da HamirStudios</p>
+    <p class="footer-text">Muxima Player é um projecto da HamirStudios</p>
     <p class="footer-slogan">O teu media player, o teu palco</p>
     <div class="footer-social">
       <a href="https://linkedin.com/in/yannickmatos" target="_blank" rel="noopener">💼 LinkedIn</a>
