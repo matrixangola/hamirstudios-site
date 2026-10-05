@@ -101,6 +101,7 @@ body {
   display: flex;
   gap: 24px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .site-nav a {
@@ -132,6 +133,122 @@ body {
 .site-nav a:hover::after,
 .site-nav a.active::after {
   width: 100%;
+}
+
+/* ─────────────────────────────────────────
+   Dropdown Apps
+   ───────────────────────────────────────── */
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  color: var(--text-muted);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 6px 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+  background: none;
+  border: none;
+  font-family: inherit;
+}
+
+.nav-dropdown-toggle:hover,
+.nav-dropdown-toggle.active {
+  color: var(--white);
+}
+
+.nav-dropdown-toggle::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--red);
+  transition: width 0.3s ease;
+}
+
+.nav-dropdown-toggle:hover::after,
+.nav-dropdown-toggle.active::after {
+  width: 100%;
+}
+
+.nav-dropdown-toggle .arrow {
+  font-size: 10px;
+  transition: transform 0.2s;
+}
+
+.nav-dropdown:hover .arrow,
+.nav-dropdown.open .arrow {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  min-width: 220px;
+  background: var(--dark-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  margin-top: 8px;
+  z-index: 200;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.open .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown-menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-dropdown-menu a:hover {
+  background: rgba(227, 6, 19, 0.1);
+  color: var(--white);
+}
+
+.nav-dropdown-menu a::after {
+  display: none;
+}
+
+.nav-dropdown-menu a .status {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: rgba(245, 165, 35, 0.2);
+  color: #F5A623;
+  font-weight: 700;
+  margin-left: auto;
+}
+
+.nav-dropdown-menu a .status.live {
+  background: rgba(46, 125, 50, 0.2);
+  color: #4CAF50;
 }
 
 /* ─────────────────────────────────────────
@@ -332,7 +449,6 @@ body {
   line-height: 1.8;
 }
 
-/* Scroll reveal */
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -345,7 +461,7 @@ body {
 }
 
 /* ─────────────────────────────────────────
-   Números (estatísticas)
+   Stats
    ───────────────────────────────────────── */
 
 .stats {
@@ -466,8 +582,20 @@ body {
   gap: 12px;
 }
 
+.card .badge-dev {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: rgba(245, 165, 35, 0.15);
+  color: #F5A623;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
 /* ─────────────────────────────────────────
-   Download cards (verso em 2 versões)
+   Download cards
    ───────────────────────────────────────── */
 
 .download-grid {
@@ -599,7 +727,7 @@ body {
 }
 
 /* ─────────────────────────────────────────
-   Info box (como instalar)
+   Info box
    ───────────────────────────────────────── */
 
 .info-box {
@@ -886,5 +1014,26 @@ body {
 
   .info-box ol {
     font-size: 14px;
+  }
+
+  .nav-dropdown-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    box-shadow: none;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 8px 0 0 0;
+    display: none;
+  }
+
+  .nav-dropdown.open .nav-dropdown-menu {
+    display: block;
+  }
+
+  .nav-dropdown-menu a {
+    padding: 8px 12px;
   }
 }

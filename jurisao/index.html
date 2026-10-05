@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JurisAO — Leis de Angola offline</title>
+  <meta name="description" content="JurisAO — aplicação de consulta jurídica offline sobre a legislação angolana. Constituição, Código Penal, Código de Processo Penal e mais. Em desenvolvimento.">
+  <link rel="icon" href="../assets/logoonara.png">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .badge-dev {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 20px;
+      background: rgba(245, 165, 35, 0.15);
+      color: #F5A623;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .juris-card {
+      background: linear-gradient(135deg, var(--dark-2) 0%, var(--dark-1) 100%);
+      border-radius: 16px;
+      padding: 28px;
+      border: 1px solid var(--border);
+      text-align: left;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    .juris-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(43, 95, 152, 0.4);
+      box-shadow: 0 16px 40px rgba(43, 95, 152, 0.2);
+    }
+    .juris-card h3 {
+      color: var(--white);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .juris-card p {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .diploma-list {
+      columns: 2;
+      column-gap: 32px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .diploma-list li {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.9;
+      padding: 4px 0;
+      break-inside: avoid;
+    }
+    .diploma-list li::before {
+      content: '📖 ';
+      margin-right: 6px;
+    }
+    .diploma-essential {
+      color: var(--white) !important;
+      font-weight: 600;
+    }
+    @media (max-width: 768px) {
+      .diploma-list {
+        columns: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header" id="header">
+  <div class="container">
+    <a href="../" class="brand">
+      <img src="../assets/logo-hamir.jpeg" alt="HamirStudios">
+      <span class="brand-text">HamirStudios</span>
+    </a>
+    <nav class="site-nav">
+      <a href="../">Início</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" onclick="toggleDropdown(event)">
+          Apps <span class="arrow">▼</span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="../onara-ai/">
+            Onara.AI
+            <span class="status live">Publicado</span>
+          </a>
+          <a href="../jurisao/">
+            JurisAO
+            <span class="status">Em dev</span>
+          </a>
+          <a href="../k7-player/">
+            K7-Player
+            <span class="status">Em dev</span>
+          </a>
+        </div>
+      </div>
+      <a href="../apoie/">Apoie</a>
+      <a href="../patrocinadores/">Patrocinadores</a>
+      <a href="../sobre/">Sobre</a>
+      <a href="../contacto/">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-content">
+    <div style="font-size: 80px; margin-bottom: 20px;">⚖️</div>
+    <h1>JurisAO</h1>
+    <p class="tagline">Leis de Angola, na palma da tua mão</p>
+    <span class="badge-dev">⏳ Em desenvolvimento</span>
+    <div class="cta-buttons" style="margin-top: 24px;">
+      <a href="#diplomas" class="btn btn-primary">Ver diplomas previstos</a>
+      <a href="../contacto/" class="btn btn-secondary">Falar connosco</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title reveal">O que é o JurisAO</h2>
+    <p class="section-subtitle reveal">
+      O <strong>JurisAO</strong> será uma aplicação de consulta jurídica <strong>100% offline</strong> sobre a legislação angolana. Foi pensada para estudantes de Direito, profissionais do sector jurídico e cidadãos que precisam de acesso rápido e fiável às leis de Angola.
+    </p>
+    <p class="section-subtitle reveal">
+      Como o Onara.AI, vai correr inteiramente no telemóvel — sem internet, sem servidores, sem custos. Levas a legislação contigo para qualquer lado.
+    </p>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title reveal">Vantagens</h2>
+    <p class="section-subtitle reveal">
+      Tudo o que precisas num só lugar, com a confiança de teres sempre a versão certa:
+    </p>
+
+    <div class="card-grid">
+      <div class="card reveal">
+        <h3>📶 100% offline</h3>
+        <p>Funciona sem internet. Consulta leis no tribunal, no escritório, em qualquer lugar — mesmo onde não há cobertura.</p>
+      </div>
+      <div class="card reveal">
+        <h3>🔍 Busca inteligente</h3>
+        <p>Encontra rapidamente artigos, secções ou temas específicos. Sem folhear páginas e páginas de PDFs.</p>
+      </div>
+      <div class="card reveal">
+        <h3>🤖 Explicações com IA</h3>
+        <p>Além do texto legal, podes pedir explicações em linguagem simples — útil para estudantes e não-juristas.</p>
+      </div>
+      <div class="card reveal">
+        <h3>💸 Gratuito para sempre</h3>
+        <p>Sem anúncios, sem subscrições, sem custos escondidos. A justiça e o conhecimento não devem ter barreiras.</p>
+      </div>
+      <div class="card reveal">
+        <h3>🔒 Privado</h3>
+        <p>As tuas consultas ficam no teu telemóvel. Nada é enviado para servidores nem partilhado com terceiros.</p>
+      </div>
+      <div class="card reveal">
+        <h3>🔄 Actualizações periódicas</h3>
+        <p>A legislação muda. O JurisAO vai ser actualizado quando houver novas leis ou alterações relevantes.</p>
+      </div>
+      <div class="card reveal">
+        <h3>🇦🇴 Feito em Angola</h3>
+        <p>Desenvolvido por angolanos, para angolanos. Foco nas leis que realmente importam no dia-a-dia.</p>
+      </div>
+      <div class="card reveal">
+        <h3>📱 Sempre contigo</h3>
+        <p>O teu telemóvel é o teu escritório. Leva toda a legislação essencial no bolso, sem peso nem ocupar espaço.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="diplomas">
+  <div class="container">
+    <h2 class="section-title reveal">Diplomas previstos</h2>
+    <p class="section-subtitle reveal">
+      Estamos a preparar um pacote completo com os diplomas mais consultados em Angola.
+    </p>
+
+    <div class="juris-card reveal" style="max-width: 900px; margin: 0 auto 32px;">
+      <h3>📚 Diplomas essenciais</h3>
+      <p style="margin-bottom: 20px;">A base do JurisAO — os 5 diplomas fundamentais que qualquer estudante ou profissional deve ter à mão.</p>
+      <ul class="diploma-list">
+        <li class="diploma-essential">Constituição da República de Angola (2010)</li>
+        <li class="diploma-essential">Código Penal (Lei n.º 38/20)</li>
+        <li class="diploma-essential">Código de Processo Penal (Lei n.º 39/20)</li>
+        <li class="diploma-essential">Lei Geral do Trabalho (Lei n.º 12/23)</li>
+        <li class="diploma-essential">Código Civil</li>
+      </ul>
+    </div>
+
+    <div class="juris-card reveal" style="max-width: 900px; margin: 0 auto;">
+      <h3>📖 Diplomas complementares</h3>
+      <p style="margin-bottom: 20px;">Uma colecção alargada de diplomas que vão ser incluídos nas fases seguintes do desenvolvimento.</p>
+      <ul class="diploma-list">
+        <li>Código de Processo Civil</li>
+        <li>Lei da Nacionalidade (Lei n.º 2/16)</li>
+        <li>Lei de Estrangeiros (Lei n.º 13/19)</li>
+        <li>Lei da Protecção de Dados Pessoais (Lei n.º 22/11)</li>
+        <li>Código de Família e Sucessões (Lei n.º 1/88)</li>
+        <li>Lei Orgânica do Tribunal Constitucional (Lei n.º 3/08)</li>
+        <li>Lei das Sociedades Comerciais</li>
+        <li>Código Comercial</li>
+        <li>Lei Geral Tributária</li>
+        <li>Lei do Investimento Privado</li>
+        <li>Lei da Concorrência</li>
+        <li>Lei do Ambiente</li>
+        <li>Lei de Terras</li>
+        <li>Lei do Trabalho Marítimo</li>
+        <li>Código do Notariado</li>
+      </ul>
+    </div>
+
+    <p class="reveal" style="text-align: center; margin-top: 32px; color: var(--text-muted); font-size: 14px; font-style: italic;">
+      A lista pode ser ajustada conforme o desenvolvimento avança. Novos diplomas serão adicionados por sugestão dos utilizadores.
+    </p>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title reveal">Para quem é</h2>
+    <p class="section-subtitle reveal">
+      O JurisAO foi pensado para três públicos principais:
+    </p>
+
+    <div class="card-grid">
+      <div class="card reveal">
+        <h3>🎓 Estudantes de Direito</h3>
+        <p>Consulta rápida durante o estudo, em casa ou na biblioteca. Busca por artigos específicos, compara diplomas, e usa a IA para perceber conceitos complexos.</p>
+      </div>
+      <div class="card reveal">
+        <h3>💼 Profissionais do sector jurídico</h3>
+        <p>Advogados, magistrados, juristas e notários. Acesso imediato à legislação, mesmo em tribunal ou em deslocações sem internet.</p>
+      </div>
+      <div class="card reveal">
+        <h3>👥 Cidadãos em geral</h3>
+        <p>Qualquer pessoa que precise de conhecer os seus direitos. Linguagem clara, explicações com IA, e a legislação sempre à mão.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="text-align: center;">
+    <h2 class="section-title reveal">Estado do desenvolvimento</h2>
+    <p class="section-subtitle reveal" style="margin: 0 auto 40px;">
+      O JurisAO está em fase de planificação e desenvolvimento inicial. Ainda não tem data de lançamento definida.
+    </p>
+
+    <div class="info-box reveal" style="max-width: 640px;">
+      <h3>📅 Roadmap previsto</h3>
+      <ul style="color: var(--text-muted); line-height: 2; padding-left: 24px; margin: 0; list-style: none; padding-left: 0;">
+        <li>✅ Definição do conceito e âmbito</li>
+        <li>✅ Recolha da legislação essencial</li>
+        <li>⏳ Estruturação da base de dados offline</li>
+        <li>⏳ Implementação da busca inteligente</li>
+        <li>⏳ Integração com IA local</li>
+        <li>⏳ Testes com utilizadores reais</li>
+        <li>⏳ Lançamento beta</li>
+      </ul>
+    </div>
+
+    <div class="reveal" style="margin-top: 48px;">
+      <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 24px;">
+        Queres ser notificado quando o JurisAO estiver disponível?
+      </p>
+      <a href="../contacto/" class="btn btn-primary">Contactar a HamirStudios</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <img src="../assets/logo-hamir.jpeg" class="footer-logo" alt="HamirStudios">
+    <p class="footer-text">© 2026 HamirStudios · Luanda, Angola 🇦🇴</p>
+    <p class="footer-text">JurisAO é um projecto da HamirStudios</p>
+    <p class="footer-slogan">Leis de Angola, na palma da tua mão</p>
+    <p style="margin-top: 24px; font-size: 13px;">
+      <a href="../privacidade/" style="color: var(--text-muted); text-decoration: none;">Política de Privacidade</a>
+    </p>
+  </div>
+</footer>
+
+<script src="../toggleDropdown.js"></script>
+
+</body>
+</html>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HamirStudios — Software com raízes angolanas</title>
-  <meta name="description" content="HamirStudios — desenvolvedora independente de software em Luanda, Angola. Criadores do Onara.AI e JurisAO.">
+  <meta name="description" content="HamirStudios — desenvolvedora independente de software em Luanda, Angola. Criadores do Onara.AI, JurisAO e K7-Player.">
   <link rel="icon" href="assets/logoonara.png">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -18,7 +18,25 @@
     </a>
     <nav class="site-nav">
       <a href="/" class="active">Início</a>
-      <a href="onara-ai/">Onara.AI</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" onclick="toggleDropdown(event)">
+          Apps <span class="arrow">▼</span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="onara-ai/">
+            Onara.AI
+            <span class="status live">Publicado</span>
+          </a>
+          <a href="jurisao/">
+            JurisAO
+            <span class="status">Em dev</span>
+          </a>
+          <a href="k7-player/">
+            K7-Player
+            <span class="status">Em dev</span>
+          </a>
+        </div>
+      </div>
       <a href="apoie/">Apoie</a>
       <a href="patrocinadores/">Patrocinadores</a>
       <a href="sobre/">Sobre</a>
@@ -34,7 +52,7 @@
     <h1>HamirStudios</h1>
     <p class="tagline">Software com raízes angolanas</p>
     <div class="cta-buttons">
-      <a href="onara-ai/" class="btn btn-primary">Conhecer o Onara.AI</a>
+      <a href="#apps" class="btn btn-primary">Ver aplicações</a>
       <a href="sobre/" class="btn btn-secondary">Sobre a empresa</a>
     </div>
   </div>
@@ -44,8 +62,8 @@
   <div class="container">
     <div class="stats reveal">
       <div class="stat">
-        <div class="stat-value">2</div>
-        <div class="stat-label">Projectos</div>
+        <div class="stat-value">3</div>
+        <div class="stat-label">Aplicações</div>
       </div>
       <div class="stat">
         <div class="stat-value">100%</div>
@@ -63,9 +81,9 @@
   </div>
 </section>
 
-<section class="section section-alt">
+<section class="section section-alt" id="apps">
   <div class="container">
-    <h2 class="section-title reveal">Projectos</h2>
+    <h2 class="section-title reveal">As nossas aplicações</h2>
     <p class="section-subtitle reveal">
       Construímos software que resolve problemas reais em África — com foco em acessibilidade, privacidade e independência tecnológica.
     </p>
@@ -75,38 +93,29 @@
         <img src="assets/logoonara.png" class="card-icon" alt="Onara.AI">
         <h3>Onara.AI</h3>
         <p>Assistente de estudo offline para estudantes africanos. Corre modelos de IA localmente no telemóvel, sem internet, sem custos e sem tracking.</p>
-        <a href="onara-ai/" class="card-link">Ver projecto →</a>
+        <a href="onara-ai/" class="card-link">Ver aplicação →</a>
       </article>
 
       <article class="card reveal">
         <div class="card-icon" style="background: var(--dark-3); display:flex; align-items:center; justify-content:center; font-size:32px;">⚖️</div>
+        <span class="badge-dev">Em desenvolvimento</span>
         <h3>JurisAO</h3>
         <p>Aplicação de consulta jurídica offline sobre a legislação angolana. Pensada para estudantes de Direito, profissionais e cidadãos.</p>
-        <span class="card-link" style="color: var(--text-muted);">Em desenvolvimento</span>
+        <a href="jurisao/" class="card-link">Ver aplicação →</a>
+      </article>
+
+      <article class="card reveal">
+        <img src="assets/k7-player.jpeg" class="card-icon" alt="K7-Player" style="object-fit: contain;">
+        <span class="badge-dev">Em desenvolvimento</span>
+        <h3>K7-Player</h3>
+        <p>Media player gratuito e sem anúncios, com modo DJ integrado. Toca todos os formatos de áudio com uma mesa de mixagem profissional.</p>
+        <a href="k7-player/" class="card-link">Ver aplicação →</a>
       </article>
     </div>
   </div>
 </section>
 
 <section class="section">
-  <div class="container">
-    <h2 class="section-title reveal">Sobre o JurisAO</h2>
-    <p class="section-subtitle reveal">
-      O <strong>JurisAO</strong> é o próximo projecto da HamirStudios — uma aplicação de consulta jurídica offline, pensada para estudantes de Direito, profissionais do sector e cidadãos que precisam de acesso rápido à legislação angolana.
-    </p>
-    <p class="section-subtitle reveal">
-      A aplicação vai integrar a <strong>Constituição da República</strong>, o <strong>Código Penal</strong>, o <strong>Código de Processo Penal</strong>, a <strong>Lei Geral do Trabalho</strong> e outros diplomas essenciais, com funcionalidades de busca inteligente e explicação assistida por IA.
-    </p>
-    <p class="section-subtitle reveal">
-      Como o Onara.AI, o JurisAO vai funcionar <strong>100% offline</strong>, sem custos, sem anúncios e sem tracking.
-    </p>
-    <p class="section-subtitle reveal" style="font-style: italic; color: var(--text-muted);">
-      Estado: em desenvolvimento. Em breve mais informações.
-    </p>
-  </div>
-</section>
-
-<section class="section section-alt">
   <div class="container" style="text-align: center;">
     <h2 class="section-title reveal">Apoie os nossos projectos</h2>
     <p class="section-subtitle reveal" style="margin: 0 auto 40px;">
@@ -132,6 +141,19 @@
 </footer>
 
 <script>
+function toggleDropdown(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  const dropdown = event.currentTarget.closest('.nav-dropdown');
+  if (dropdown) {
+    dropdown.classList.toggle('open');
+  }
+}
+
+document.addEventListener('click', () => {
+  document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
+});
+
 window.addEventListener('scroll', () => {
   const header = document.getElementById('header');
   if (window.scrollY > 50) header.classList.add('scrolled');

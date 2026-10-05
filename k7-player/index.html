@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K7-Player — Media player com modo DJ</title>
+  <meta name="description" content="K7-Player — media player gratuito e sem anúncios com modo DJ integrado. Toca todos os formatos de áudio. Em desenvolvimento.">
+  <link rel="icon" href="../assets/logoonara.png">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    :root {
+      --k7-navy: #0C2036;
+      --k7-blue: #2B5F98;
+      --k7-orange: #E1A44E;
+      --k7-orange-dark: #BD5F3D;
+      --k7-green: #49826D;
+      --k7-bg-light: #F8F5DD;
+    }
+
+    .badge-dev {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 20px;
+      background: rgba(225, 164, 78, 0.15);
+      color: var(--k7-orange);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .k7-hero-icon {
+      font-size: 80px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 40px rgba(225, 164, 78, 0.5));
+    }
+
+    .k7-card {
+      background: linear-gradient(135deg, var(--dark-2) 0%, var(--dark-1) 100%);
+      border-radius: 16px;
+      padding: 28px;
+      border: 1px solid var(--border);
+      text-align: left;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .k7-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--k7-orange), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .k7-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(225, 164, 78, 0.4);
+      box-shadow: 0 16px 40px rgba(225, 164, 78, 0.2);
+    }
+
+    .k7-card:hover::before {
+      opacity: 1;
+    }
+
+    .k7-card h3 {
+      color: var(--white);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .k7-card p {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .k7-btn-primary {
+      background: linear-gradient(135deg, var(--k7-orange) 0%, var(--k7-orange-dark) 100%);
+      color: var(--k7-navy);
+      box-shadow: 0 4px 20px rgba(225, 164, 78, 0.3);
+      font-weight: 700;
+    }
+
+    .k7-btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(225, 164, 78, 0.6);
+    }
+
+    .k7-accent-text {
+      color: var(--k7-orange);
+    }
+
+    .dj-feature {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px;
+      border-radius: 12px;
+      background: rgba(225, 164, 78, 0.06);
+      border: 1px solid rgba(225, 164, 78, 0.15);
+      margin-bottom: 16px;
+    }
+
+    .dj-feature-icon {
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+
+    .dj-feature h4 {
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .dj-feature p {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .format-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 8px;
+      background: var(--dark-3);
+      color: var(--k7-orange);
+      font-size: 13px;
+      font-weight: 700;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 1px;
+      margin: 4px 6px 4px 0;
+      border: 1px solid rgba(225, 164, 78, 0.2);
+    }
+
+    .k7-watermark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      max-width: 80vw;
+      opacity: 0.06;
+      pointer-events: none;
+      z-index: 0;
+      filter: brightness(0) invert(1);
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header" id="header">
+  <div class="container">
+    <a href="../" class="brand">
+      <img src="../assets/logo-hamir.jpeg" alt="HamirStudios">
+      <span class="brand-text">HamirStudios</span>
+    </a>
+    <nav class="site-nav">
+      <a href="../">Início</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" onclick="toggleDropdown(event)">
+          Apps <span class="arrow">▼</span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="../onara-ai/">
+            Onara.AI
+            <span class="status live">Publicado</span>
+          </a>
+          <a href="../jurisao/">
+            JurisAO
+            <span class="status">Em dev</span>
+          </a>
+          <a href="../k7-player/">
+            K7-Player
+            <span class="status">Em dev</span>
+          </a>
+        </div>
+      </div>
+      <a href="../apoie/">Apoie</a>
+      <a href="../patrocinadores/">Patrocinadores</a>
+      <a href="../sobre/">Sobre</a>
+      <a href="../contacto/">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="background: linear-gradient(135deg, var(--k7-navy) 0%, var(--black) 100%);">
+  <img src="../assets/k7-player.jpeg" class="k7-watermark" alt="">
+  <div class="container hero-content">
+    <div class="k7-hero-icon">🎧</div>
+    <h1>K7-Player</h1>
+    <p class="tagline">O teu media player, o teu palco</p>
+    <span class="badge-dev">⏳ Em desenvolvimento</span>
+    <div class="cta-buttons" style="margin-top: 24px;">
+      <a href="#funcionalidades" class="btn k7-btn-primary">Ver funcionalidades</a>
+      <a href="../contacto/" class="btn btn-secondary">Falar connosco</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title reveal">O que é o K7-Player</h2>
+    <p class="section-subtitle reveal">
+      O <strong>K7-Player</strong> será um media player <strong>gratuito, sem anúncios e 100% offline</strong> para Android. Toca todos os formatos de áudio mais usados — e traz uma funcionalidade que nenhuma app gratuita oferece: um <strong>modo DJ completo</strong>.
+    </p>
+    <p class="section-subtitle reveal">
+      Ouvir música é simples. Mixar música devia também ser. O K7-Player junta as duas coisas numa app só, com um design angolano moderno e sem cobrar nada.
+    </p>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title reveal">Formatos suportados</h2>
+    <p class="section-subtitle reveal">
+      Toca os formatos mais usados em Angola e no mundo, sem conversões nem limitações:
+    </p>
+
+    <div class="reveal" style="text-align: center; max-width: 700px; margin: 0 auto;">
+      <span class="format-badge">MP3</span>
+      <span class="format-badge">WAV</span>
+      <span class="format-badge">FLAC</span>
+      <span class="format-badge">AAC</span>
+      <span class="format-badge">OGG</span>
+      <span class="format-badge">M4A</span>
+      <span class="format-badge">OPUS</span>
+      <span class="format-badge">WMA</span>
+      <span class="format-badge">AIFF</span>
+      <span class="format-badge">ALAC</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="funcionalidades">
+  <div class="container">
+    <h2 class="section-title reveal">Funcionalidades</h2>
+    <p class="section-subtitle reveal">
+      Tudo o que precisas para ouvir e criar música, num só lugar:
+    </p>
+
+    <div class="card-grid">
+      <div class="k7-card reveal">
+        <h3>🎵 Player completo</h3>
+        <p>Toca todos os formatos de áudio. Interface limpa, gestos simples, e suporte a playlists.</p>
+      </div>
+      <div class="k7-card reveal">
+        <h3>🎚️ Modo DJ</h3>
+        <p>Transforma o teu telemóvel numa mesa de DJ profissional com dois decks, faders e crossfader.</p>
+      </div>
+      <div class="k7-card reveal">
+        <h3>🎛️ Efeitos em tempo real</h3>
+        <p>Aplica filtros, echos, reverbs e samples durante a reprodução — como numa mesa de DJ física.</p>
+      </div>
+      <div class="k7-card reveal">
+        <h3>📁 Gestão de biblioteca</h3>
+        <p>Organiza por artista, álbum, género ou pasta. Importa e exporta playlists facilmente.</p>
+      </div>
+      <div class="k7-card reveal">
+        <h3>🎨 Design angolano</h3>
+        <p>Interface moderna com as cores da marca K7. Cada detalhe pensado com identidade angolana.</p>
+      </div>
+      <div class="k7-card reveal">
+        <h3>🔒 100% offline e privado</h3>
+        <p>Sem internet. Sem anúncios. Sem tracking. A tua música é só tua.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title reveal">Modo DJ — o diferencial</h2>
+    <p class="section-subtitle reveal">
+      O K7-Player é o único media player gratuito no mercado com um modo DJ completo integrado. Sem apps separadas, sem subscrições, sem limites.
+    </p>
+
+    <div class="reveal" style="max-width: 780px; margin: 0 auto;">
+      <div class="dj-feature">
+        <span class="dj-feature-icon">🎧</span>
+        <div>
+          <h4>Dois decks independentes</h4>
+          <p>Carrega duas músicas em simultâneo, controla cada uma individualmente, e mistura-as em tempo real.</p>
+        </div>
+      </div>
+
+      <div class="dj-feature">
+        <span class="dj-feature-icon">🎚️</span>
+        <div>
+          <h4>Crossfader e EQ</h4>
+          <p>Crossfader para transições suaves. Equalizador de 3 bandas em cada deck. Controle total sobre o som.</p>
+        </div>
+      </div>
+
+      <div class="dj-feature">
+        <span class="dj-feature-icon">🎼</span>
+        <div>
+          <h4>Pitch e tempo</h4>
+          <p>Ajusta a velocidade das músicas para alinhar batidas. Detecção automática de BPM.</p>
+        </div>
+      </div>
+
+      <div class="dj-feature">
+        <span class="dj-feature-icon">🥁</span>
+        <div>
+          <h4>Sampler integrado</h4>
+          <p>Carrega samples e dispara-os durante a performance. Ideal para DJs de kizomba, semba, house e hip-hop.</p>
+        </div>
+      </div>
+
+      <div class="dj-feature">
+        <span class="dj-feature-icon">🎛️</span>
+        <div>
+          <h4>Efeitos em tempo real</h4>
+          <p>Filtros, echos, reverbs e loops — tudo aplicável em tempo real, como numa mesa profissional.</p>
+        </div>
+      </div>
+
+      <div class="dj-feature">
+        <span class="dj-feature-icon">📱</span>
+        <div>
+          <h4>Portátil e offline</h4>
+          <p>Uma mesa de DJ completa no teu bolso. Funciona sem internet, em qualquer lugar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="text-align: center;">
+    <h2 class="section-title reveal">Estado do desenvolvimento</h2>
+    <p class="section-subtitle reveal" style="margin: 0 auto 40px;">
+      O K7-Player está em fase inicial de desenvolvimento. Ainda não tem data de lançamento definida.
+    </p>
+
+    <div class="info-box reveal" style="max-width: 640px;">
+      <h3>📅 Roadmap previsto</h3>
+      <ul style="color: var(--text-muted); line-height: 2; padding-left: 0; margin: 0; list-style: none;">
+        <li>✅ Definição do conceito e identidade visual</li>
+        <li>⏳ Desenvolvimento do player base</li>
+        <li>⏳ Implementação do modo DJ</li>
+        <li>⏳ Efeitos e sampler</li>
+        <li>⏳ Testes com DJs e utilizadores reais</li>
+        <li>⏳ Lançamento beta</li>
+      </ul>
+    </div>
+
+    <div class="reveal" style="margin-top: 48px;">
+      <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 24px;">
+        És DJ, produtor ou simplesmente apaixonado por música? Queremos ouvir-te.
+      </p>
+      <a href="../contacto/" class="btn k7-btn-primary">Contactar a HamirStudios</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <img src="../assets/logo-hamir.jpeg" class="footer-logo" alt="HamirStudios">
+    <p class="footer-text">© 2026 HamirStudios · Luanda, Angola 🇦🇴</p>
+    <p class="footer-text">K7-Player é um projecto da HamirStudios</p>
+    <p class="footer-slogan">O teu media player, o teu palco</p>
+    <p style="margin-top: 24px; font-size: 13px;">
+      <a href="../privacidade/" style="color: var(--text-muted); text-decoration: none;">Política de Privacidade</a>
+    </p>
+  </div>
+</footer>
+
+<script src="../toggleDropdown.js"></script>
+
+</body>
+</html>
