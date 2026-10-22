@@ -52,12 +52,7 @@
       <a href="contacto/">Contacto</a>
       
       <!-- Seletor de Idioma -->
-      <select class="lang-selector" onchange="changeLanguage(this.value)">
-        <option value="pt">🇵🇹 PT</option>
-        <option value="en">🇬🇧 EN</option>
-        <option value="fr">🇫🇷 FR</option>
-        <option value="es">🇪🇸 ES</option>
-      </select>
+      
     </nav>
   </div>
 </header>
@@ -334,24 +329,20 @@ function googleTranslateElementInit() {
 }
 
 function doGTranslate(lang_pair) {
-  if(lang_pair == 'pt') {
-    // Se for português, remove o cookie de tradução para voltar ao original
+  if(lang_pair == 'pt' || lang_pair == '') {
     document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + location.hostname;
     location.reload();
     return;
   }
-  var lang = lang_pair;
   var teCombo;
   var sel = document.getElementsByTagName('select');
   for(var i = 0; i < sel.length; i++) if(sel[i].className == 'goog-te-combo') teCombo = sel[i];
-  if(document.getElementById('google_translate_element') == null ) {
-    return;
-  }
+  if(document.getElementById('google_translate_element') == null ) return;
   if(document.getElementById('google_translate_element').innerHTML.length == 0 || teCombo.length == 0 || teCombo.innerHTML.length == 0) {
     setTimeout(function(){doGTranslate(lang_pair)},500)
   } else {
-    teCombo.value = lang;
+    teCombo.value = lang_pair;
     if(document.createEvent) {
       var evt = document.createEvent("HTMLEvents");
       evt.initEvent("change", true, true);
@@ -362,13 +353,11 @@ function doGTranslate(lang_pair) {
   }
 }
 
-// Carregar o script do Google Translate assincronamente
 document.addEventListener('DOMContentLoaded', () => {
   var div = document.createElement('div');
   div.id = 'google_translate_element';
   div.style.display = 'none';
   document.body.appendChild(div);
-  
   var script = document.createElement('script');
   script.type = 'text/javascript';
   script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
