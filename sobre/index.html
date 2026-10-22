@@ -4,16 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobre — HamirStudios</title>
-  <meta name="description" content="HamirStudios — desenvolvedora independente de software em Luanda, Angola. Fundada por Yannick Hamir Branco Pereira de Matos.">
-  <link rel="icon" href="../assets/logoonara.png">
+  <link rel="icon" href="../assets/logo-hamir.jpeg">
   <link rel="stylesheet" href="../style.css">
-      <style>
-    .lang-selector { background: var(--dark-2); color: var(--text-muted); border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; font-size: 14px; font-weight: 500; cursor: pointer; outline: none; font-family: inherit; transition: border-color 0.2s; margin-left: 15px; }
-    .lang-selector:hover, .lang-selector:focus { border-color: var(--red); color: var(--white); }
-    .goog-te-banner-frame { display: none !important; }
-    body { top: 0 !important; }
-    #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
-    .goog-text-highlight { background: none !important; box-shadow: none !important; }
+  <style>
+    .lang-selector { background: var(--dark-2); color: var(--text-muted); border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; font-size: 14px; font-weight: 500; cursor: pointer; outline: none; font-family: inherit; margin-left: 15px; }
+    .lang-selector:hover { border-color: var(--red); color: var(--white); }
   </style>
 </head>
 <body>
@@ -26,20 +21,18 @@
     </a>
     <nav class="site-nav">
       <div class="nav-dropdown">
-        <button class="nav-dropdown-toggle" onclick="toggleDropdown(event)">
-          Apps <span class="arrow">▼</span>
-        </button>
+        <button class="nav-dropdown-toggle" onclick="toggleDropdown(event)">Apps <span class="arrow">▼</span></button>
         <div class="nav-dropdown-menu">
-          <a href="../onara-ai/">Onara.AI <span class="status live">Publicado</span></a>
-          <a href="../jurisao/">JurisAO <span class="status">Em dev</span></a>
-          <a href="../muxima-player/">Muxima Player <span class="status">Em dev</span></a>
+          <a href="../onara-ai/">Onara.AI</a>
+          <a href="../jurisao/">JurisAO</a>
+          <a href="../muxima-player/">Muxima Player</a>
         </div>
       </div>
-      <a href="../index.html#servicos">Serviços</a>
-      <a href="../index.html#portfolio">Portfólio</a>
-      <a href="index.html">Sobre</a>
-          <select class="lang-selector" onchange="doGTranslate(this.value);">
-        <option value="">🌐 Idioma</option>
+      <a href="../index.html#servicos" id="nav_services">Serviços</a>
+      <a href="../index.html#portfolio" id="nav_portfolio">Portfólio</a>
+      <a href="index.html" class="active" id="nav_contact">Sobre</a>
+      
+      <select class="lang-selector" id="langSelect" onchange="changeLang(this.value)">
         <option value="pt">🇵🇹 PT</option>
         <option value="en">🇬🇧 EN</option>
         <option value="fr">🇫🇷 FR</option>
@@ -49,74 +42,42 @@
   </div>
 </header>
 
-<section class="hero">
-  <img src="../assets/logo-hamir.jpeg" class="watermark" alt="">
+<section class="hero" style="padding: 80px 0 60px;">
   <div class="container hero-content">
-    <h1>Sobre a HamirStudios</h1>
-    <p class="tagline">Software com raízes angolanas</p>
+    <h1 id="sobre_hero_title">Sobre a HamirStudios</h1>
+    <p class="tagline" id="sobre_hero_subtitle">Software com raízes angolanas</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <h2 class="section-title reveal">A empresa</h2>
-    <p class="section-subtitle reveal">
-      A HamirStudios é uma desenvolvedora independente de software, sediada em Luanda, Angola. Construímos aplicações que resolvem problemas reais em África — com foco em acessibilidade, privacidade e independência tecnológica.
-    </p>
-    <p class="section-subtitle reveal">
-      Acreditamos que tecnologia de qualidade não precisa de estar dependente de grandes empresas nem de ligações à internet constantes. Construímos para o contexto real do continente africano.
-    </p>
-  </div>
-</section>
-
-<section class="section section-alt">
-  <div class="container">
-    <h2 class="section-title reveal">O fundador</h2>
-
-    <div class="about-grid">
-      <img src="../assets/yannick.png" class="about-photo reveal" alt="Yannick Hamir Branco Pereira de Matos">
-
-      <div class="about-text reveal">
-        <h2>Yannick Hamir Branco Pereira de Matos</h2>
-        <p class="role">Fundador · Engenheiro de Software · Luanda, Angola</p>
-
-        <p>
-          Yannick Hamir Branco Pereira de Matos é um profissional multifacetado natural das Ingombotas, Luanda, com uma actuação de destaque na interseção entre tecnologia, engenharia, inovação digital e artes.
-        </p>
-
-        <p>
-          Com frequência universitária em Engenharia Informática e certificações em Ciência de Dados, Inteligência Artificial, Cisco e Google Analytics 4, consolidou a sua carreira liderando operações de TI, análise de dados e gestão logística. Paralelamente, actua como desenvolvedor independente de tecnologia, criando projectos inovadores que vão desde aplicações móveis focadas em valorização cultural até assistentes de inteligência artificial de processamento local.
-        </p>
-
-        <p>
-          No âmbito artístico e cultural, destaca-se como músico — actuando como baixista e compositor no cenário rock angolano —, produtor audiovisual e criador de conteúdos narrativos. A sua visão criativa combina uma profunda ligação às raízes angolanas com uma linguagem tecnológica contemporânea.
-        </p>
-
-        <div class="about-links">
-          <a href="https://linkedin.com/in/yannickmatos" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://github.com/matrixangola" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://www.facebook.com/yannickdematos" target="_blank" rel="noopener">Facebook</a>
-        </div>
-      </div>
+    <h2 class="section-title reveal" id="empresa_title">A empresa</h2>
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <p class="reveal" style="margin-bottom: 16px; color: var(--text-muted);" id="empresa_p1">A HamirStudios é uma desenvolvedora independente de software, sediada em Luanda, Angola. Construímos aplicações que resolvem problemas reais em África — com foco em acessibilidade, privacidade e independência tecnológica.</p>
+      <p class="reveal" style="color: var(--text-muted);" id="empresa_p2">Acreditamos que tecnologia de qualidade não precisa de estar dependente de grandes empresas nem de ligações a internet constantes. Construímos para o contexto real do continente africano.</p>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section section-alt" id="sobre-fundador">
   <div class="container">
-    <h2 class="section-title reveal">Valores</h2>
-    <div class="card-grid">
-      <div class="card reveal">
-        <h3>🇦🇴 Feito em Angola</h3>
-        <p>Construímos a partir de Luanda, com orgulho nas nossas raízes e no potencial tecnológico do continente africano.</p>
-      </div>
-      <div class="card reveal">
-        <h3>🔓 Acesso livre</h3>
-        <p>Todo o nosso software é gratuito e será sempre gratuito. Acreditamos que a tecnologia deve servir as pessoas, não o contrário.</p>
-      </div>
-      <div class="card reveal">
-        <h3>🛡️ Privacidade primeiro</h3>
-        <p>Sem tracking, sem venda de dados, sem publicidade invasiva. Os utilizadores são donos da sua experiência.</p>
+    <h2 class="section-title reveal" id="fundador_title">O fundador</h2>
+    <div class="about-grid reveal" style="margin-top: 40px;">
+      <img src="../assets/yannick.png" class="about-photo" alt="Yannick Matos" style="background: var(--dark-3);">
+      <div class="about-text">
+        <h2 id="fundador_name">Yannick Matos</h2>
+        <p class="role" id="fundador_role">Fundador · Engenheiro de Software · Luanda, Angola</p>
+        
+        <p id="fundador_p1">Yannick Matos é um profissional multifacetado natural das Ingombotas, Luanda, com uma actuação de destaque na interseção entre tecnologia, engenharia, inovação digital e artes.</p>
+        
+        <p id="fundador_p2">Com frequência universitária em Engenharia Informática e certificações em Ciência de Dados, Inteligência Artificial, Cisco e Google Analytics 4, consolidou a sua carreira liderando operações de TI, análise de dados e gestão logística. Paralelamente, actua como desenvolvedor independente de tecnologia, criando projectos inovadores que vão desde aplicações móveis focadas em valorização cultural até assistentes de inteligência artificial de processamento local.</p>
+        
+        <p id="fundador_p3">No âmbito artístico e cultural, destaca-se como músico — actuando como baixista e compositor no cenário rock angolano (fundador da banda Ovelha Negra) —, produtor audiovisual e criador de conteúdos narrativos. A sua visão criativa combina uma profunda ligação às raízes angolanas com uma linguagem tecnológica contemporânea.</p>
+        
+        <div class="about-links">
+          <a href="https://linkedin.com/in/yannickmatos" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://github.com/matrixangola" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
       </div>
     </div>
   </div>
@@ -126,8 +87,8 @@
   <div class="container">
     <img src="../assets/logo-hamir.jpeg" class="footer-logo" alt="HamirStudios">
     <p class="footer-text">© 2026 HamirStudios · Luanda, Angola 🇦🇴</p>
-    <p class="footer-text">Fundada por Yannick Hamir Branco Pereira de Matos</p>
-    <p class="footer-slogan">Software com raízes angolanas</p>
+    <p class="footer-text" id="footer_founder">Fundada por Yannick Matos</p>
+    <p class="footer-slogan" id="footer_slogan">Software com raízes angolanas</p>
     <div class="footer-social">
       <a href="https://linkedin.com/in/yannickmatos" target="_blank" rel="noopener">💼 LinkedIn</a>
       <a href="https://github.com/matrixangola" target="_blank" rel="noopener">💻 GitHub</a>
@@ -135,26 +96,108 @@
       <a href="mailto:yannickmatos.ym@gmail.com">✉️ Email</a>
     </div>
     <div class="footer-links">
-      <a href="../sobre/">Sobre a Empresa</a>
-      <a href="../apoie/">Apoie</a>
-      <a href="../patrocinadores/">Patrocinadores</a>
-      <a href="../privacidade/">Política de Privacidade</a>
+      <a href="index.html" class="active" id="footer_about">Sobre a Empresa</a>
+      <a href="../apoie/" id="footer_support">Apoie</a>
+      <a href="../patrocinadores/" id="footer_sponsors">Patrocinadores</a>
+      <a href="../privacidade/" id="footer_privacy">Política de Privacidade</a>
     </div>
   </div>
 </footer>
 
-<script src="../toggleDropdown.js"></script>
-
-<script type="text/javascript">
-function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'pt', autoDisplay: false}, 'google_translate_element'); }
-function doGTranslate(lang_pair) {
-  if(lang_pair == 'pt' || lang_pair == '') { document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + location.hostname; location.reload(); return; }
-  var teCombo; var sel = document.getElementsByTagName('select');
-  for(var i = 0; i < sel.length; i++) if(sel[i].className == 'goog-te-combo') teCombo = sel[i];
-  if(document.getElementById('google_translate_element') == null ) return;
-  if(document.getElementById('google_translate_element').innerHTML.length == 0 || teCombo.length == 0 || teCombo.innerHTML.length == 0) { setTimeout(function(){doGTranslate(lang_pair)},500) } else { teCombo.value = lang_pair; if(document.createEvent) { var evt = document.createEvent("HTMLEvents"); evt.initEvent("change", true, true); teCombo.dispatchEvent(evt); } else { teCombo.fireEvent("onchange"); } }
+<script>
+function toggleDropdown(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  const dropdown = event.currentTarget.closest('.nav-dropdown');
+  if (dropdown) dropdown.classList.toggle('open');
 }
-document.addEventListener('DOMContentLoaded', () => { var div = document.createElement('div'); div.id = 'google_translate_element'; div.style.display = 'none'; document.body.appendChild(div); var script = document.createElement('script'); script.type = 'text/javascript'; script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'; document.body.appendChild(script); });
+document.addEventListener('click', () => {
+  document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
+});
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('header');
+  if (window.scrollY > 50) header.classList.add('scrolled');
+  else header.classList.remove('scrolled');
+});
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+const translations = {
+  pt: {
+    nav_apps: "Apps", nav_services: "Serviços", nav_portfolio: "Portfólio", nav_contact: "Sobre",
+    sobre_hero_title: "Sobre a HamirStudios", sobre_hero_subtitle: "Software com raízes angolanas",
+    empresa_title: "A empresa",
+    empresa_p1: "A HamirStudios é uma desenvolvedora independente de software, sediada em Luanda, Angola. Construímos aplicações que resolvem problemas reais em África — com foco em acessibilidade, privacidade e independência tecnológica.",
+    empresa_p2: "Acreditamos que tecnologia de qualidade não precisa de estar dependente de grandes empresas nem de ligações a internet constantes. Construímos para o contexto real do continente africano.",
+    fundador_title: "O fundador", fundador_name: "Yannick Matos", fundador_role: "Fundador · Engenheiro de Software · Luanda, Angola",
+    fundador_p1: "Yannick Matos é um profissional multifacetado natural das Ingombotas, Luanda, com uma actuação de destaque na interseção entre tecnologia, engenharia, inovação digital e artes.",
+    fundador_p2: "Com frequência universitária em Engenharia Informática e certificações em Ciência de Dados, Inteligência Artificial, Cisco e Google Analytics 4, consolidou a sua carreira liderando operações de TI, análise de dados e gestão logística. Paralelamente, actua como desenvolvedor independente de tecnologia, criando projectos inovadores que vão desde aplicações móveis focadas em valorização cultural até assistentes de inteligência artificial de processamento local.",
+    fundador_p3: "No âmbito artístico e cultural, destaca-se como músico — actuando como baixista e compositor no cenário rock angolano (fundador da banda Ovelha Negra) —, produtor audiovisual e criador de conteúdos narrativos. A sua visão criativa combina uma profunda ligação às raízes angolanas com uma linguagem tecnológica contemporânea.",
+    footer_founder: "Fundada por Yannick Matos", footer_slogan: "Software com raízes angolanas", footer_about: "Sobre a Empresa", footer_support: "Apoie", footer_sponsors: "Patrocinadores", footer_privacy: "Política de Privacidade"
+  },
+  en: {
+    nav_apps: "Apps", nav_services: "Services", nav_portfolio: "Portfolio", nav_contact: "About",
+    sobre_hero_title: "About HamirStudios", sobre_hero_subtitle: "Software with Angolan roots",
+    empresa_title: "The company",
+    empresa_p1: "HamirStudios is an independent software developer based in Luanda, Angola. We build applications that solve real problems in Africa — focusing on accessibility, privacy and technological independence.",
+    empresa_p2: "We believe that quality technology doesn't need to depend on large corporations or constant internet connections. We build for the real context of the African continent.",
+    fundador_title: "The founder", fundador_name: "Yannick Matos", fundador_role: "Founder · Software Engineer · Luanda, Angola",
+    fundador_p1: "Yannick Matos is a multifaceted professional from Ingombotas, Luanda, with a prominent role at the intersection of technology, engineering, digital innovation and the arts.",
+    fundador_p2: "With a university degree in Computer Engineering and certifications in Data Science, Artificial Intelligence, Cisco and Google Analytics 4, he consolidated his career leading IT operations, data analysis and logistics management. In parallel, he acts as an independent technology developer, creating innovative projects ranging from mobile applications focused on cultural appreciation to locally processed artificial intelligence assistants.",
+    fundador_p3: "In the artistic and cultural field, he stands out as a musician — acting as bassist and composer in the Angolan rock scene (founder of the band Ovelha Negra) —, audiovisual producer and creator of narrative content. His creative vision combines a deep connection to Angolan roots with a contemporary technological language.",
+    footer_founder: "Founded by Yannick Matos", footer_slogan: "Software with Angolan roots", footer_about: "About the Company", footer_support: "Support", footer_sponsors: "Sponsors", footer_privacy: "Privacy Policy"
+  },
+  fr: {
+    nav_apps: "Apps", nav_services: "Services", nav_portfolio: "Portfolio", nav_contact: "À propos",
+    sobre_hero_title: "À propos de HamirStudios", sobre_hero_subtitle: "Logiciel aux racines angolaises",
+    empresa_title: "L'entreprise",
+    empresa_p1: "HamirStudios est un développeur de logiciels indépendant basé à Luanda, en Angola. Nous créons des applications qui résolvent de vrais problèmes en Afrique — en mettant l'accent sur l'accessibilité, la confidentialité et l'indépendance technologique.",
+    empresa_p2: "Nous croyons qu'une technologie de qualité n'a pas besoin de dépendre de grandes entreprises ou de connexions Internet constantes. Nous construisons pour le contexte réel du continent africain.",
+    fundador_title: "Le fondateur", fundador_name: "Yannick Matos", fundador_role: "Fondateur · Ingénieur Logiciel · Luanda, Angola",
+    fundador_p1: "Yannick Matos est un professionnel aux multiples facettes originaire d'Ingombotas, Luanda, avec un rôle de premier plan à l'intersection de la technologie, de l'ingénierie, de l'innovation numérique et des arts.",
+    fundador_p2: "Avec un diplôme universitaire en génie informatique et des certifications en science des données, intelligence artificielle, Cisco et Google Analytics 4, il a consolidé sa carrière en dirigeant des opérations informatiques, l'analyse de données et la gestion logistique. En parallèle, il agit en tant que développeur technologique indépendant, créant des projets innovants allant d'applications mobiles axées sur la valorisation culturelle à des assistants d'intelligence artificielle à traitement local.",
+    fundador_p3: "Dans le domaine artistique et culturel, il se distingue comme musicien — agissant comme bassiste et compositeur sur la scène rock angolaise (fondateur du groupe Ovelha Negra) —, producteur audiovisuel et créateur de contenus narratifs. Sa vision créative combine un lien profond avec les racines angolaises et un langage technologique contemporain.",
+    footer_founder: "Fondé par Yannick Matos", footer_slogan: "Logiciel aux racines angolaises", footer_about: "À propos de l'entreprise", footer_support: "Soutenir", footer_sponsors: "Sponsors", footer_privacy: "Politique de Confidentialité"
+  },
+  es: {
+    nav_apps: "Apps", nav_services: "Servicios", nav_portfolio: "Portafolio", nav_contact: "Sobre",
+    sobre_hero_title: "Sobre HamirStudios", sobre_hero_subtitle: "Software con raíces angoleñas",
+    empresa_title: "La empresa",
+    empresa_p1: "HamirStudios es un desarrollador de software independiente con sede en Luanda, Angola. Creamos aplicaciones que resuelven problemas reales en África — centrándonos en la accesibilidad, la privacidad y la independencia tecnológica.",
+    empresa_p2: "Creemos que la tecnología de calidad no necesita depender de grandes corporaciones ni de conexiones a Internet constantes. Construimos para el contexto real del continente africano.",
+    fundador_title: "El fundador", fundador_name: "Yannick Matos", fundador_role: "Fundador · Ingeniero de Software · Luanda, Angola",
+    fundador_p1: "Yannick Matos es un profesional polifacético natural de Ingombotas, Luanda, con una destacada actuación en la intersección entre tecnología, ingeniería, innovación digital y artes.",
+    fundador_p2: "Con estudios universitarios en Ingeniería Informática y certificaciones en Ciencia de Datos, Inteligencia Artificial, Cisco y Google Analytics 4, consolidó su carrera liderando operaciones de TI, análisis de datos y gestión logística. Paralelamente, actúa como desarrollador independiente de tecnología, creando proyectos innovadores que van desde aplicaciones móviles centradas en la valorización cultural hasta asistentes de inteligencia artificial de procesamiento local.",
+    fundador_p3: "En el ámbito artístico y cultural, se destaca como músico — actuando como bajista y compositor en la escena del rock angoleño (fundador de la banda Ovelha Negra) —, productor audiovisual y creador de contenidos narrativos. Su visión creativa combina una profunda conexión con las raíces angoleñas y un lenguaje tecnológico contemporáneo.",
+    footer_founder: "Fundado por Yannick Matos", footer_slogan: "Software con raíces angoleñas", footer_about: "Sobre la Empresa", footer_support: "Apoyar", footer_sponsors: "Patrocinadores", footer_privacy: "Política de Privacidad"
+  }
+};
+
+function changeLang(lang) {
+  localStorage.setItem('preferredLang', lang);
+  const t = translations[lang];
+  if (!t) return;
+  document.documentElement.lang = lang;
+  for (const id in t) {
+    const el = document.getElementById(id);
+    if (el) {
+      if (id === 'nav_apps') { el.innerHTML = `${t[id]} <span class="arrow">▼</span>`; }
+      else { el.innerHTML = t[id]; }
+    }
+  }
+  const select = document.getElementById('langSelect');
+  if (select) select.value = lang;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  let savedLang = localStorage.getItem('preferredLang');
+  let browserLang = navigator.language.slice(0, 2);
+  let langToLoad = savedLang || (['pt', 'en', 'fr', 'es'].includes(browserLang) ? browserLang : 'pt');
+  changeLang(langToLoad);
+});
 </script>
+
 </body>
 </html>
