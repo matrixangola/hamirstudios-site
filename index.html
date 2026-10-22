@@ -7,12 +7,8 @@
   <link rel="icon" href="assets/logoonara.png">
   <link rel="stylesheet" href="style.css">
   <style>
-    .lang-selector { background: var(--dark-2); color: var(--text-muted); border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; font-size: 14px; font-weight: 500; cursor: pointer; outline: none; font-family: inherit; transition: border-color 0.2s; margin-left: 15px; }
+    .lang-selector { background: var(--dark-2); color: var(--text-muted); border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; font-size: 14px; font-weight: 500; cursor: pointer; outline: none; font-family: inherit; margin-left: 15px; }
     .lang-selector:hover { border-color: var(--red); color: var(--white); }
-    [data-lang] { display: none; }
-    html[lang="pt"] [data-lang="pt"], html[lang="en"] [data-lang="en"], html[lang="fr"] [data-lang="fr"], html[lang="es"] [data-lang="es"] { display: block; }
-    span[data-lang] { display: none; }
-    html[lang="pt"] span[data-lang="pt"], html[lang="en"] span[data-lang="en"], html[lang="fr"] span[data-lang="fr"], html[lang="es"] span[data-lang="es"] { display: inline; }
   </style>
 </head>
 <body>
@@ -25,20 +21,18 @@
     </a>
     <nav class="site-nav">
       <div class="nav-dropdown">
-        <button class="nav-dropdown-toggle" onclick="toggleDropdown(event)">
-          <span data-lang="pt">Apps</span><span data-lang="en">Apps</span><span data-lang="fr">Apps</span><span data-lang="es">Apps</span> <span class="arrow">▼</span>
-        </button>
+        <button class="nav-dropdown-toggle" onclick="toggleDropdown(event)">Apps <span class="arrow">▼</span></button>
         <div class="nav-dropdown-menu">
           <a href="onara-ai/">Onara.AI</a>
           <a href="jurisao/">JurisAO</a>
           <a href="muxima-player/">Muxima Player</a>
         </div>
       </div>
-      <a href="#servicos"><span data-lang="pt">Serviços</span><span data-lang="en">Services</span><span data-lang="fr">Services</span><span data-lang="es">Servicios</span></a>
-      <a href="#portfolio"><span data-lang="pt">Portfólio</span><span data-lang="en">Portfolio</span><span data-lang="fr">Portfolio</span><span data-lang="es">Portafolio</span></a>
-      <a href="contacto/"><span data-lang="pt">Contacto</span><span data-lang="en">Contact</span><span data-lang="fr">Contact</span><span data-lang="es">Contacto</span></a>
+      <a href="#servicos" id="nav_services">Serviços</a>
+      <a href="#portfolio" id="nav_portfolio">Portfólio</a>
+      <a href="contacto/" id="nav_contact">Contacto</a>
       
-      <select class="lang-selector" onchange="changeLang(this.value)">
+      <select class="lang-selector" id="langSelect" onchange="changeLang(this.value)">
         <option value="pt">🇵🇹 PT</option>
         <option value="en">🇬🇧 EN</option>
         <option value="fr">🇫🇷 FR</option>
@@ -52,19 +46,10 @@
   <div class="container hero-content">
     <img src="assets/logo-hamir.jpeg" class="hero-logo" alt="HamirStudios">
     <h1>HamirStudios</h1>
-    <p class="tagline">
-      <span data-lang="pt">Software com raízes angolanas</span>
-      <span data-lang="en">Software with Angolan roots</span>
-      <span data-lang="fr">Logiciel aux racines angolaises</span>
-      <span data-lang="es">Software con raíces angoleñas</span>
-    </p>
+    <p class="tagline" id="hero_tagline">Software com raízes angolanas</p>
     <div class="cta-buttons">
-      <a href="#apps" class="btn btn-primary">
-        <span data-lang="pt">Ver aplicações</span><span data-lang="en">View apps</span><span data-lang="fr">Voir les apps</span><span data-lang="es">Ver apps</span>
-      </a>
-      <a href="#servicos" class="btn btn-secondary">
-        <span data-lang="pt">Serviços</span><span data-lang="en">Services</span><span data-lang="fr">Services</span><span data-lang="es">Servicios</span>
-      </a>
+      <a href="#apps" class="btn btn-primary" id="hero_btn_apps">Ver aplicações</a>
+      <a href="#servicos" class="btn btn-secondary" id="hero_btn_services">Serviços</a>
     </div>
   </div>
 </section>
@@ -72,60 +57,38 @@
 <section class="section">
   <div class="container">
     <div class="stats reveal">
-      <div class="stat"><div class="stat-value">3</div><div class="stat-label"><span data-lang="pt">Aplicações</span><span data-lang="en">Apps</span><span data-lang="fr">Apps</span><span data-lang="es">Apps</span></div></div>
-      <div class="stat"><div class="stat-value">100%</div><div class="stat-label"><span data-lang="pt">Offline</span><span data-lang="en">Offline</span><span data-lang="fr">Hors ligne</span><span data-lang="es">Sin conexión</span></div></div>
-      <div class="stat"><div class="stat-value">0</div><div class="stat-label"><span data-lang="pt">Anúncios</span><span data-lang="en">Ads</span><span data-lang="fr">Publicités</span><span data-lang="es">Anuncios</span></div></div>
-      <div class="stat"><div class="stat-value">🇦🇴</div><div class="stat-label"><span data-lang="pt">Feito em Angola</span><span data-lang="en">Made in Angola</span><span data-lang="fr">Fabriqué en Angola</span><span data-lang="es">Hecho en Angola</span></div></div>
+      <div class="stat"><div class="stat-value">3</div><div class="stat-label" id="stat_apps">Aplicações</div></div>
+      <div class="stat"><div class="stat-value">100%</div><div class="stat-label" id="stat_offline">Offline</div></div>
+      <div class="stat"><div class="stat-value">0</div><div class="stat-label" id="stat_ads">Anúncios</div></div>
+      <div class="stat"><div class="stat-value">🇦🇴</div><div class="stat-label" id="stat_made">Feito em Angola</div></div>
     </div>
   </div>
 </section>
 
 <section class="section section-alt" id="apps">
   <div class="container">
-    <h2 class="section-title reveal">
-      <span data-lang="pt">As nossas aplicações</span><span data-lang="en">Our applications</span><span data-lang="fr">Nos applications</span><span data-lang="es">Nuestras aplicaciones</span>
-    </h2>
-    <p class="section-subtitle reveal">
-      <span data-lang="pt">Construímos software que resolve problemas reais em África — com foco em acessibilidade, privacidade e independência tecnológica.</span>
-      <span data-lang="en">We build software that solves real problems in Africa — with a focus on accessibility, privacy and technological independence.</span>
-      <span data-lang="fr">Nous créons des logiciels qui résolvent de vrais problèmes en Afrique — en mettant l'accent sur l'accessibilité, la confidentialité et l'indépendance technologique.</span>
-      <span data-lang="es">Creamos software que resuelve problemas reales en África — con un enfoque en accesibilidad, privacidad e independencia tecnológica.</span>
-    </p>
+    <h2 class="section-title reveal" id="apps_title">As nossas aplicações</h2>
+    <p class="section-subtitle reveal" id="apps_subtitle">Construímos software que resolve problemas reais em África — com foco em acessibilidade, privacidade e independência tecnológica.</p>
     <div class="card-grid">
       <article class="card reveal">
         <img src="assets/logoonara.png" class="card-icon" alt="Onara.AI">
         <h3>Onara.AI</h3>
-        <p>
-          <span data-lang="pt">Assistente de estudo offline para estudantes africanos. Corre modelos de IA localmente no telemóvel, sem internet, sem custos e sem tracking.</span>
-          <span data-lang="en">Offline study assistant for African students. Runs AI models locally on your phone, no internet, no costs and no tracking.</span>
-          <span data-lang="fr">Assistant d'étude hors ligne pour les étudiants africains. Exécute des modèles d'IA localement sur votre téléphone, sans internet, sans frais et sans suivi.</span>
-          <span data-lang="es">Asistente de estudio sin conexión para estudiantes africanos. Ejecuta modelos de IA localmente en tu teléfono, sin internet, sin costos y sin seguimiento.</span>
-        </p>
-        <a href="onara-ai/" class="card-link"><span data-lang="pt">Ver aplicação</span><span data-lang="en">View app</span><span data-lang="fr">Voir l'app</span><span data-lang="es">Ver app</span> →</a>
+        <p id="app_onara_desc">Assistente de estudo offline para estudantes africanos. Corre modelos de IA localmente no telemóvel, sem internet, sem custos e sem tracking.</p>
+        <a href="onara-ai/" class="card-link" id="app_onara_btn">Ver aplicação →</a>
       </article>
       <article class="card reveal">
         <div class="card-icon" style="background: var(--dark-3); display:flex; align-items:center; justify-content:center; font-size:32px;">⚖️</div>
-        <span class="badge-dev"><span data-lang="pt">Em desenvolvimento</span><span data-lang="en">In development</span><span data-lang="fr">En développement</span><span data-lang="es">En desarrollo</span></span>
+        <span class="badge-dev" id="app_dev_badge">Em desenvolvimento</span>
         <h3>JurisAO</h3>
-        <p>
-          <span data-lang="pt">Aplicação de consulta jurídica offline sobre a legislação angolana. Pensada para estudantes de Direito, profissionais e cidadãos.</span>
-          <span data-lang="en">Offline legal consultation app on Angolan legislation. Designed for law students, professionals and citizens.</span>
-          <span data-lang="fr">Application de consultation juridique hors ligne sur la législation angolaise. Conçue pour les étudiants en droit, les professionnels et les citoyens.</span>
-          <span data-lang="es">Aplicación de consulta jurídica sin conexión sobre la legislación angoleña. Diseñada para estudiantes de derecho, profesionales y ciudadanos.</span>
-        </p>
-        <a href="jurisao/" class="card-link"><span data-lang="pt">Ver aplicação</span><span data-lang="en">View app</span><span data-lang="fr">Voir l'app</span><span data-lang="es">Ver app</span> →</a>
+        <p id="app_jurisao_desc">Aplicação de consulta jurídica offline sobre a legislação angolana. Pensada para estudantes de Direito, profissionais e cidadãos.</p>
+        <a href="jurisao/" class="card-link" id="app_jurisao_btn">Ver aplicação →</a>
       </article>
       <article class="card reveal">
         <img src="assets/muxima-player.png" class="card-icon" alt="Muxima Player" style="object-fit: contain;">
-        <span class="badge-dev"><span data-lang="pt">Em desenvolvimento</span><span data-lang="en">In development</span><span data-lang="fr">En développement</span><span data-lang="es">En desarrollo</span></span>
+        <span class="badge-dev" id="app_dev_badge_2">Em desenvolvimento</span>
         <h3>Muxima Player</h3>
-        <p>
-          <span data-lang="pt">Media player gratuito e sem anúncios, com modo DJ integrado. Toca todos os formatos de áudio com uma mesa de mixagem profissional.</span>
-          <span data-lang="en">Free ad-free media player with integrated DJ mode. Plays all audio formats with a professional mixing desk.</span>
-          <span data-lang="fr">Lecteur multimédia gratuit et sans publicité avec mode DJ intégré. Lit tous les formats audio avec une table de mixage professionnelle.</span>
-          <span data-lang="es">Reproductor multimedia gratuito y sin anuncios con modo DJ integrado. Reproduce todos los formatos de audio con una mesa de mezclas profesional.</span>
-        </p>
-        <a href="muxima-player/" class="card-link"><span data-lang="pt">Ver aplicação</span><span data-lang="en">View app</span><span data-lang="fr">Voir l'app</span><span data-lang="es">Ver app</span> →</a>
+        <p id="app_muxima_desc">Media player gratuito e sem anúncios, com modo DJ integrado. Toca todos os formatos de áudio com uma mesa de mixagem profissional.</p>
+        <a href="muxima-player/" class="card-link" id="app_muxima_btn">Ver aplicação →</a>
       </article>
     </div>
   </div>
@@ -133,165 +96,108 @@
 
 <section class="section" id="servicos">
   <div class="container">
-    <h2 class="section-title reveal">
-      <span data-lang="pt">Serviços</span><span data-lang="en">Services</span><span data-lang="fr">Services</span><span data-lang="es">Servicios</span>
-    </h2>
-    <p class="section-subtitle reveal">
-      <span data-lang="pt">Para além das aplicações gratuitas, a HamirStudios presta serviços digitais a empresas, instituições e particulares. Preços de lançamento — primeiros 5 clientes.</span>
-      <span data-lang="en">Beyond our free apps, HamirStudios provides digital services to companies, institutions and individuals. Launch prices — first 5 clients.</span>
-      <span data-lang="fr">Au-delà de nos applications gratuites, HamirStudios fournit des services numériques aux entreprises, institutions et particuliers. Prix de lancement — 5 premiers clients.</span>
-      <span data-lang="es">Además de nuestras aplicaciones gratuitas, HamirStudios brinda servicios digitales a empresas, instituciones y particulares. Precios de lanzamiento — primeros 5 clientes.</span>
-    </p>
+    <h2 class="section-title reveal" id="services_title">Serviços</h2>
+    <p class="section-subtitle reveal" id="services_subtitle">Para além das aplicações gratuitas, a HamirStudios presta serviços digitais a empresas, instituições e particulares. Preços de lançamento — primeiros 5 clientes.</p>
     <div class="services-grid">
       <article class="service-card reveal">
         <div class="service-icon">🌐</div>
-        <h3><span data-lang="pt">Criação de Sites</span><span data-lang="en">Website Creation</span><span data-lang="fr">Création de Sites</span><span data-lang="es">Creación de Sitios</span></h3>
+        <h3 id="srv_sites">Criação de Sites</h3>
         <div class="service-item">
-          <div class="service-item-header"><span class="service-name"><span data-lang="pt">Landing Page</span><span data-lang="en">Landing Page</span><span data-lang="fr">Landing Page</span><span data-lang="es">Landing Page</span></span><span class="service-price"><span class="price-old">70 €</span><span class="price-new">49 €</span></span></div>
+          <div class="service-item-header"><span class="service-name" id="srv_landing">Landing Page</span><span class="service-price"><span class="price-old">70 €</span><span class="price-new">49 €</span></span></div>
           <div class="service-price-kz">≈ 54.000 Kz</div>
-          <p>
-            <span data-lang="pt">Página única, directa e optimizada para telemóvel. Design personalizado. Ideal para captar contactos e lançar serviços.</span>
-            <span data-lang="en">Single, direct, mobile-optimized page. Custom design. Ideal for capturing contacts and launching services.</span>
-            <span data-lang="fr">Page unique, directe et optimisée pour mobile. Design personnalisé. Idéal pour capturer des contacts et lancer des services.</span>
-            <span data-lang="es">Página única, directa y optimizada para móviles. Diseño personalizado. Ideal para captar contactos y lanzar servicios.</span>
-          </p>
+          <p id="srv_landing_desc">Página única, directa e optimizada para telemóvel. Design personalizado. Ideal para captar contactos e lançar serviços.</p>
         </div>
         <div class="service-item">
-          <div class="service-item-header"><span class="service-name"><span data-lang="pt">Website Institucional</span><span data-lang="en">Institutional Website</span><span data-lang="fr">Site Institutionnel</span><span data-lang="es">Sitio Institucional</span></span><span class="service-price"><span class="price-old">150 €</span><span class="price-new">99 €</span></span></div>
+          <div class="service-item-header"><span class="service-name" id="srv_website">Website Institucional</span><span class="service-price"><span class="price-old">150 €</span><span class="price-new">99 €</span></span></div>
           <div class="service-price-kz">≈ 109.000 Kz</div>
-          <p>
-            <span data-lang="pt">Vários separadores (Início, Serviços, Sobre, Contactos), design personalizado. 3 a 5 páginas.</span>
-            <span data-lang="en">Multiple tabs (Home, Services, About, Contacts), custom design. 3 to 5 pages.</span>
-            <span data-lang="fr">Plusieurs onglets (Accueil, Services, À propos, Contacts), design personnalisé. 3 à 5 pages.</span>
-            <span data-lang="es">Múltiples pestañas (Inicio, Servicios, Acerca de, Contactos), diseño personalizado. 3 a 5 páginas.</span>
-          </p>
+          <p id="srv_website_desc">Vários separadores (Início, Serviços, Sobre, Contactos), design personalizado. 3 a 5 páginas.</p>
         </div>
       </article>
       <article class="service-card reveal">
         <div class="service-icon">🤖</div>
-        <h3><span data-lang="pt">Chatbots e Automação</span><span data-lang="en">Chatbots & Automation</span><span data-lang="fr">Chatbots et Automatisation</span><span data-lang="es">Chatbots y Automatización</span></h3>
+        <h3 id="srv_chatbots">Chatbots e Automação</h3>
         <div class="service-item">
-          <div class="service-item-header"><span class="service-name"><span data-lang="pt">Chatbot Simples (Guiado)</span><span data-lang="en">Simple Chatbot (Guided)</span><span data-lang="fr">Chatbot Simple (Guidé)</span><span data-lang="es">Chatbot Simple (Guiado)</span></span><span class="service-price"><span class="price-old">120 €</span><span class="price-new">79 €</span></span></div>
+          <div class="service-item-header"><span class="service-name" id="srv_chat_simple">Chatbot Simples (Guiado)</span><span class="service-price"><span class="price-old">120 €</span><span class="price-new">79 €</span></span></div>
           <div class="service-price-kz">≈ 87.000 Kz</div>
-          <p>
-            <span data-lang="pt">Atendimento automático no site ou redes sociais, respostas pré-definidas, envio directo para WhatsApp.</span>
-            <span data-lang="en">Automatic customer service on your website or social media, pre-defined answers, direct forwarding to WhatsApp.</span>
-            <span data-lang="fr">Service client automatique sur votre site ou réseaux sociaux, réponses prédéfinies, transfert direct vers WhatsApp.</span>
-            <span data-lang="es">Atención automática en su sitio web o redes sociales, respuestas predefinidas, reenvío directo a WhatsApp.</span>
-          </p>
+          <p id="srv_chat_simple_desc">Atendimento automático no site ou redes sociais, respostas pré-definidas, envio directo para WhatsApp.</p>
         </div>
         <div class="service-item">
-          <div class="service-item-header"><span class="service-name"><span data-lang="pt">Chatbot com IA</span><span data-lang="en">AI Chatbot</span><span data-lang="fr">Chatbot IA</span><span data-lang="es">Chatbot con IA</span></span><span class="service-price"><span class="price-old">300 €</span><span class="price-new">199 €</span></span></div>
+          <div class="service-item-header"><span class="service-name" id="srv_chat_ia">Chatbot com IA</span><span class="service-price"><span class="price-old">300 €</span><span class="price-new">199 €</span></span></div>
           <div class="service-price-kz">≈ 219.000 Kz</div>
-          <p>
-            <span data-lang="pt">Atendimento inteligente e personalizado. Requer backend dedicado.</span>
-            <span data-lang="en">Intelligent and personalized customer service. Requires dedicated backend.</span>
-            <span data-lang="fr">Service client intelligent et personnalisé. Nécessite un backend dédié.</span>
-            <span data-lang="es">Atención inteligente y personalizada. Requiere backend dedicado.</span>
-          </p>
+          <p id="srv_chat_ia_desc">Atendimento inteligente e personalizado. Requer backend dedicado.</p>
         </div>
       </article>
       <article class="service-card reveal">
         <div class="service-icon">📱</div>
-        <h3><span data-lang="pt">Aplicações Mobile</span><span data-lang="en">Mobile Applications</span><span data-lang="fr">Applications Mobiles</span><span data-lang="es">Aplicaciones Móviles</span></h3>
+        <h3 id="srv_mobile">Aplicações Mobile</h3>
         <div class="service-item">
-          <div class="service-item-header"><span class="service-name"><span data-lang="pt">App Mobile Simples</span><span data-lang="en">Simple Mobile App</span><span data-lang="fr">Application Mobile Simple</span><span data-lang="es">App Móvil Simple</span></span><span class="service-price"><span class="price-old">600 €</span><span class="price-new">399 €</span></span></div>
+          <div class="service-item-header"><span class="service-name" id="srv_mobile_app">App Mobile Simples</span><span class="service-price"><span class="price-old">600 €</span><span class="price-new">399 €</span></span></div>
           <div class="service-price-kz">≈ 439.000 Kz</div>
-          <p>
-            <span data-lang="pt">Aplicação funcional e personalizada. Orçamento final conforme as funcionalidades pedidas.</span>
-            <span data-lang="en">Functional and personalized application. Final quote according to requested features.</span>
-            <span data-lang="fr">Application fonctionnelle et personnalisée. Devis final selon les fonctionnalités demandées.</span>
-            <span data-lang="es">Aplicación funcional y personalizada. Presupuesto final según las funcionalidades solicitadas.</span>
-          </p>
+          <p id="srv_mobile_desc">Aplicação funcional e personalizada. Orçamento final conforme as funcionalidades pedidas.</p>
         </div>
       </article>
       <article class="service-card reveal">
         <div class="service-icon">🔧</div>
-        <h3><span data-lang="pt">Manutenção e Suporte</span><span data-lang="en">Maintenance & Support</span><span data-lang="fr">Maintenance et Support</span><span data-lang="es">Mantenimiento y Soporte</span></h3>
+        <h3 id="srv_support">Manutenção e Suporte</h3>
         <div class="service-item">
-          <div class="service-item-header"><span class="service-name"><span data-lang="pt">Manutenção mensal</span><span data-lang="en">Monthly maintenance</span><span data-lang="fr">Maintenance mensuelle</span><span data-lang="es">Mantenimiento mensual</span></span><span class="service-price"><span class="price-old">25 €</span><span class="price-new">19 €</span></span></div>
+          <div class="service-item-header"><span class="service-name" id="srv_maintenance">Manutenção mensal</span><span class="service-price"><span class="price-old">25 €</span><span class="price-new">19 €</span></span></div>
           <div class="service-price-kz">≈ 21.000 Kz/mês</div>
-          <p>
-            <span data-lang="pt">Actualizações, cópias de segurança, pequenas alterações e suporte técnico contínuo.</span>
-            <span data-lang="en">Updates, backups, minor changes and continuous technical support.</span>
-            <span data-lang="fr">Mises à jour, sauvegardes, modifications mineures et support technique continu.</span>
-            <span data-lang="es">Actualizaciones, copias de seguridad, cambios menores y soporte técnico continuo.</span>
-          </p>
+          <p id="srv_maintenance_desc">Actualizações, cópias de segurança, pequenas alterações e suporte técnico contínuo.</p>
         </div>
         <div class="service-item">
-          <div class="service-item-header"><span class="service-name"><span data-lang="pt">Hora avulsa</span><span data-lang="en">Hourly rate</span><span data-lang="fr">Tarif horaire</span><span data-lang="es">Tarifa por hora</span></span><span class="service-price"><span class="price-old">15 €</span><span class="price-new">12 €</span></span></div>
+          <div class="service-item-header"><span class="service-name" id="srv_hour">Hora avulsa</span><span class="service-price"><span class="price-old">15 €</span><span class="price-new">12 €</span></span></div>
           <div class="service-price-kz">≈ 13.000 Kz/h</div>
-          <p>
-            <span data-lang="pt">Para alterações fora do âmbito inicial.</span>
-            <span data-lang="en">For changes outside the initial scope.</span>
-            <span data-lang="fr">Pour les modifications hors du cadre initial.</span>
-            <span data-lang="es">Para cambios fuera del alcance inicial.</span>
-          </p>
+          <p id="srv_hour_desc">Para alterações fora do âmbito inicial.</p>
         </div>
       </article>
     </div>
     <div class="service-conditions reveal">
-      <h3><span data-lang="pt">Condições de Pagamento</span><span data-lang="en">Payment Conditions</span><span data-lang="fr">Conditions de Paiement</span><span data-lang="es">Condiciones de Pago</span></h3>
+      <h3 id="srv_conditions">Condições de Pagamento</h3>
       <ul>
-        <li><span data-lang="pt"><strong>50%</strong> no início do projecto e <strong>50%</strong> na entrega.</span><span data-lang="en"><strong>50%</strong> at project start and 50% on delivery.</span><span data-lang="fr"><strong>50%</strong> au début du projet et <strong>50%</strong> à la livraison.</span><span data-lang="es"><strong>50%</strong> al inicio del proyecto y <strong>50%</strong> a la entrega.</span></li>
-        <li><span data-lang="pt">Domínio e alojamento cobrados à parte (ou incluídos no plano mensal).</span><span data-lang="en">Domain and hosting charged separately (or included in monthly plan).</span><span data-lang="fr">Domaine et hébergement facturés séparément (ou inclus dans le plan mensuel).</span><span data-lang="es">Dominio y alojamiento cobrados por separado (o incluidos en el plan mensual).</span></li>
-        <li><span data-lang="pt">Inclui <strong>2 rondas de revisões</strong>; alterações extra pagam-se à hora.</span><span data-lang="en">Includes <strong>2 rounds of revisions</strong>; extra changes charged hourly.</span><span data-lang="fr">Comprend <strong>2 cycles de révisions</strong> ; modifications supplémentaires facturées à l'heure.</span><span data-lang="es">Incluye <strong>2 rondas de revisiones</strong>; cambios extra cobrados por hora.</span></li>
-        <li><span data-lang="pt"><strong>Orçamento gratuito e sem compromisso.</strong></span><span data-lang="en"><strong>Free, no-obligation quote.</strong></span><span data-lang="fr"><strong>Devis gratuit et sans engagement.</strong></span><span data-lang="es"><strong>Presupuesto gratuito y sin compromiso.</strong></span></li>
+        <li id="srv_cond_1"><strong>50%</strong> no início do projecto e <strong>50%</strong> na entrega.</li>
+        <li id="srv_cond_2">Domínio e alojamento cobrados à parte (ou incluídos no plano mensal).</li>
+        <li id="srv_cond_3">Inclui <strong>2 rondas de revisões</strong>; alterações extra pagam-se à hora.</li>
+        <li id="srv_cond_4"><strong>Orçamento gratuito e sem compromisso.</strong></li>
       </ul>
-      <p class="service-note">
-        <span data-lang="pt">Valores em kwanzas calculados ao câmbio oficial do BNA (1 € ≈ 1.100 Kz). O valor final é confirmado no dia do orçamento.</span>
-        <span data-lang="en">Kwanza values calculated at official BNA exchange rate (1 € ≈ 1,100 Kz). Final value confirmed on quote date.</span>
-        <span data-lang="fr">Valeurs en kwanza calculées au taux de change officiel de la BNA (1 € ≈ 1 100 Kz). La valeur finale est confirmée le jour du devis.</span>
-        <span data-lang="es">Valores en kwanza calculados al tipo de cambio oficial del BNA (1 € ≈ 1.100 Kz). El valor final se confirma el día del presupuesto.</span>
-      </p>
+      <p class="service-note" id="srv_note">Valores em kwanzas calculados ao câmbio oficial do BNA (1 € ≈ 1.100 Kz). O valor final é confirmado no dia do orçamento.</p>
     </div>
     <div class="launch-offer reveal">
-      <div class="launch-badge"><span data-lang="pt">🎁 Oferta de Lançamento</span><span data-lang="en">🎁 Launch Offer</span><span data-lang="fr">🎁 Offre de Lancement</span><span data-lang="es">🎁 Oferta de Lanzamiento</span></div>
-      <h3><span data-lang="pt">Primeiros 5 clientes</span><span data-lang="en">First 5 clients</span><span data-lang="fr">5 premiers clients</span><span data-lang="es">Primeros 5 clientes</span></h3>
+      <div class="launch-badge" id="srv_launch_badge">🎁 Oferta de Lançamento</div>
+      <h3 id="srv_launch_title">Primeiros 5 clientes</h3>
       <ul>
-        <li><span data-lang="pt"><strong>15% de desconto</strong> adicional em qualquer serviço de criação.</span><span data-lang="en"><strong>15% extra discount</strong> on any creation service.</span><span data-lang="fr"><strong>15% de réduction supplémentaire</strong> sur tout service de création.</span><span data-lang="es"><strong>15% de descuento adicional</strong> en cualquier servicio de creación.</span></li>
-        <li><span data-lang="pt"><strong>3 meses de manutenção gratuita</strong> após a entrega.</span><span data-lang="en"><strong>3 months free maintenance</strong> after delivery.</span><span data-lang="fr"><strong>3 mois de maintenance gratuite</strong> après livraison.</span><span data-lang="es"><strong>3 meses de mantenimiento gratuito</strong> tras la entrega.</span></li>
-        <li><span data-lang="pt">Em troca, pedimos apenas autorização para usar o projecto no portfólio e um pequeno testemunho.</span><span data-lang="en">In return, we only ask permission to use the project in our portfolio and a small testimonial.</span><span data-lang="fr">En échange, nous demandons seulement l'autorisation d'utiliser le projet dans notre portfolio et un petit témoignage.</span><span data-lang="es">A cambio, solo pedimos permiso para usar el proyecto en nuestro portafolio y un pequeño testimonio.</span></li>
+        <li id="srv_launch_1"><strong>15% de desconto</strong> adicional em qualquer serviço de criação.</li>
+        <li id="srv_launch_2"><strong>3 meses de manutenção gratuita</strong> após a entrega.</li>
+        <li id="srv_launch_3">Em troca, pedimos apenas autorização para usar o projecto no portfólio e um pequeno testemunho.</li>
       </ul>
     </div>
     <div class="reveal" style="text-align: center; margin-top: 48px;">
-      <a href="contacto/" class="btn btn-primary"><span data-lang="pt">Pedir orçamento</span><span data-lang="en">Request quote</span><span data-lang="fr">Demander un devis</span><span data-lang="es">Solicitar presupuesto</span></a>
+      <a href="contacto/" class="btn btn-primary" id="srv_btn_quote">Pedir orçamento</a>
     </div>
   </div>
 </section>
 
 <section class="section section-alt" id="portfolio">
   <div class="container">
-    <h2 class="section-title reveal"><span data-lang="pt">Projetos Reais</span><span data-lang="en">Real Projects</span><span data-lang="fr">Projets Réels</span><span data-lang="es">Proyectos Reales</span></h2>
-    <p class="section-subtitle reveal">
-      <span data-lang="pt">Não fazemos apenas sites de demonstração. Construímos soluções que já estão a funcionar no mercado, resolvendo problemas reais de pessoas e negócios.</span>
-      <span data-lang="en">We don't just make demo sites. We build solutions that are already working in the market, solving real problems for people and businesses.</span>
-      <span data-lang="fr">Nous ne faisons pas que des sites de démonstration. Nous construisons des solutions qui fonctionnent déjà sur le marché, résolvant de vrais problèmes pour les personnes et les entreprises.</span>
-      <span data-lang="es">No solo hacemos sitios de demostración. Construimos soluciones que ya están funcionando en el mercado, resolviendo problemas reales para personas y empresas.</span>
-    </p>
+    <h2 class="section-title reveal" id="port_title">Projetos Reais</h2>
+    <p class="section-subtitle reveal" id="port_subtitle">Não fazemos apenas sites de demonstração. Construímos soluções que já estão a funcionar no mercado, resolvendo problemas reais de pessoas e negócios.</p>
 
     <div class="portfolio-grid">
       <article class="portfolio-card reveal">
         <div class="portfolio-image"><div class="portfolio-placeholder">B.Uman™</div></div>
         <div class="portfolio-content">
-          <span class="portfolio-tag"><span data-lang="pt">Website Institucional</span><span data-lang="en">Institutional Website</span><span data-lang="fr">Site Institutionnel</span><span data-lang="es">Sitio Institucional</span></span>
+          <span class="portfolio-tag" id="port_tag">Website Institucional</span>
           <h3>B.Uman™</h3>
-          <p class="portfolio-desc">
-            <span data-lang="pt">Plataforma de consultoria e apoio prático para mulheres. O site foi desenhado para transmitir confiança, autoridade e acolhimento, com uma estrutura clara de serviços e agendamento.</span>
-            <span data-lang="en">Consulting and practical support platform for women. The site was designed to convey trust, authority and warmth, with a clear structure of services and booking.</span>
-            <span data-lang="fr">Plateforme de conseil et de soutien pratique pour les femmes. Le site a été conçu pour transmettre confiance, autorité et chaleur, avec une structure claire de services et de réservation.</span>
-            <span data-lang="es">Plataforma de consultoría y apoyo práctico para mujeres. El sitio fue diseñado para transmitir confianza, autoridad y calidez, con una estructura clara de servicios y reservas.</span>
-          </p>
-          <div class="portfolio-tech"><span>HTML/CSS</span><span data-lang="pt">Design Responsivo</span><span data-lang="en">Responsive Design</span><span data-lang="fr">Design Responsif</span><span data-lang="es">Diseño Responsivo</span><span>Copywriting Structure</span></div>
-          <a href="https://buman-cyan.vercel.app/" target="_blank" rel="noopener" class="btn btn-secondary" style="margin-top: 16px;"><span data-lang="pt">Ver site ao vivo</span><span data-lang="en">View live site</span><span data-lang="fr">Voir le site en direct</span><span data-lang="es">Ver sitio en vivo</span> ↗</a>
+          <p class="portfolio-desc" id="port_desc">Plataforma de consultoria e apoio prático para mulheres. O site foi desenhado para transmitir confiança, autoridade e acolhimento, com uma estrutura clara de serviços e agendamento.</p>
+          <div class="portfolio-tech"><span>HTML/CSS</span><span id="port_tech">Design Responsivo</span><span>Copywriting Structure</span></div>
+          <a href="https://buman-cyan.vercel.app/" target="_blank" rel="noopener" class="btn btn-secondary" style="margin-top: 16px;" id="port_btn">Ver site ao vivo ↗</a>
         </div>
       </article>
 
       <article class="portfolio-card reveal" style="background: var(--dark-1); border-style: dashed; display: flex; align-items: center; justify-content: center; text-align: center; padding: 40px;">
         <div>
-          <h3 style="color: var(--text-muted); margin-bottom: 8px;"><span data-lang="pt">O próximo projeto</span><span data-lang="en">The next project</span><span data-lang="fr">Le prochain projet</span><span data-lang="es">El próximo proyecto</span></h3>
-          <p style="color: var(--text-muted); margin-bottom: 24px;"><span data-lang="pt">Pode ser o teu. Vamos construir algo juntos?</span><span data-lang="en">It could be yours. Let's build something together?</span><span data-lang="fr">Ça pourrait être le vôtre. Construisons quelque chose ensemble ?</span><span data-lang="es">Podría ser el tuyo. ¿Construimos algo juntos?</span></p>
-          <a href="contacto/" class="btn btn-primary"><span data-lang="pt">Falar connosco</span><span data-lang="en">Talk to us</span><span data-lang="fr">Parlez-nous</span><span data-lang="es">Habla con nosotros</span></a>
+          <h3 style="color: var(--text-muted); margin-bottom: 8px;" id="next_port">O próximo projeto</h3>
+          <p style="color: var(--text-muted); margin-bottom: 24px;" id="next_port_desc">Pode ser o teu. Vamos construir algo juntos?</p>
+          <a href="contacto/" class="btn btn-primary" id="next_port_btn">Falar connosco</a>
         </div>
       </article>
     </div>
@@ -304,24 +210,11 @@
       <img src="assets/yannick.png" class="about-photo" alt="Yannick Matos" style="background: var(--dark-3);">
       <div class="about-text reveal">
         <h2>Yannick Matos</h2>
-        <p class="role"><span data-lang="pt">Fundador & Programador Fullstack</span><span data-lang="en">Founder & Fullstack Developer</span><span data-lang="fr">Fondateur et Développeur Fullstack</span><span data-lang="es">Fundador y Desarrollador Fullstack</span></p>
-        <p>
-          <span data-lang="pt">Construo tecnologia que funciona onde a internet não chega. Acredito que o software deve resolver problemas reais e servir as pessoas, independentemente do contexto em que vivem.</span>
-          <span data-lang="en">I build technology that works where the internet doesn't reach. I believe software should solve real problems and serve people, regardless of their context.</span>
-          <span data-lang="fr">Je construis de la technologie qui fonctionne là où Internet ne passe pas. Je crois que le logiciel doit résoudre de vrais problèmes et servir les gens, quel que soit leur contexte.</span>
-          <span data-lang="es">Construyo tecnología que funciona donde internet no llega. Creo que el software debe resolver problemas reales y servir a las personas, independientemente de su contexto.</span>
-        </p>
-        <p>
-          <span data-lang="pt">Sou o criador do Onara.AI, JurisAO e Muxima Player — aplicações 100% offline, privadas e gratuitas. Com raízes em Luanda, a HamirStudios nasceu do desejo de provar que é possível criar tecnologia de nível internacional em Angola.</span>
-          <span data-lang="en">I'm the creator of Onara.AI, JurisAO and Muxima Player — 100% offline, private and free applications. Rooted in Luanda, HamirStudios was born from the desire to prove that world-class technology can be built in Angola.</span>
-          <span data-lang="fr">Je suis le créateur d'Onara.AI, JurisAO et Muxima Player — des applications 100% hors ligne, privées et gratuites. Enraciné à Luanda, HamirStudios est né du désir de prouver qu'une technologie de classe mondiale peut être construite en Angola.</span>
-          <span data-lang="es">Soy el creador de Onara.AI, JurisAO y Muxima Player — aplicaciones 100% sin conexión, privadas y gratuitas. Con raíces en Luanda, HamirStudios nació del deseo de demostrar que se puede construir tecnología de clase mundial en Angola.</span>
-        </p>
-        <p style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border);">
-          <span data-lang="pt"><strong style="color: var(--white);">Além do código:</strong> Sou baixista e fundador da Ovelha Negra, uma banda de rock alternativo. A música e a programação partilham a mesma essência: a busca pela expressão, o rigor da execução e a construção de algo que conecta as pessoas.</span>
-          <span data-lang="en"><strong style="color: var(--white);">Beyond code:</strong> I'm a bassist and founder of Ovelha Negra, an alternative rock band. Music and programming share the same essence: the pursuit of expression, the rigor of execution, and building something that connects people.</span>
-          <span data-lang="fr"><strong style="color: var(--white);">Au-delà du code :</strong> Je suis bassiste et fondateur d'Ovelha Negra, un groupe de rock alternatif. La musique et la programmation partagent la même essence : la recherche de l'expression, la rigueur de l'exécution et la construction de quelque chose qui connecte les gens.</span>
-          <span data-lang="es"><strong style="color: var(--white);">Más allá del código:</strong> Soy bajista y fundador de Ovelha Negra, una banda de rock alternativo. La música y la programación comparten la misma esencia: la búsqueda de la expresión, el rigor de la ejecución y la construcción de algo que conecta a las personas.</span>
+        <p class="role" id="about_role">Fundador & Programador Fullstack</p>
+        <p id="about_p1">Construo tecnologia que funciona onde a internet não chega. Acredito que o software deve resolver problemas reais e servir as pessoas, independentemente do contexto em que vivem.</p>
+        <p id="about_p2">Sou o criador do Onara.AI, JurisAO e Muxima Player — aplicações 100% offline, privadas e gratuitas. Com raízes em Luanda, a HamirStudios nasceu do desejo de provar que é possível criar tecnologia de nível internacional em Angola.</p>
+        <p style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border);" id="about_p3">
+          <strong style="color: var(--white);" id="about_p3_strong">Além do código:</strong> <span id="about_p3_text">Sou baixista e fundador da Ovelha Negra, uma banda de rock alternativo. A música e a programação partilham a mesma essência: a busca pela expressão, o rigor da execução e a construção de algo que conecta as pessoas.</span>
         </p>
         <div class="about-links">
           <a href="https://linkedin.com/in/yannickmatos" target="_blank" rel="noopener">LinkedIn ↗</a>
@@ -334,16 +227,11 @@
 
 <section class="section section-alt">
   <div class="container" style="text-align: center;">
-    <h2 class="section-title reveal"><span data-lang="pt">Apoie os nossos projectos</span><span data-lang="en">Support our projects</span><span data-lang="fr">Soutenez nos projets</span><span data-lang="es">Apoya nuestros proyectos</span></h2>
-    <p class="section-subtitle reveal" style="margin: 0 auto 40px;">
-      <span data-lang="pt">Todo o software da HamirStudios é gratuito e será sempre gratuito. Se quiseres apoiar o desenvolvimento, considera uma doação ou patrocínio.</span>
-      <span data-lang="en">All HamirStudios software is free and will always be free. If you want to support development, consider a donation or sponsorship.</span>
-      <span data-lang="fr">Tous les logiciels de HamirStudios sont gratuits et le resteront toujours. Si vous souhaitez soutenir le développement, envisagez un don ou un parrainage.</span>
-      <span data-lang="es">Todo el software de HamirStudios es gratuito y siempre lo será. Si quieres apoyar el desarrollo, considera una donación o patrocinio.</span>
-    </p>
+    <h2 class="section-title reveal" id="support_title">Apoie os nossos projectos</h2>
+    <p class="section-subtitle reveal" style="margin: 0 auto 40px;" id="support_subtitle">Todo o software da HamirStudios é gratuito e será sempre gratuito. Se quiseres apoiar o desenvolvimento, considera uma doação ou patrocínio.</p>
     <div class="reveal" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-      <a href="apoie/" class="btn btn-primary"><span data-lang="pt">Doações</span><span data-lang="en">Donations</span><span data-lang="fr">Dons</span><span data-lang="es">Donaciones</span></a>
-      <a href="patrocinadores/" class="btn btn-secondary"><span data-lang="pt">Patrocínios</span><span data-lang="en">Sponsorships</span><span data-lang="fr">Parrainages</span><span data-lang="es">Patrocinios</span></a>
+      <a href="apoie/" class="btn btn-primary" id="support_btn_donations">Doações</a>
+      <a href="patrocinadores/" class="btn btn-secondary" id="support_btn_sponsors">Patrocínios</a>
     </div>
   </div>
 </section>
@@ -352,12 +240,8 @@
   <div class="container">
     <img src="assets/logo-hamir.jpeg" class="footer-logo" alt="HamirStudios">
     <p class="footer-text">© 2026 HamirStudios · Luanda, Angola 🇦🇴</p>
-    <p class="footer-text">
-      <span data-lang="pt">Fundada por Yannick Matos</span><span data-lang="en">Founded by Yannick Matos</span><span data-lang="fr">Fondé par Yannick Matos</span><span data-lang="es">Fundado por Yannick Matos</span>
-    </p>
-    <p class="footer-slogan">
-      <span data-lang="pt">Software com raízes angolanas</span><span data-lang="en">Software with Angolan roots</span><span data-lang="fr">Logiciel aux racines angolaises</span><span data-lang="es">Software con raíces angoleñas</span>
-    </p>
+    <p class="footer-text" id="footer_founder">Fundada por Yannick Matos</p>
+    <p class="footer-slogan" id="footer_slogan">Software com raízes angolanas</p>
     <div class="footer-social">
       <a href="https://linkedin.com/in/yannickmatos" target="_blank" rel="noopener">💼 LinkedIn</a>
       <a href="https://github.com/matrixangola" target="_blank" rel="noopener">💻 GitHub</a>
@@ -365,10 +249,10 @@
       <a href="mailto:yannickmatos.ym@gmail.com">✉️ Email</a>
     </div>
     <div class="footer-links">
-      <a href="sobre/"><span data-lang="pt">Sobre a Empresa</span><span data-lang="en">About the Company</span><span data-lang="fr">À propos de l'entreprise</span><span data-lang="es">Sobre la Empresa</span></a>
-      <a href="apoie/"><span data-lang="pt">Apoie</span><span data-lang="en">Support</span><span data-lang="fr">Soutenir</span><span data-lang="es">Apoyar</span></a>
-      <a href="patrocinadores/"><span data-lang="pt">Patrocinadores</span><span data-lang="en">Sponsors</span><span data-lang="fr">Sponsors</span><span data-lang="es">Patrocinadores</span></a>
-      <a href="privacidade/"><span data-lang="pt">Política de Privacidade</span><span data-lang="en">Privacy Policy</span><span data-lang="fr">Politique de Confidentialité</span><span data-lang="es">Política de Privacidad</span></a>
+      <a href="sobre/" id="footer_about">Sobre a Empresa</a>
+      <a href="apoie/" id="footer_support">Apoie</a>
+      <a href="patrocinadores/" id="footer_sponsors">Patrocinadores</a>
+      <a href="privacidade/" id="footer_privacy">Política de Privacidade</a>
     </div>
   </div>
 </footer>
@@ -393,18 +277,165 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// Sistema de idioma embutido no HTML
+// DICIONÁRIO DE TRADUÇÕES
+const translations = {
+  pt: {
+    nav_apps: "Apps", nav_services: "Serviços", nav_portfolio: "Portfólio", nav_contact: "Contacto",
+    hero_tagline: "Software com raízes angolanas", hero_btn_apps: "Ver aplicações", hero_btn_services: "Serviços",
+    stat_apps: "Aplicações", stat_offline: "Offline", stat_ads: "Anúncios", stat_made: "Feito em Angola",
+    apps_title: "As nossas aplicações", apps_subtitle: "Construímos software que resolve problemas reais em África — com foco em acessibilidade, privacidade e independência tecnológica.",
+    app_onara_desc: "Assistente de estudo offline para estudantes africanos. Corre modelos de IA localmente no telemóvel, sem internet, sem custos e sem tracking.",
+    app_jurisao_desc: "Aplicação de consulta jurídica offline sobre a legislação angolana. Pensada para estudantes de Direito, profissionais e cidadãos.",
+    app_muxima_desc: "Media player gratuito e sem anúncios, com modo DJ integrado. Toca todos os formatos de áudio com uma mesa de mixagem profissional.",
+    app_view: "Ver aplicação →", app_dev: "Em desenvolvimento",
+    services_title: "Serviços", services_subtitle: "Para além das aplicações gratuitas, a HamirStudios presta serviços digitais a empresas, instituições e particulares. Preços de lançamento — primeiros 5 clientes.",
+    srv_sites: "Criação de Sites", srv_landing: "Landing Page", srv_landing_desc: "Página única, directa e optimizada para telemóvel. Design personalizado. Ideal para captar contactos e lançar serviços.",
+    srv_website: "Website Institucional", srv_website_desc: "Vários separadores (Início, Serviços, Sobre, Contactos), design personalizado. 3 a 5 páginas.",
+    srv_chatbots: "Chatbots e Automação", srv_chat_simple: "Chatbot Simples (Guiado)", srv_chat_simple_desc: "Atendimento automático no site ou redes sociais, respostas pré-definidas, envio directo para WhatsApp.",
+    srv_chat_ia: "Chatbot com IA", srv_chat_ia_desc: "Atendimento inteligente e personalizado. Requer backend dedicado.",
+    srv_mobile: "Aplicações Mobile", srv_mobile_app: "App Mobile Simples", srv_mobile_desc: "Aplicação funcional e personalizada. Orçamento final conforme as funcionalidades pedidas.",
+    srv_support: "Manutenção e Suporte", srv_maintenance: "Manutenção mensal", srv_maintenance_desc: "Actualizações, cópias de segurança, pequenas alterações e suporte técnico contínuo.",
+    srv_hour: "Hora avulsa", srv_hour_desc: "Para alterações fora do âmbito inicial.",
+    srv_conditions: "Condições de Pagamento", srv_cond_1: "<strong>50%</strong> no início do projecto e <strong>50%</strong> na entrega.", srv_cond_2: "Domínio e alojamento cobrados à parte (ou incluídos no plano mensal).", srv_cond_3: "Inclui <strong>2 rondas de revisões</strong>; alterações extra pagam-se à hora.", srv_cond_4: "<strong>Orçamento gratuito e sem compromisso.</strong>",
+    srv_note: "Valores em kwanzas calculados ao câmbio oficial do BNA (1 € ≈ 1.100 Kz). O valor final é confirmado no dia do orçamento.",
+    srv_launch_badge: "🎁 Oferta de Lançamento", srv_launch_title: "Primeiros 5 clientes", srv_launch_1: "<strong>15% de desconto</strong> adicional em qualquer serviço de criação.", srv_launch_2: "<strong>3 meses de manutenção gratuita</strong> após a entrega.", srv_launch_3: "Em troca, pedimos apenas autorização para usar o projecto no portfólio e um pequeno testemunho.",
+    srv_btn_quote: "Pedir orçamento",
+    port_title: "Projetos Reais", port_subtitle: "Não fazemos apenas sites de demonstração. Construímos soluções que já estão a funcionar no mercado, resolvendo problemas reais de pessoas e negócios.",
+    port_tag: "Website Institucional", port_desc: "Plataforma de consultoria e apoio prático para mulheres. O site foi desenhado para transmitir confiança, autoridade e acolhimento, com uma estrutura clara de serviços e agendamento.",
+    port_tech: "Design Responsivo", port_btn: "Ver site ao vivo ↗", next_port: "O próximo projeto", next_port_desc: "Pode ser o teu. Vamos construir algo juntos?", next_port_btn: "Falar connosco",
+    about_role: "Fundador & Programador Fullstack", about_p1: "Construo tecnologia que funciona onde a internet não chega. Acredito que o software deve resolver problemas reais e servir as pessoas, independentemente do contexto em que vivem.",
+    about_p2: "Sou o criador do Onara.AI, JurisAO e Muxima Player — aplicações 100% offline, privadas e gratuitas. Com raízes em Luanda, a HamirStudios nasceu do desejo de provar que é possível criar tecnologia de nível internacional em Angola.",
+    about_p3_strong: "Além do código:", about_p3_text: "Sou baixista e fundador da Ovelha Negra, uma banda de rock alternativo. A música e a programação partilham a mesma essência: a busca pela expressão, o rigor da execução e a construção de algo que conecta as pessoas.",
+    support_title: "Apoie os nossos projectos", support_subtitle: "Todo o software da HamirStudios é gratuito e será sempre gratuito. Se quiseres apoiar o desenvolvimento, considera uma doação ou patrocínio.",
+    support_btn_donations: "Doações", support_btn_sponsors: "Patrocínios",
+    footer_founder: "Fundada por Yannick Matos", footer_slogan: "Software com raízes angolanas", footer_about: "Sobre a Empresa", footer_support: "Apoie", footer_sponsors: "Patrocinadores", footer_privacy: "Política de Privacidade"
+  },
+  en: {
+    nav_apps: "Apps", nav_services: "Services", nav_portfolio: "Portfolio", nav_contact: "Contact",
+    hero_tagline: "Software with Angolan roots", hero_btn_apps: "View apps", hero_btn_services: "Services",
+    stat_apps: "Apps", stat_offline: "Offline", stat_ads: "Ads", stat_made: "Made in Angola",
+    apps_title: "Our applications", apps_subtitle: "We build software that solves real problems in Africa — with a focus on accessibility, privacy and technological independence.",
+    app_onara_desc: "Offline study assistant for African students. Runs AI models locally on your phone, no internet, no costs and no tracking.",
+    app_jurisao_desc: "Offline legal consultation app on Angolan legislation. Designed for law students, professionals and citizens.",
+    app_muxima_desc: "Free ad-free media player with integrated DJ mode. Plays all audio formats with a professional mixing desk.",
+    app_view: "View app →", app_dev: "In development",
+    services_title: "Services", services_subtitle: "Beyond our free apps, HamirStudios provides digital services to companies, institutions and individuals. Launch prices — first 5 clients.",
+    srv_sites: "Website Creation", srv_landing: "Landing Page", srv_landing_desc: "Single, direct, mobile-optimized page. Custom design. Ideal for capturing contacts and launching services.",
+    srv_website: "Institutional Website", srv_website_desc: "Multiple tabs (Home, Services, About, Contacts), custom design. 3 to 5 pages.",
+    srv_chatbots: "Chatbots & Automation", srv_chat_simple: "Simple Chatbot (Guided)", srv_chat_simple_desc: "Automatic customer service on your website or social media, pre-defined answers, direct forwarding to WhatsApp.",
+    srv_chat_ia: "AI Chatbot", srv_chat_ia_desc: "Intelligent and personalized customer service. Requires dedicated backend.",
+    srv_mobile: "Mobile Applications", srv_mobile_app: "Simple Mobile App", srv_mobile_desc: "Functional and personalized application. Final quote according to requested features.",
+    srv_support: "Maintenance & Support", srv_maintenance: "Monthly maintenance", srv_maintenance_desc: "Updates, backups, minor changes and continuous technical support.",
+    srv_hour: "Hourly rate", srv_hour_desc: "For changes outside the initial scope.",
+    srv_conditions: "Payment Conditions", srv_cond_1: "<strong>50%</strong> at project start and <strong>50%</strong> on delivery.", srv_cond_2: "Domain and hosting charged separately (or included in monthly plan).", srv_cond_3: "Includes <strong>2 rounds of revisions</strong>; extra changes charged hourly.", srv_cond_4: "<strong>Free, no-obligation quote.</strong>",
+    srv_note: "Kwanza values calculated at official BNA exchange rate (1 € ≈ 1,100 Kz). Final value confirmed on quote date.",
+    srv_launch_badge: "🎁 Launch Offer", srv_launch_title: "First 5 clients", srv_launch_1: "<strong>15% extra discount</strong> on any creation service.", srv_launch_2: "<strong>3 months free maintenance</strong> after delivery.", srv_launch_3: "In return, we only ask permission to use the project in our portfolio and a small testimonial.",
+    srv_btn_quote: "Request quote",
+    port_title: "Real Projects", port_subtitle: "We don't just make demo sites. We build solutions that are already working in the market, solving real problems for people and businesses.",
+    port_tag: "Institutional Website", port_desc: "Consulting and practical support platform for women. The site was designed to convey trust, authority and warmth, with a clear structure of services and booking.",
+    port_tech: "Responsive Design", port_btn: "View live site ↗", next_port: "The next project", next_port_desc: "It could be yours. Let's build something together?", next_port_btn: "Talk to us",
+    about_role: "Founder & Fullstack Developer", about_p1: "I build technology that works where the internet doesn't reach. I believe software should solve real problems and serve people, regardless of their context.",
+    about_p2: "I'm the creator of Onara.AI, JurisAO and Muxima Player — 100% offline, private and free applications. Rooted in Luanda, HamirStudios was born from the desire to prove that world-class technology can be built in Angola.",
+    about_p3_strong: "Beyond code:", about_p3_text: "I'm a bassist and founder of Ovelha Negra, an alternative rock band. Music and programming share the same essence: the pursuit of expression, the rigor of execution, and building something that connects people.",
+    support_title: "Support our projects", support_subtitle: "All HamirStudios software is free and will always be free. If you want to support development, consider a donation or sponsorship.",
+    support_btn_donations: "Donations", support_btn_sponsors: "Sponsorships",
+    footer_founder: "Founded by Yannick Matos", footer_slogan: "Software with Angolan roots", footer_about: "About the Company", footer_support: "Support", footer_sponsors: "Sponsors", footer_privacy: "Privacy Policy"
+  },
+  fr: {
+    nav_apps: "Apps", nav_services: "Services", nav_portfolio: "Portfolio", nav_contact: "Contact",
+    hero_tagline: "Logiciel aux racines angolaises", hero_btn_apps: "Voir les apps", hero_btn_services: "Services",
+    stat_apps: "Apps", stat_offline: "Hors ligne", stat_ads: "Publicités", stat_made: "Fabriqué en Angola",
+    apps_title: "Nos applications", apps_subtitle: "Nous créons des logiciels qui résolvent de vrais problèmes en Afrique — en mettant l'accent sur l'accessibilité, la confidentialité et l'indépendance technologique.",
+    app_onara_desc: "Assistant d'étude hors ligne pour les étudiants africains. Exécute des modèles d'IA localement sur votre téléphone, sans internet, sans frais et sans suivi.",
+    app_jurisao_desc: "Application de consultation juridique hors ligne sur la législation angolaise. Conçue pour les étudiants en droit, les professionnels et les citoyens.",
+    app_muxima_desc: "Lecteur multimédia gratuit et sans publicité avec mode DJ intégré. Lit tous les formats audio avec une table de mixage professionnelle.",
+    app_view: "Voir l'app →", app_dev: "En développement",
+    services_title: "Services", services_subtitle: "Au-delà de nos applications gratuites, HamirStudios fournit des services numériques aux entreprises, institutions et particuliers. Prix de lancement — 5 premiers clients.",
+    srv_sites: "Création de Sites", srv_landing: "Landing Page", srv_landing_desc: "Page unique, directe et optimisée pour mobile. Design personnalisé. Idéal pour capturer des contacts et lancer des services.",
+    srv_website: "Site Institutionnel", srv_website_desc: "Plusieurs onglets (Accueil, Services, À propos, Contacts), design personnalisé. 3 à 5 pages.",
+    srv_chatbots: "Chatbots et Automatisation", srv_chat_simple: "Chatbot Simple (Guidé)", srv_chat_simple_desc: "Service client automatique sur votre site ou réseaux sociaux, réponses prédéfinies, transfert direct vers WhatsApp.",
+    srv_chat_ia: "Chatbot IA", srv_chat_ia_desc: "Service client intelligent et personnalisé. Nécessite un backend dédié.",
+    srv_mobile: "Applications Mobiles", srv_mobile_app: "Application Mobile Simple", srv_mobile_desc: "Application fonctionnelle et personnalisée. Devis final selon les fonctionnalités demandées.",
+    srv_support: "Maintenance et Support", srv_maintenance: "Maintenance mensuelle", srv_maintenance_desc: "Mises à jour, sauvegardes, modifications mineures et support technique continu.",
+    srv_hour: "Tarif horaire", srv_hour_desc: "Pour les modifications hors du cadre initial.",
+    srv_conditions: "Conditions de Paiement", srv_cond_1: "<strong>50%</strong> au début du projet et <strong>50%</strong> à la livraison.", srv_cond_2: "Domaine et hébergement facturés séparément (ou inclus dans le plan mensuel).", srv_cond_3: "Comprend <strong>2 cycles de révisions</strong> ; modifications supplémentaires facturées à l'heure.", srv_cond_4: "<strong>Devis gratuit et sans engagement.</strong>",
+    srv_note: "Valeurs en kwanza calculées au taux de change officiel de la BNA (1 € ≈ 1 100 Kz). La valeur finale est confirmée le jour du devis.",
+    srv_launch_badge: "🎁 Offre de Lancement", srv_launch_title: "5 premiers clients", srv_launch_1: "<strong>15% de réduction supplémentaire</strong> sur tout service de création.", srv_launch_2: "<strong>3 mois de maintenance gratuite</strong> après livraison.", srv_launch_3: "En échange, nous demandons seulement l'autorisation d'utiliser le projet dans notre portfolio et un petit témoignage.",
+    srv_btn_quote: "Demander un devis",
+    port_title: "Projets Réels", port_subtitle: "Nous ne faisons pas que des sites de démonstration. Nous construisons des solutions qui fonctionnent déjà sur le marché, résolvant de vrais problèmes pour les personnes et les entreprises.",
+    port_tag: "Site Institutionnel", port_desc: "Plateforme de conseil et de soutien pratique pour les femmes. Le site a été conçu pour transmettre confiance, autorité et chaleur, avec une structure claire de services et de réservation.",
+    port_tech: "Design Responsif", port_btn: "Voir le site en direct ↗", next_port: "Le prochain projet", next_port_desc: "Ça pourrait être le vôtre. Construisons quelque chose ensemble ?", next_port_btn: "Parlez-nous",
+    about_role: "Fondateur et Développeur Fullstack", about_p1: "Je construis de la technologie qui fonctionne là où Internet ne passe pas. Je crois que le logiciel doit résoudre de vrais problèmes et servir les gens, quel que soit leur contexte.",
+    about_p2: "Je suis le créateur d'Onara.AI, JurisAO et Muxima Player — des applications 100% hors ligne, privées et gratuites. Enraciné à Luanda, HamirStudios est né du désir de prouver qu'une technologie de classe mondiale peut être construite en Angola.",
+    about_p3_strong: "Au-delà du code :", about_p3_text: "Je suis bassiste et fondateur d'Ovelha Negra, un groupe de rock alternatif. La musique et la programmation partagent la même essence : la recherche de l'expression, la rigueur de l'exécution et la construction de quelque chose qui connecte les gens.",
+    support_title: "Soutenez nos projets", support_subtitle: "Tous les logiciels de HamirStudios sont gratuits et le resteront toujours. Si vous souhaitez soutenir le développement, envisagez un don ou un parrainage.",
+    support_btn_donations: "Dons", support_btn_sponsors: "Parrainages",
+    footer_founder: "Fondé par Yannick Matos", footer_slogan: "Logiciel aux racines angolaises", footer_about: "À propos de l'entreprise", footer_support: "Soutenir", footer_sponsors: "Sponsors", footer_privacy: "Politique de Confidentialité"
+  },
+  es: {
+    nav_apps: "Apps", nav_services: "Servicios", nav_portfolio: "Portafolio", nav_contact: "Contacto",
+    hero_tagline: "Software con raíces angoleñas", hero_btn_apps: "Ver apps", hero_btn_services: "Servicios",
+    stat_apps: "Apps", stat_offline: "Sin conexión", stat_ads: "Anuncios", stat_made: "Hecho en Angola",
+    apps_title: "Nuestras aplicaciones", apps_subtitle: "Creamos software que resuelve problemas reales en África — con un enfoque en accesibilidad, privacidad e independencia tecnológica.",
+    app_onara_desc: "Asistente de estudio sin conexión para estudiantes africanos. Ejecuta modelos de IA localmente en tu teléfono, sin internet, sin costos y sin seguimiento.",
+    app_jurisao_desc: "Aplicación de consulta jurídica sin conexión sobre la legislación angoleña. Diseñada para estudiantes de derecho, profesionales y ciudadanos.",
+    app_muxima_desc: "Reproductor multimedia gratuito y sin anuncios con modo DJ integrado. Reproduce todos los formatos de audio con una mesa de mezclas profesional.",
+    app_view: "Ver app →", app_dev: "En desarrollo",
+    services_title: "Servicios", services_subtitle: "Además de nuestras aplicaciones gratuitas, HamirStudios brinda servicios digitales a empresas, instituciones y particulares. Precios de lanzamiento — primeros 5 clientes.",
+    srv_sites: "Creación de Sitios", srv_landing: "Landing Page", srv_landing_desc: "Página única, directa y optimizada para móviles. Diseño personalizado. Ideal para captar contactos y lanzar servicios.",
+    srv_website: "Sitio Institucional", srv_website_desc: "Múltiples pestañas (Inicio, Servicios, Acerca de, Contactos), diseño personalizado. 3 a 5 páginas.",
+    srv_chatbots: "Chatbots y Automatización", srv_chat_simple: "Chatbot Simple (Guiado)", srv_chat_simple_desc: "Atención automática en su sitio web o redes sociales, respuestas predefinidas, reenvío directo a WhatsApp.",
+    srv_chat_ia: "Chatbot con IA", srv_chat_ia_desc: "Atención inteligente y personalizada. Requiere backend dedicado.",
+    srv_mobile: "Aplicaciones Móviles", srv_mobile_app: "App Móvil Simple", srv_mobile_desc: "Aplicación funcional y personalizada. Presupuesto final según las funcionalidades solicitadas.",
+    srv_support: "Mantenimiento y Soporte", srv_maintenance: "Mantenimiento mensual", srv_maintenance_desc: "Actualizaciones, copias de seguridad, cambios menores y soporte técnico continuo.",
+    srv_hour: "Tarifa por hora", srv_hour_desc: "Para cambios fuera del alcance inicial.",
+    srv_conditions: "Condiciones de Pago", srv_cond_1: "<strong>50%</strong> al inicio del proyecto y <strong>50%</strong> a la entrega.", srv_cond_2: "Dominio y alojamiento cobrados por separado (o incluidos en el plan mensual).", srv_cond_3: "Incluye <strong>2 rondas de revisiones</strong>; cambios extra cobrados por hora.", srv_cond_4: "<strong>Presupuesto gratuito y sin compromiso.</strong>",
+    srv_note: "Valores en kwanza calculados al tipo de cambio oficial del BNA (1 € ≈ 1.100 Kz). El valor final se confirma el día del presupuesto.",
+    srv_launch_badge: "🎁 Oferta de Lanzamiento", srv_launch_title: "Primeros 5 clientes", srv_launch_1: "<strong>15% de descuento adicional</strong> en cualquier servicio de creación.", srv_launch_2: "<strong>3 meses de mantenimiento gratuito</strong> tras la entrega.", srv_launch_3: "A cambio, solo pedimos permiso para usar el proyecto en nuestro portafolio y un pequeño testimonio.",
+    srv_btn_quote: "Solicitar presupuesto",
+    port_title: "Proyectos Reales", port_subtitle: "No solo hacemos sitios de demostración. Construimos soluciones que ya están funcionando en el mercado, resolviendo problemas reales para personas y empresas.",
+    port_tag: "Sitio Institucional", port_desc: "Plataforma de consultoría y apoyo práctico para mujeres. El sitio fue diseñado para transmitir confianza, autoridad y calidez, con una estructura clara de servicios y reservas.",
+    port_tech: "Diseño Responsivo", port_btn: "Ver sitio en vivo ↗", next_port: "El próximo proyecto", next_port_desc: "Podría ser el tuyo. ¿Construimos algo juntos?", next_port_btn: "Habla con nosotros",
+    about_role: "Fundador y Desarrollador Fullstack", about_p1: "Construyo tecnología que funciona donde internet no llega. Creo que el software debe resolver problemas reales y servir a las personas, independientemente de su contexto.",
+    about_p2: "Soy el creador de Onara.AI, JurisAO y Muxima Player — aplicaciones 100% sin conexión, privadas y gratuitas. Con raíces en Luanda, HamirStudios nació del deseo de demostrar que se puede construir tecnología de clase mundial en Angola.",
+    about_p3_strong: "Más allá del código:", about_p3_text: "Soy bajista y fundador de Ovelha Negra, una banda de rock alternativo. La música y la programación comparten la misma esencia: la búsqueda de la expresión, el rigor de la ejecución y la construcción de algo que conecta a las personas.",
+    support_title: "Apoya nuestros proyectos", support_subtitle: "Todo el software de HamirStudios es gratuito y siempre lo será. Si quieres apoyar el desarrollo, considera una donación o patrocinio.",
+    support_btn_donations: "Donaciones", support_btn_sponsors: "Patrocinios",
+    footer_founder: "Fundado por Yannick Matos", footer_slogan: "Software con raíces angoleñas", footer_about: "Sobre la Empresa", footer_support: "Apoyar", footer_sponsors: "Patrocinadores", footer_privacy: "Política de Privacidad"
+  }
+};
+
 function changeLang(lang) {
-  document.documentElement.lang = lang;
   localStorage.setItem('preferredLang', lang);
+  const t = translations[lang];
+  if (!t) return;
+
+  // Alterar o idioma do HTML
+  document.documentElement.lang = lang;
+
+  // Percorrer todas as chaves e substituir o texto
+  for (const id in t) {
+    const el = document.getElementById(id);
+    if (el) {
+      if (id === 'nav_apps') {
+        // O botão Apps tem o arrow, então tratamos à parte
+        el.innerHTML = `${t[id]} <span class="arrow">▼</span>`;
+      } else {
+        el.innerHTML = t[id];
+      }
+    }
+  }
+
+  // Atualizar o seletor visual
+  const select = document.getElementById('langSelect');
+  if (select) select.value = lang;
 }
+
 document.addEventListener('DOMContentLoaded', () => {
   let savedLang = localStorage.getItem('preferredLang');
   let browserLang = navigator.language.slice(0, 2);
   let langToLoad = savedLang || (['pt', 'en', 'fr', 'es'].includes(browserLang) ? browserLang : 'pt');
-  document.documentElement.lang = langToLoad;
-  const selector = document.querySelector('.lang-selector');
-  if (selector) selector.value = langToLoad;
+  changeLang(langToLoad);
 });
 </script>
 
