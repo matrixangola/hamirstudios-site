@@ -49,7 +49,6 @@
   </div>
 </section>
 
-<!-- SECÇÃO MULTICAIXA EXPRESS -->
 <section class="section">
   <div class="container" style="text-align: center;">
     <div class="card reveal" style="max-width: 600px; margin: 0 auto; padding: 40px;">
@@ -120,7 +119,6 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// DICIONÁRIO DE TRADUÇÕES
 const translations = {
   pt: {
     nav_apps: "Apps", nav_services: "Serviços", nav_portfolio: "Portfólio", nav_contact: "Apoie",
@@ -164,11 +162,8 @@ function changeLang(lang) {
   for (const id in t) {
     const el = document.getElementById(id);
     if (el) {
-      if (id === 'nav_apps') {
-        el.innerHTML = `${t[id]} <span class="arrow">▼</span>`;
-      } else {
-        el.innerHTML = t[id];
-      }
+      if (id === 'nav_apps') { el.innerHTML = `${t[id]} <span class="arrow">▼</span>`; }
+      else { el.innerHTML = t[id]; }
     }
   }
   const select = document.getElementById('langSelect');
