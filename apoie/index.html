@@ -4,16 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apoie — HamirStudios</title>
-  <meta name="description" content="Apoie os projectos da HamirStudios. Transfira via Multicaixa Express ou IBAN.">
-  <link rel="icon" href="../assets/logoonara.png">
+  <link rel="icon" href="../assets/logo-hamir.jpeg">
   <link rel="stylesheet" href="../style.css">
-      <style>
-    .lang-selector { background: var(--dark-2); color: var(--text-muted); border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; font-size: 14px; font-weight: 500; cursor: pointer; outline: none; font-family: inherit; transition: border-color 0.2s; margin-left: 15px; }
-    .lang-selector:hover, .lang-selector:focus { border-color: var(--red); color: var(--white); }
-    .goog-te-banner-frame { display: none !important; }
-    body { top: 0 !important; }
-    #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
-    .goog-text-highlight { background: none !important; box-shadow: none !important; }
+  <style>
+    .lang-selector { background: var(--dark-2); color: var(--text-muted); border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; font-size: 14px; font-weight: 500; cursor: pointer; outline: none; font-family: inherit; margin-left: 15px; }
+    .lang-selector:hover { border-color: var(--red); color: var(--white); }
   </style>
 </head>
 <body>
@@ -26,20 +21,18 @@
     </a>
     <nav class="site-nav">
       <div class="nav-dropdown">
-        <button class="nav-dropdown-toggle" onclick="toggleDropdown(event)">
-          Apps <span class="arrow">▼</span>
-        </button>
+        <button class="nav-dropdown-toggle" onclick="toggleDropdown(event)">Apps <span class="arrow">▼</span></button>
         <div class="nav-dropdown-menu">
-          <a href="../onara-ai/">Onara.AI <span class="status live">Publicado</span></a>
-          <a href="../jurisao/">JurisAO <span class="status">Em dev</span></a>
-          <a href="../muxima-player/">Muxima Player <span class="status">Em dev</span></a>
+          <a href="../onara-ai/">Onara.AI</a>
+          <a href="../jurisao/">JurisAO</a>
+          <a href="../muxima-player/">Muxima Player</a>
         </div>
       </div>
-      <a href="../index.html#servicos">Serviços</a>
-      <a href="../index.html#portfolio">Portfólio</a>
-      <a href="index.html">Apoie</a>
-          <select class="lang-selector" onchange="doGTranslate(this.value);">
-        <option value="">🌐 Idioma</option>
+      <a href="../index.html#servicos" id="nav_services">Serviços</a>
+      <a href="../index.html#portfolio" id="nav_portfolio">Portfólio</a>
+      <a href="index.html" class="active" id="nav_contact">Apoie</a>
+      
+      <select class="lang-selector" id="langSelect" onchange="changeLang(this.value)">
         <option value="pt">🇵🇹 PT</option>
         <option value="en">🇬🇧 EN</option>
         <option value="fr">🇫🇷 FR</option>
@@ -49,152 +42,40 @@
   </div>
 </header>
 
-<section class="hero">
-  <img src="../assets/logoonara.png" class="watermark" alt="">
+<section class="hero" style="padding: 80px 0 60px;">
   <div class="container hero-content">
-    <h1>Apoie os nossos projectos</h1>
-    <p class="tagline">Todo o software da HamirStudios é gratuito — e será sempre</p>
+    <h1 id="apoie_title">Apoie os nossos projectos</h1>
+    <p class="tagline" id="apoie_subtitle">Todo o software da HamirStudios é gratuito e será sempre gratuito. Se quiseres apoiar o desenvolvimento, considera uma doação ou patrocínio.</p>
   </div>
 </section>
 
+<!-- SECÇÃO MULTICAIXA EXPRESS -->
 <section class="section">
-  <div class="container">
-    <h2 class="section-title reveal">Porquê doar?</h2>
-    <p class="section-subtitle reveal">
-      O Onara.AI, o JurisAO e o Muxima Player são desenvolvidos de forma independente, sem financiamento externo. Não temos anúncios, não cobramos subscrições, não vendemos dados.
-    </p>
-    <p class="section-subtitle reveal">
-      Se o nosso trabalho te tem ajudado a estudar, a aprender ou a resolver problemas, podes contribuir com uma transferência. Cada contribuição ajuda a manter os projectos vivos e a criar novos.
-    </p>
-  </div>
-</section>
-
-<section class="section section-alt">
-  <div class="container">
-    <h2 class="section-title reveal">Multicaixa Express</h2>
-    <p class="section-subtitle reveal">
-      A forma mais rápida de doar em Angola. Transfere pelo teu banco para o número abaixo:
-    </p>
-
-    <div class="reveal" style="max-width: 500px; margin: 0 auto 40px;">
-      <div class="iban-card" style="text-align: center; padding: 32px;">
-        <div style="display: flex; justify-content: center; margin-bottom: 20px;">
-          <div style="width: 72px; height: 72px; border-radius: 50%; background: var(--red); display: flex; align-items: center; justify-content: center;">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-              <line x1="12" y1="18" x2="12.01" y2="18"></line>
-            </svg>
-          </div>
-        </div>
-
-        <div style="font-size: 13px; letter-spacing: 1.5px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 12px;">
-          Número para transferência
-        </div>
-
-        <div class="iban-code" id="multicaixa-num" style="font-size: 26px; font-weight: 700; font-family: 'Courier New', monospace; letter-spacing: 2px; padding: 16px; margin-bottom: 16px;">
-          931 291 602
-        </div>
-
-        <div class="holder" style="margin-bottom: 20px;">
-          Titular: Yannick Hamir Branco Pereira de Matos
-        </div>
-
-        <button class="copy-btn" onclick="copyMulticaixa(this)" style="font-size: 15px; padding: 14px;">
-          Copiar número
-        </button>
+  <div class="container" style="text-align: center;">
+    <div class="card reveal" style="max-width: 600px; margin: 0 auto; padding: 40px;">
+      <div class="card-icon" style="background: var(--dark-3); display:flex; align-items:center; justify-content:center; font-size:40px; margin: 0 auto 20px auto;">📱</div>
+      <h3 id="mcx_title" style="font-size: 24px; margin-bottom: 12px;">Multicaixa Express</h3>
+      <p id="mcx_desc" style="color: var(--text-muted); margin-bottom: 24px;">A forma mais rápida e directa de apoiar o desenvolvimento das nossas aplicações.</p>
+      
+      <div style="background: var(--black); padding: 16px; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 24px;">
+        <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 8px;" id="mcx_number_label">Número de Telefone</p>
+        <p style="font-size: 24px; font-weight: 700; color: var(--white); font-family: monospace;">923 120 120</p>
       </div>
+
+      <p id="mcx_holder" style="font-size: 13px; color: var(--text-muted); margin-bottom: 24px;">Yannick Hamir Branco Pereira de Matos</p>
+      
+      <a href="../patrocinadores/" class="btn btn-primary" style="width: 100%;" id="apoie_btn">Ir para Patrocinadores</a>
     </div>
-
-    <div class="info-box reveal" style="max-width: 640px; margin: 0 auto;">
-      <h3>Como doar via Multicaixa Express</h3>
-      <ol style="color: var(--text-muted); line-height: 2.2; padding-left: 24px; margin-bottom: 0;">
-        <li>Abre a app <strong>Multicaixa Express</strong> no teu telemóvel</li>
-        <li>Escolhe <strong>"Transferência"</strong> ou <strong>"Enviar dinheiro"</strong></li>
-        <li>Insere o número <strong>931 291 602</strong></li>
-        <li>Confirma o nome do titular: <strong>Yannick H. B. P. de Matos</strong></li>
-        <li>Introduz o valor que queres doar</li>
-        <li>Confirma com o teu PIN</li>
-      </ol>
-    </div>
-
-    <div class="reveal" style="max-width: 640px; margin: 24px auto 0; padding: 16px; border-radius: 12px; background: rgba(245, 166, 35, 0.1); border: 1px solid rgba(245, 166, 35, 0.3);">
-      <div style="display: flex; align-items: flex-start; gap: 12px;">
-        <span style="font-size: 20px;">⚠️</span>
-        <div>
-          <strong style="color: #F5A623; display: block; margin-bottom: 6px;">Aviso de segurança</strong>
-          <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin: 0;">
-            A HamirStudios <strong>nunca</strong> te vai pedir o PIN do Multicaixa Express, códigos de verificação por SMS, ou qualquer dado sensível por telefone, email ou redes sociais. Se receberes esse tipo de pedido, é burla. Confirma sempre o nome do titular <strong>antes</strong> de confirmar a transferência.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <h2 class="section-title reveal">Transferência bancária</h2>
-    <p class="section-subtitle reveal">
-      Se preferires transferência bancária tradicional, podes usar uma das contas abaixo. Todas as contas estão em nome de <strong>Yannick Hamir Branco Pereira de Matos</strong>.
-    </p>
-
-    <div class="card-grid">
-      <div class="iban-card reveal">
-        <div class="bank-name">Banco Angolano de Investimentos (BAI)</div>
-        <div class="iban-code" id="iban-bai">AO06 0040 0000 9017 3536 1017 7</div>
-        <div class="holder">Titular: Yannick Hamir Branco Pereira de Matos</div>
-        <button class="copy-btn" onclick="copyIban('iban-bai', this)">Copiar IBAN</button>
-      </div>
-
-      <div class="iban-card reveal">
-        <div class="bank-name">Banco de Fomento Angola (BFA)</div>
-        <div class="iban-code" id="iban-bfa">AO06 0006 0000 3548 1831 3018 3</div>
-        <div class="holder">Titular: Yannick Hamir Branco Pereira de Matos</div>
-        <button class="copy-btn" onclick="copyIban('iban-bfa', this)">Copiar IBAN</button>
-      </div>
-
-      <div class="iban-card reveal">
-        <div class="bank-name">Banco BIC</div>
-        <div class="iban-code" id="iban-bic">AO06 0051 0000 5283 4421 1419 1</div>
-        <div class="holder">Titular: Yannick Hamir Branco Pereira de Matos</div>
-        <button class="copy-btn" onclick="copyIban('iban-bic', this)">Copiar IBAN</button>
-      </div>
-
-      <div class="iban-card reveal">
-        <div class="bank-name">Banco Atlântico (ATL)</div>
-        <div class="iban-code" id="iban-atl">AO06 0055 0000 3391 5465 1011 2</div>
-        <div class="holder">Titular: Yannick Hamir Branco Pereira de Matos</div>
-        <button class="copy-btn" onclick="copyIban('iban-atl', this)">Copiar IBAN</button>
-      </div>
-    </div>
-
-    <p class="reveal" style="margin-top: 32px; font-size: 13px; color: var(--text-muted); font-style: italic;">
-      Nota: se estiveres em Angola, podes usar apenas os 21 dígitos após o prefixo <strong>AO06</strong>. Se estiveres no estrangeiro, usa o IBAN completo.
-    </p>
   </div>
 </section>
 
 <section class="section section-alt">
   <div class="container" style="text-align: center;">
-    <h2 class="section-title reveal">Empresas e instituições</h2>
-    <p class="section-subtitle reveal" style="margin: 0 auto 40px;">
-      Se representas uma empresa ou instituição interessada em patrocinar os projectos da HamirStudios, visita a página dedicada.
+    <h2 class="section-title reveal" id="obrigado_title">Obrigado</h2>
+    <p style="margin-bottom: 32px; color: var(--text-muted); max-width: 600px; margin-left: auto; margin-right: auto;" id="obrigado_desc">
+      Cada doação, grande ou pequena, faz uma diferença real. Obrigado por acreditares em tecnologia independente feita em Angola.
     </p>
-    <div class="reveal">
-      <a href="../patrocinadores/" class="btn btn-primary">Ir para Patrocinadores</a>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container" style="text-align: center;">
-    <h2 class="section-title reveal">Obrigado</h2>
-    <p class="section-subtitle reveal" style="margin: 0 auto 40px;">
-      Cada doação, grande ou pequena, faz uma diferença real. Obrigado por acreditares em tecnologia independente feita em Angola. 🇦🇴
-    </p>
-    <div class="reveal">
-      <a href="../contacto/" class="btn btn-secondary">Contactar a HamirStudios</a>
-    </div>
+    <a href="../contacto/" class="btn btn-secondary" id="contact_btn">Contactar a HamirStudios</a>
   </div>
 </section>
 
@@ -202,8 +83,8 @@
   <div class="container">
     <img src="../assets/logo-hamir.jpeg" class="footer-logo" alt="HamirStudios">
     <p class="footer-text">© 2026 HamirStudios · Luanda, Angola 🇦🇴</p>
-    <p class="footer-text">Fundada por Yannick Hamir Branco Pereira de Matos</p>
-    <p class="footer-slogan">Software com raízes angolanas</p>
+    <p class="footer-text" id="footer_founder">Fundada por Yannick Matos</p>
+    <p class="footer-slogan" id="footer_slogan">Software com raízes angolanas</p>
     <div class="footer-social">
       <a href="https://linkedin.com/in/yannickmatos" target="_blank" rel="noopener">💼 LinkedIn</a>
       <a href="https://github.com/matrixangola" target="_blank" rel="noopener">💻 GitHub</a>
@@ -211,71 +92,96 @@
       <a href="mailto:yannickmatos.ym@gmail.com">✉️ Email</a>
     </div>
     <div class="footer-links">
-      <a href="../sobre/">Sobre a Empresa</a>
-      <a href="../apoie/">Apoie</a>
-      <a href="../patrocinadores/">Patrocinadores</a>
-      <a href="../privacidade/">Política de Privacidade</a>
+      <a href="../sobre/" id="footer_about">Sobre a Empresa</a>
+      <a href="index.html" class="active" id="footer_support">Apoie</a>
+      <a href="../patrocinadores/" id="footer_sponsors">Patrocinadores</a>
+      <a href="../privacidade/" id="footer_privacy">Política de Privacidade</a>
     </div>
   </div>
 </footer>
 
 <script>
-function copyIban(id, btn) {
-  const el = document.getElementById(id);
-  const text = el.innerText.replace(/\s/g, '');
-  navigator.clipboard.writeText(text).then(() => {
-    const original = btn.innerText;
-    btn.innerText = '✓ Copiado';
-    btn.classList.add('copied');
-    setTimeout(() => {
-      btn.innerText = original;
-      btn.classList.remove('copied');
-    }, 2000);
-  }).catch(() => {
-    const range = document.createRange();
-    range.selectNode(el);
-    window.getSelection().removeAllRanges();
-    window.getSelection().addRange(range);
-    document.execCommand('copy');
-    btn.innerText = '✓ Copiado';
-    setTimeout(() => { btn.innerText = 'Copiar IBAN'; }, 2000);
-  });
+function toggleDropdown(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  const dropdown = event.currentTarget.closest('.nav-dropdown');
+  if (dropdown) dropdown.classList.toggle('open');
+}
+document.addEventListener('click', () => {
+  document.querySelectorAll('.nav-dropdown.open').forEach(d => d.classList.remove('open'));
+});
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('header');
+  if (window.scrollY > 50) header.classList.add('scrolled');
+  else header.classList.remove('scrolled');
+});
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// DICIONÁRIO DE TRADUÇÕES
+const translations = {
+  pt: {
+    nav_apps: "Apps", nav_services: "Serviços", nav_portfolio: "Portfólio", nav_contact: "Apoie",
+    apoie_title: "Apoie os nossos projectos", apoie_subtitle: "Todo o software da HamirStudios é gratuito e será sempre gratuito. Se quiseres apoiar o desenvolvimento, considera uma doação ou patrocínio.",
+    mcx_title: "Multicaixa Express", mcx_desc: "A forma mais rápida e directa de apoiar o desenvolvimento das nossas aplicações.",
+    mcx_number_label: "Número de Telefone", mcx_holder: "Yannick Hamir Branco Pereira de Matos", apoie_btn: "Ir para Patrocinadores",
+    obrigado_title: "Obrigado", obrigado_desc: "Cada doação, grande ou pequena, faz uma diferença real. Obrigado por acreditares em tecnologia independente feita em Angola.", contact_btn: "Contactar a HamirStudios",
+    footer_founder: "Fundada por Yannick Matos", footer_slogan: "Software com raízes angolanas", footer_about: "Sobre a Empresa", footer_support: "Apoie", footer_sponsors: "Patrocinadores", footer_privacy: "Política de Privacidade"
+  },
+  en: {
+    nav_apps: "Apps", nav_services: "Services", nav_portfolio: "Portfolio", nav_contact: "Support",
+    apoie_title: "Support our projects", apoie_subtitle: "All HamirStudios software is free and will always be free. If you want to support development, consider a donation or sponsorship.",
+    mcx_title: "Multicaixa Express", mcx_desc: "The fastest and most direct way to support the development of our applications.",
+    mcx_number_label: "Phone Number", mcx_holder: "Yannick Hamir Branco Pereira de Matos", apoie_btn: "Go to Sponsors",
+    obrigado_title: "Thank you", obrigado_desc: "Every donation, big or small, makes a real difference. Thank you for believing in independent technology made in Angola.", contact_btn: "Contact HamirStudios",
+    footer_founder: "Founded by Yannick Matos", footer_slogan: "Software with Angolan roots", footer_about: "About the Company", footer_support: "Support", footer_sponsors: "Sponsors", footer_privacy: "Privacy Policy"
+  },
+  fr: {
+    nav_apps: "Apps", nav_services: "Services", nav_portfolio: "Portfolio", nav_contact: "Soutenir",
+    apoie_title: "Soutenez nos projets", apoie_subtitle: "Tous les logiciels de HamirStudios sont gratuits et le resteront toujours. Si vous souhaitez soutenir le développement, envisagez un don ou un parrainage.",
+    mcx_title: "Multicaixa Express", mcx_desc: "Le moyen le plus rapide et le plus direct de soutenir le développement de nos applications.",
+    mcx_number_label: "Numéro de téléphone", mcx_holder: "Yannick Hamir Branco Pereira de Matos", apoie_btn: "Aller aux Sponsors",
+    obrigado_title: "Merci", obrigado_desc: "Chaque don, petit ou grand, fait une vraie différence. Merci de croire en une technologie indépendante fabriquée en Angola.", contact_btn: "Contacter HamirStudios",
+    footer_founder: "Fondé par Yannick Matos", footer_slogan: "Logiciel aux racines angolaises", footer_about: "À propos de l'entreprise", footer_support: "Soutenir", footer_sponsors: "Sponsors", footer_privacy: "Politique de Confidentialité"
+  },
+  es: {
+    nav_apps: "Apps", nav_services: "Servicios", nav_portfolio: "Portafolio", nav_contact: "Apoyar",
+    apoie_title: "Apoya nuestros proyectos", apoie_subtitle: "Todo el software de HamirStudios es gratuito y siempre lo será. Si quieres apoyar el desarrollo, considera una donación o patrocinio.",
+    mcx_title: "Multicaixa Express", mcx_desc: "La forma más rápida y directa de apoyar el desarrollo de nuestras aplicaciones.",
+    mcx_number_label: "Número de Teléfono", mcx_holder: "Yannick Hamir Branco Pereira de Matos", apoie_btn: "Ir a Patrocinadores",
+    obrigado_title: "Gracias", obrigado_desc: "Cada donación, grande o pequeña, marca una diferencia real. Gracias por creer en la tecnología independiente hecha en Angola.", contact_btn: "Contactar a HamirStudios",
+    footer_founder: "Fundado por Yannick Matos", footer_slogan: "Software con raíces angoleñas", footer_about: "Sobre la Empresa", footer_support: "Apoyar", footer_sponsors: "Patrocinadores", footer_privacy: "Política de Privacidad"
+  }
+};
+
+function changeLang(lang) {
+  localStorage.setItem('preferredLang', lang);
+  const t = translations[lang];
+  if (!t) return;
+  document.documentElement.lang = lang;
+  for (const id in t) {
+    const el = document.getElementById(id);
+    if (el) {
+      if (id === 'nav_apps') {
+        el.innerHTML = `${t[id]} <span class="arrow">▼</span>`;
+      } else {
+        el.innerHTML = t[id];
+      }
+    }
+  }
+  const select = document.getElementById('langSelect');
+  if (select) select.value = lang;
 }
 
-function copyMulticaixa(btn) {
-  const el = document.getElementById('multicaixa-num');
-  const text = el.innerText.replace(/\s/g, '');
-  navigator.clipboard.writeText(text).then(() => {
-    const original = btn.innerText;
-    btn.innerText = '✓ Copiado';
-    btn.classList.add('copied');
-    setTimeout(() => {
-      btn.innerText = original;
-      btn.classList.remove('copied');
-    }, 2000);
-  }).catch(() => {
-    const range = document.createRange();
-    range.selectNode(el);
-    window.getSelection().removeAllRanges();
-    window.getSelection().addRange(range);
-    document.execCommand('copy');
-    btn.innerText = '✓ Copiado';
-    setTimeout(() => { btn.innerText = 'Copiar número'; }, 2000);
-  });
-}
+document.addEventListener('DOMContentLoaded', () => {
+  let savedLang = localStorage.getItem('preferredLang');
+  let browserLang = navigator.language.slice(0, 2);
+  let langToLoad = savedLang || (['pt', 'en', 'fr', 'es'].includes(browserLang) ? browserLang : 'pt');
+  changeLang(langToLoad);
+});
 </script>
-<script src="../toggleDropdown.js"></script>
 
-<script type="text/javascript">
-function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'pt', autoDisplay: false}, 'google_translate_element'); }
-function doGTranslate(lang_pair) {
-  if(lang_pair == 'pt' || lang_pair == '') { document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + location.hostname; location.reload(); return; }
-  var teCombo; var sel = document.getElementsByTagName('select');
-  for(var i = 0; i < sel.length; i++) if(sel[i].className == 'goog-te-combo') teCombo = sel[i];
-  if(document.getElementById('google_translate_element') == null ) return;
-  if(document.getElementById('google_translate_element').innerHTML.length == 0 || teCombo.length == 0 || teCombo.innerHTML.length == 0) { setTimeout(function(){doGTranslate(lang_pair)},500) } else { teCombo.value = lang_pair; if(document.createEvent) { var evt = document.createEvent("HTMLEvents"); evt.initEvent("change", true, true); teCombo.dispatchEvent(evt); } else { teCombo.fireEvent("onchange"); } }
-}
-document.addEventListener('DOMContentLoaded', () => { var div = document.createElement('div'); div.id = 'google_translate_element'; div.style.display = 'none'; document.body.appendChild(div); var script = document.createElement('script'); script.type = 'text/javascript'; script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'; document.body.appendChild(script); });
-</script>
 </body>
 </html>
