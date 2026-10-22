@@ -4,14 +4,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HamirStudios — Software com raízes angolanas</title>
-  <link rel="icon" href="assets/logoonara.png">
+  <link rel="icon" href="assets/logo-hamir.jpeg">
   <link rel="stylesheet" href="style.css">
   <style>
     .lang-selector { background: var(--dark-2); color: var(--text-muted); border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; font-size: 14px; font-weight: 500; cursor: pointer; outline: none; font-family: inherit; margin-left: 15px; }
     .lang-selector:hover { border-color: var(--red); color: var(--white); }
   </style>
+
+  <style>
+    #splash-screen {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-color: #0A0A0A;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+    #splash-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .splash-logo {
+      width: 180px; /* Aumentado de 120px para 180px */
+      max-width: 60vw; /* Para não quebrar no telemóvel */
+      border-radius: 24px;
+      box-shadow: 0 0 80px rgba(227, 6, 19, 0.5); /* Brilho ligeiramente maior */
+      animation: pulse-logo 1.5s infinite alternate;
+    }
+    .splash-text {
+      margin-top: 32px;
+      color: #E8E8E8;
+      font-size: 28px; /* Ligeiramente maior */
+      font-weight: 700;
+      letter-spacing: 2px;
+      animation: fade-in 1s ease-in;
+    }
+    @keyframes pulse-logo {
+      0% { transform: scale(1); box-shadow: 0 0 40px rgba(227, 6, 19, 0.2); }
+      100% { transform: scale(1.05); box-shadow: 0 0 100px rgba(227, 6, 19, 0.7); }
+    }
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
+<div id="splash-screen">
+  <img src="assets/logo-hamir.jpeg" class="splash-logo" alt="HamirStudios">
+  <div class="splash-text">HamirStudios</div>
+</div>
+
 
 <header class="site-header" id="header">
   <div class="container">
@@ -439,5 +485,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const splash = document.getElementById('splash-screen');
+      if (splash) {
+        splash.classList.add('hidden');
+      }
+    }, 2000); // 2 segundos
+  });
+</script>
 </body>
 </html>
