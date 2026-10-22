@@ -8,7 +8,6 @@
   <link rel="icon" href="assets/logoonara.png">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Estilos específicos para o seletor de idioma */
     .lang-selector {
       background: var(--dark-2);
       color: var(--text-muted);
@@ -21,19 +20,12 @@
       outline: none;
       font-family: inherit;
       transition: border-color 0.2s;
+      margin-left: 15px;
     }
     .lang-selector:hover, .lang-selector:focus {
       border-color: var(--red);
       color: var(--white);
     }
-  </style>
-  <style>
-    .lang-selector { background: var(--dark-2); color: var(--text-muted); border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; font-size: 14px; font-weight: 500; cursor: pointer; outline: none; font-family: inherit; transition: border-color 0.2s; margin-left: 15px; }
-    .lang-selector:hover, .lang-selector:focus { border-color: var(--red); color: var(--white); }
-    .goog-te-banner-frame { display: none !important; }
-    body { top: 0 !important; }
-    #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
-    .goog-text-highlight { background: none !important; box-shadow: none !important; }
   </style>
 </head>
 <body>
@@ -47,22 +39,19 @@
     <nav class="site-nav">
       <div class="nav-dropdown">
         <button class="nav-dropdown-toggle" onclick="toggleDropdown(event)">
-          <span>Apps</span> <span class="arrow">▼</span>
+          <span data-i18n="nav_apps">Apps</span> <span class="arrow">▼</span>
         </button>
         <div class="nav-dropdown-menu">
-          <a href="onara-ai/">Onara.AI <span class="status live">Publicado</span></a>
-          <a href="jurisao/">JurisAO <span class="status">Em dev</span></a>
-          <a href="muxima-player/">Muxima Player <span class="status">Em dev</span></a>
+          <a href="onara-ai/">Onara.AI</a>
+          <a href="jurisao/">JurisAO</a>
+          <a href="muxima-player/">Muxima Player</a>
         </div>
       </div>
-      <a href="#servicos">Serviços</a>
-      <a href="#portfolio">Portfólio</a>
-      <a href="contacto/">Contacto</a>
+      <a href="#servicos" data-i18n="nav_services">Serviços</a>
+      <a href="#portfolio" data-i18n="nav_portfolio">Portfólio</a>
+      <a href="contacto/" data-i18n="nav_contact">Contacto</a>
       
-      
-      
-          <select class="lang-selector" onchange="doGTranslate(this.value);">
-        <option value="">🌐 Idioma</option>
+      <select class="lang-selector" onchange="changeLanguage(this.value)">
         <option value="pt">🇵🇹 PT</option>
         <option value="en">🇬🇧 EN</option>
         <option value="fr">🇫🇷 FR</option>
@@ -77,10 +66,10 @@
   <div class="container hero-content">
     <img src="assets/logo-hamir.jpeg" class="hero-logo" alt="HamirStudios">
     <h1>HamirStudios</h1>
-    <p class="tagline">Software com raízes angolanas</p>
+    <p class="tagline" data-i18n="hero_tagline">Software com raízes angolanas</p>
     <div class="cta-buttons">
-      <a href="#apps" class="btn btn-primary">Ver aplicações</a>
-      <a href="#servicos" class="btn btn-secondary">Serviços</a>
+      <a href="#apps" class="btn btn-primary" data-i18n="hero_btn_apps">Ver aplicações</a>
+      <a href="#servicos" class="btn btn-secondary" data-i18n="hero_btn_services">Serviços</a>
     </div>
   </div>
 </section>
@@ -88,38 +77,38 @@
 <section class="section">
   <div class="container">
     <div class="stats reveal">
-      <div class="stat"><div class="stat-value">3</div><div class="stat-label">Aplicações</div></div>
-      <div class="stat"><div class="stat-value">100%</div><div class="stat-label">Offline</div></div>
-      <div class="stat"><div class="stat-value">0</div><div class="stat-label">Anúncios</div></div>
-      <div class="stat"><div class="stat-value">🇦🇴</div><div class="stat-label">Feito em Angola</div></div>
+      <div class="stat"><div class="stat-value">3</div><div class="stat-label" data-i18n="stats_apps">Aplicações</div></div>
+      <div class="stat"><div class="stat-value">100%</div><div class="stat-label" data-i18n="stats_offline">Offline</div></div>
+      <div class="stat"><div class="stat-value">0</div><div class="stat-label" data-i18n="stats_ads">Anúncios</div></div>
+      <div class="stat"><div class="stat-value">🇦🇴</div><div class="stat-label" data-i18n="stats_made">Feito em Angola</div></div>
     </div>
   </div>
 </section>
 
 <section class="section section-alt" id="apps">
   <div class="container">
-    <h2 class="section-title reveal">As nossas aplicações</h2>
-    <p class="section-subtitle reveal">Construímos software que resolve problemas reais em África — com foco em acessibilidade, privacidade e independência tecnológica.</p>
+    <h2 class="section-title reveal" data-i18n="apps_title">As nossas aplicações</h2>
+    <p class="section-subtitle reveal" data-i18n="apps_subtitle">Construímos software que resolve problemas reais em África — com foco em acessibilidade, privacidade e independência tecnológica.</p>
     <div class="card-grid">
       <article class="card reveal">
         <img src="assets/logoonara.png" class="card-icon" alt="Onara.AI">
         <h3>Onara.AI</h3>
-        <p>Assistente de estudo offline para estudantes africanos. Corre modelos de IA localmente no telemóvel, sem internet, sem custos e sem tracking.</p>
-        <a href="onara-ai/" class="card-link"><span>Ver aplicação</span> →</a>
+        <p data-i18n="app_onara_desc">Assistente de estudo offline para estudantes africanos. Corre modelos de IA localmente no telemóvel, sem internet, sem custos e sem tracking.</p>
+        <a href="onara-ai/" class="card-link"><span data-i18n="app_view">Ver aplicação</span> →</a>
       </article>
       <article class="card reveal">
         <div class="card-icon" style="background: var(--dark-3); display:flex; align-items:center; justify-content:center; font-size:32px;">⚖️</div>
-        <span class="badge-dev">Em desenvolvimento</span>
+        <span class="badge-dev" data-i18n="app_dev">Em desenvolvimento</span>
         <h3>JurisAO</h3>
-        <p>Aplicação de consulta jurídica offline sobre a legislação angolana. Pensada para estudantes de Direito, profissionais e cidadãos.</p>
-        <a href="jurisao/" class="card-link"><span>Ver aplicação</span> →</a>
+        <p data-i18n="app_jurisao_desc">Aplicação de consulta jurídica offline sobre a legislação angolana. Pensada para estudantes de Direito, profissionais e cidadãos.</p>
+        <a href="jurisao/" class="card-link"><span data-i18n="app_view">Ver aplicação</span> →</a>
       </article>
       <article class="card reveal">
         <img src="assets/muxima-player.png" class="card-icon" alt="Muxima Player" style="object-fit: contain;">
-        <span class="badge-dev">Em desenvolvimento</span>
+        <span class="badge-dev" data-i18n="app_dev">Em desenvolvimento</span>
         <h3>Muxima Player</h3>
-        <p>Media player gratuito e sem anúncios, com modo DJ integrado. Toca todos os formatos de áudio com uma mesa de mixagem profissional.</p>
-        <a href="muxima-player/" class="card-link"><span>Ver aplicação</span> →</a>
+        <p data-i18n="app_muxima_desc">Media player gratuito e sem anúncios, com modo DJ integrado. Toca todos os formatos de áudio com uma mesa de mixagem profissional.</p>
+        <a href="muxima-player/" class="card-link"><span data-i18n="app_view">Ver aplicação</span> →</a>
       </article>
     </div>
   </div>
@@ -127,90 +116,90 @@
 
 <section class="section" id="servicos">
   <div class="container">
-    <h2 class="section-title reveal">Serviços</h2>
-    <p class="section-subtitle reveal">Para além das aplicações gratuitas, a HamirStudios presta serviços digitais a empresas, instituições e particulares. Preços de lançamento — primeiros 5 clientes.</p>
+    <h2 class="section-title reveal" data-i18n="services_title">Serviços</h2>
+    <p class="section-subtitle reveal" data-i18n="services_subtitle">Para além das aplicações gratuitas, a HamirStudios presta serviços digitais a empresas, instituições e particulares. Preços de lançamento — primeiros 5 clientes.</p>
     <div class="services-grid">
       <article class="service-card reveal">
         <div class="service-icon">🌐</div>
-        <h3>Criação de Sites</h3>
+        <h3 data-i18n="service_sites_title">Criação de Sites</h3>
         <div class="service-item">
-          <div class="service-item-header"><span class="service-name">Landing Page</span><span class="service-price"><span class="price-old">70 €</span><span class="price-new">49 €</span></span></div>
+          <div class="service-item-header"><span class="service-name" data-i18n="service_landing">Landing Page</span><span class="service-price"><span class="price-old">70 €</span><span class="price-new">49 €</span></span></div>
           <div class="service-price-kz">≈ 54.000 Kz</div>
-          <p>Página única, directa e optimizada para telemóvel. Design personalizado. Ideal para captar contactos e lançar serviços.</p>
+          <p data-i18n="service_landing_desc">Página única, directa e optimizada para telemóvel. Design personalizado. Ideal para captar contactos e lançar serviços.</p>
         </div>
         <div class="service-item">
-          <div class="service-item-header"><span class="service-name">Website Institucional</span><span class="service-price"><span class="price-old">150 €</span><span class="price-new">99 €</span></span></div>
+          <div class="service-item-header"><span class="service-name" data-i18n="service_website">Website Institucional</span><span class="service-price"><span class="price-old">150 €</span><span class="price-new">99 €</span></span></div>
           <div class="service-price-kz">≈ 109.000 Kz</div>
-          <p>Vários separadores (Início, Serviços, Sobre, Contactos), design personalizado. 3 a 5 páginas.</p>
+          <p data-i18n="service_website_desc">Vários separadores (Início, Serviços, Sobre, Contactos), design personalizado. 3 a 5 páginas.</p>
         </div>
       </article>
       <article class="service-card reveal">
         <div class="service-icon">🤖</div>
-        <h3>Chatbots e Automação</h3>
+        <h3 data-i18n="service_chatbots_title">Chatbots e Automação</h3>
         <div class="service-item">
-          <div class="service-item-header"><span class="service-name">Chatbot Simples (Guiado)</span><span class="service-price"><span class="price-old">120 €</span><span class="price-new">79 €</span></span></div>
+          <div class="service-item-header"><span class="service-name" data-i18n="service_chat_simple">Chatbot Simples (Guiado)</span><span class="service-price"><span class="price-old">120 €</span><span class="price-new">79 €</span></span></div>
           <div class="service-price-kz">≈ 87.000 Kz</div>
-          <p>Atendimento automático no site ou redes sociais, respostas pré-definidas, envio directo para WhatsApp.</p>
+          <p data-i18n="service_chat_simple_desc">Atendimento automático no site ou redes sociais, respostas pré-definidas, envio directo para WhatsApp.</p>
         </div>
         <div class="service-item">
-          <div class="service-item-header"><span class="service-name">Chatbot com IA</span><span class="service-price"><span class="price-old">300 €</span><span class="price-new">199 €</span></span></div>
+          <div class="service-item-header"><span class="service-name" data-i18n="service_chat_ia">Chatbot com IA</span><span class="service-price"><span class="price-old">300 €</span><span class="price-new">199 €</span></span></div>
           <div class="service-price-kz">≈ 219.000 Kz</div>
-          <p>Atendimento inteligente e personalizado. Requer backend dedicado.</p>
+          <p data-i18n="service_chat_ia_desc">Atendimento inteligente e personalizado. Requer backend dedicado.</p>
         </div>
       </article>
       <article class="service-card reveal">
         <div class="service-icon">📱</div>
-        <h3>Aplicações Mobile</h3>
+        <h3 data-i18n="service_mobile_title">Aplicações Mobile</h3>
         <div class="service-item">
-          <div class="service-item-header"><span class="service-name">App Mobile Simples</span><span class="service-price"><span class="price-old">600 €</span><span class="price-new">399 €</span></span></div>
+          <div class="service-item-header"><span class="service-name" data-i18n="service_mobile">App Mobile Simples</span><span class="service-price"><span class="price-old">600 €</span><span class="price-new">399 €</span></span></div>
           <div class="service-price-kz">≈ 439.000 Kz</div>
-          <p>Aplicação funcional e personalizada. Orçamento final conforme as funcionalidades pedidas.</p>
+          <p data-i18n="service_mobile_desc">Aplicação funcional e personalizada. Orçamento final conforme as funcionalidades pedidas.</p>
         </div>
       </article>
       <article class="service-card reveal">
         <div class="service-icon">🔧</div>
-        <h3>Manutenção e Suporte</h3>
+        <h3 data-i18n="service_support_title">Manutenção e Suporte</h3>
         <div class="service-item">
-          <div class="service-item-header"><span class="service-name">Manutenção mensal</span><span class="service-price"><span class="price-old">25 €</span><span class="price-new">19 €</span></span></div>
+          <div class="service-item-header"><span class="service-name" data-i18n="service_maintenance">Manutenção mensal</span><span class="service-price"><span class="price-old">25 €</span><span class="price-new">19 €</span></span></div>
           <div class="service-price-kz">≈ 21.000 Kz/mês</div>
-          <p>Actualizações, cópias de segurança, pequenas alterações e suporte técnico contínuo.</p>
+          <p data-i18n="service_maintenance_desc">Actualizações, cópias de segurança, pequenas alterações e suporte técnico contínuo.</p>
         </div>
         <div class="service-item">
-          <div class="service-item-header"><span class="service-name">Hora avulsa</span><span class="service-price"><span class="price-old">15 €</span><span class="price-new">12 €</span></span></div>
+          <div class="service-item-header"><span class="service-name" data-i18n="service_hour">Hora avulsa</span><span class="service-price"><span class="price-old">15 €</span><span class="price-new">12 €</span></span></div>
           <div class="service-price-kz">≈ 13.000 Kz/h</div>
-          <p>Para alterações fora do âmbito inicial.</p>
+          <p data-i18n="service_hour_desc">Para alterações fora do âmbito inicial.</p>
         </div>
       </article>
     </div>
     <div class="service-conditions reveal">
-      <h3>Condições de Pagamento</h3>
+      <h3 data-i18n="service_conditions_title">Condições de Pagamento</h3>
       <ul>
-        <li><strong>50%</strong> no início do projecto e <strong>50%</strong> na entrega.</li>
-        <li>Domínio e alojamento cobrados à parte (ou incluídos no plano mensal).</li>
-        <li>Inclui <strong>2 rondas de revisões</strong>; alterações extra pagam-se à hora.</li>
-        <li><strong>Orçamento gratuito e sem compromisso.</strong></li>
+        <li data-i18n="service_cond_1"><strong>50%</strong> no início do projecto e <strong>50%</strong> na entrega.</li>
+        <li data-i18n="service_cond_2">Domínio e alojamento cobrados à parte (ou incluídos no plano mensal).</li>
+        <li data-i18n="service_cond_3">Inclui <strong>2 rondas de revisões</strong>; alterações extra pagam-se à hora.</li>
+        <li data-i18n="service_cond_4"><strong>Orçamento gratuito e sem compromisso.</strong></li>
       </ul>
-      <p class="service-note">Valores em kwanzas calculados ao câmbio oficial do BNA (1 € ≈ 1.100 Kz). O valor final é confirmado no dia do orçamento.</p>
+      <p class="service-note" data-i18n="service_note">Valores em kwanzas calculados ao câmbio oficial do BNA (1 € ≈ 1.100 Kz). O valor final é confirmado no dia do orçamento.</p>
     </div>
     <div class="launch-offer reveal">
-      <div class="launch-badge">🎁 Oferta de Lançamento</div>
-      <h3>Primeiros 5 clientes</h3>
+      <div class="launch-badge" data-i18n="launch_badge">🎁 Oferta de Lançamento</div>
+      <h3 data-i18n="launch_title">Primeiros 5 clientes</h3>
       <ul>
-        <li><strong>15% de desconto</strong> adicional em qualquer serviço de criação.</li>
-        <li><strong>3 meses de manutenção gratuita</strong> após a entrega.</li>
-        <li>Em troca, pedimos apenas autorização para usar o projecto no portfólio e um pequeno testemunho.</li>
+        <li data-i18n="launch_1"><strong>15% de desconto</strong> adicional em qualquer serviço de criação.</li>
+        <li data-i18n="launch_2"><strong>3 meses de manutenção gratuita</strong> após a entrega.</li>
+        <li data-i18n="launch_3">Em troca, pedimos apenas autorização para usar o projecto no portfólio e um pequeno testemunho.</li>
       </ul>
     </div>
     <div class="reveal" style="text-align: center; margin-top: 48px;">
-      <a href="contacto/" class="btn btn-primary">Pedir orçamento</a>
+      <a href="contacto/" class="btn btn-primary" data-i18n="services_btn">Pedir orçamento</a>
     </div>
   </div>
 </section>
 
 <section class="section section-alt" id="portfolio">
   <div class="container">
-    <h2 class="section-title reveal">Projetos Reais</h2>
-    <p class="section-subtitle reveal">Não fazemos apenas sites de demonstração. Construímos soluções que já estão a funcionar no mercado, resolvendo problemas reais de pessoas e negócios.</p>
+    <h2 class="section-title reveal" data-i18n="portfolio_title">Projetos Reais</h2>
+    <p class="section-subtitle reveal" data-i18n="portfolio_subtitle">Não fazemos apenas sites de demonstração. Construímos soluções que já estão a funcionar no mercado, resolvendo problemas reais de pessoas e negócios.</p>
 
     <div class="portfolio-grid">
       <article class="portfolio-card reveal">
@@ -218,36 +207,57 @@
           <div class="portfolio-placeholder">B.Uman™</div>
         </div>
         <div class="portfolio-content">
-          <span class="portfolio-tag">Website Institucional</span>
+          <span class="portfolio-tag" data-i18n="portfolio_tag">Website Institucional</span>
           <h3>B.Uman™</h3>
-          <p class="portfolio-desc">Plataforma de consultoria e apoio prático para mulheres. O site foi desenhado para transmitir confiança, autoridade e acolhimento, com uma estrutura clara de serviços e agendamento.</p>
+          <p class="portfolio-desc" data-i18n="portfolio_desc">Plataforma de consultoria e apoio prático para mulheres. O site foi desenhado para transmitir confiança, autoridade e acolhimento, com uma estrutura clara de serviços e agendamento.</p>
           <div class="portfolio-tech">
             <span>HTML/CSS</span>
             <span>Design Responsivo</span>
             <span>Copywriting Structure</span>
           </div>
-          <a href="https://buman-cyan.vercel.app/" target="_blank" rel="noopener" class="btn btn-secondary" style="margin-top: 16px;"><span>Ver site ao vivo</span> ↗</a>
+          <a href="https://buman-cyan.vercel.app/" target="_blank" rel="noopener" class="btn btn-secondary" style="margin-top: 16px;"><span data-i18n="portfolio_btn">Ver site ao vivo</span> ↗</a>
         </div>
       </article>
 
       <article class="portfolio-card reveal" style="background: var(--dark-1); border-style: dashed; display: flex; align-items: center; justify-content: center; text-align: center; padding: 40px;">
         <div>
-          <h3 style="color: var(--text-muted); margin-bottom: 8px;">O próximo projeto</h3>
-          <p style="color: var(--text-muted); margin-bottom: 24px;">Pode ser o teu. Vamos construir algo juntos?</p>
-          <a href="contacto/" class="btn btn-primary">Falar connosco</a>
+          <h3 style="color: var(--text-muted); margin-bottom: 8px;" data-i18n="next_project">O próximo projeto</h3>
+          <p style="color: var(--text-muted); margin-bottom: 24px;" data-i18n="next_project_desc">Pode ser o teu. Vamos construir algo juntos?</p>
+          <a href="contacto/" class="btn btn-primary" data-i18n="next_project_btn">Falar connosco</a>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="sobre">
+  <div class="container">
+    <div class="about-grid">
+      <img src="assets/yannick.png" class="about-photo" alt="Yannick Matos" style="background: var(--dark-3);">
+      <div class="about-text reveal">
+        <h2 data-i18n="about_title">Yannick Matos</h2>
+        <p class="role" data-i18n="about_role">Fundador & Programador Fullstack</p>
+        <p data-i18n="about_p1">Construo tecnologia que funciona onde a internet não chega. Acredito que o software deve resolver problemas reais e servir as pessoas, independentemente do contexto em que vivem.</p>
+        <p data-i18n="about_p2">Sou o criador do Onara.AI, JurisAO e Muxima Player — aplicações 100% offline, privadas e gratuitas. Com raízes em Luanda, a HamirStudios nasceu do desejo de provar que é possível criar tecnologia de nível internacional em Angola.</p>
+        <p style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border);" data-i18n="about_p3">
+          <strong style="color: var(--white);">Além do código:</strong> Sou baixista e fundador da Ovelha Negra, uma banda de rock alternativo. A música e a programação partilham a mesma essência: a busca pela expressão, o rigor da execução e a construção de algo que conecta as pessoas.
+        </p>
+        <div class="about-links">
+          <a href="https://linkedin.com/in/yannickmatos" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://github.com/matrixangola" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
   <div class="container" style="text-align: center;">
-    <h2 class="section-title reveal">Apoie os nossos projectos</h2>
-    <p class="section-subtitle reveal" style="margin: 0 auto 40px;">Todo o software da HamirStudios é gratuito e será sempre gratuito. Se quiseres apoiar o desenvolvimento, considera uma doação ou patrocínio.</p>
+    <h2 class="section-title reveal" data-i18n="support_title">Apoie os nossos projectos</h2>
+    <p class="section-subtitle reveal" style="margin: 0 auto 40px;" data-i18n="support_subtitle">Todo o software da HamirStudios é gratuito e será sempre gratuito. Se quiseres apoiar o desenvolvimento, considera uma doação ou patrocínio.</p>
     <div class="reveal" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-      <a href="apoie/" class="btn btn-primary">Doações</a>
-      <a href="patrocinadores/" class="btn btn-secondary">Patrocínios</a>
+      <a href="apoie/" class="btn btn-primary" data-i18n="support_btn_donations">Doações</a>
+      <a href="patrocinadores/" class="btn btn-secondary" data-i18n="support_btn_sponsors">Patrocínios</a>
     </div>
   </div>
 </section>
@@ -256,20 +266,19 @@
   <div class="container">
     <img src="assets/logo-hamir.jpeg" class="footer-logo" alt="HamirStudios">
     <p class="footer-text">© 2026 HamirStudios · Luanda, Angola 🇦🇴</p>
-    <p class="footer-text">Fundada por Yannick Matos</p>
-    <p class="footer-slogan">Software com raízes angolanas</p>
+    <p class="footer-text" data-i18n="footer_founder">Fundada por Yannick Matos</p>
+    <p class="footer-slogan" data-i18n="footer_slogan">Software com raízes angolanas</p>
     <div class="footer-social">
       <a href="https://linkedin.com/in/yannickmatos" target="_blank" rel="noopener">💼 LinkedIn</a>
       <a href="https://github.com/matrixangola" target="_blank" rel="noopener">💻 GitHub</a>
       <a href="https://www.facebook.com/yannickdematos" target="_blank" rel="noopener">📘 Facebook</a>
       <a href="mailto:yannickmatos.ym@gmail.com">✉️ Email</a>
     </div>
-
     <div class="footer-links">
-      <a href="sobre/">Sobre a Empresa</a>
-      <a href="apoie/">Apoie</a>
-      <a href="patrocinadores/">Patrocinadores</a>
-      <a href="privacidade/">Política de Privacidade</a>
+      <a href="sobre/" data-i18n="footer_about">Sobre a Empresa</a>
+      <a href="apoie/" data-i18n="footer_support">Apoie</a>
+      <a href="patrocinadores/" data-i18n="footer_sponsors">Patrocinadores</a>
+      <a href="privacidade/" data-i18n="footer_privacy">Política de Privacidade</a>
     </div>
   </div>
 </footer>
@@ -294,60 +303,34 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// ─────────────────────────────────────────
-// SISTEMA DE TRADUÇÃO (i18n)
-// ─────────────────────────────────────────
+// Tradução Local (JSON)
 let currentTranslations = {};
-
 async function loadLanguage(lang) {
   try {
     const response = await fetch(`locales/${lang}.json`);
     currentTranslations = await response.json();
     updateTexts();
-  } catch (error) {
-    console.error("Erro ao carregar o idioma:", error);
-  }
+  } catch (error) { console.error("Erro ao carregar idioma:", error); }
 }
-
 function updateTexts() {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (currentTranslations[key]) {
-      el.innerHTML = currentTranslations[key];
-    }
+    if (currentTranslations[key]) { el.innerHTML = currentTranslations[key]; }
   });
 }
-
 function changeLanguage(lang) {
   localStorage.setItem('preferredLang', lang);
   loadLanguage(lang);
 }
-
-// Inicialização: verifica se o utilizador já escolheu um idioma ou deteta o do navegador
 document.addEventListener('DOMContentLoaded', () => {
   let savedLang = localStorage.getItem('preferredLang');
-  let browserLang = navigator.language.slice(0, 2); // Pega apenas 'pt', 'en', etc.
-  
+  let browserLang = navigator.language.slice(0, 2);
   let langToLoad = savedLang || (['pt', 'en', 'fr', 'es'].includes(browserLang) ? browserLang : 'pt');
-  
-  // Atualiza o seletor visualmente
   const selector = document.querySelector('.lang-selector');
   if (selector) selector.value = langToLoad;
-  
   loadLanguage(langToLoad);
 });
 </script>
 
-<script type="text/javascript">
-function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'pt', autoDisplay: false}, 'google_translate_element'); }
-function doGTranslate(lang_pair) {
-  if(lang_pair == 'pt' || lang_pair == '') { document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + location.hostname; location.reload(); return; }
-  var teCombo; var sel = document.getElementsByTagName('select');
-  for(var i = 0; i < sel.length; i++) if(sel[i].className == 'goog-te-combo') teCombo = sel[i];
-  if(document.getElementById('google_translate_element') == null ) return;
-  if(document.getElementById('google_translate_element').innerHTML.length == 0 || teCombo.length == 0 || teCombo.innerHTML.length == 0) { setTimeout(function(){doGTranslate(lang_pair)},500) } else { teCombo.value = lang_pair; if(document.createEvent) { var evt = document.createEvent("HTMLEvents"); evt.initEvent("change", true, true); teCombo.dispatchEvent(evt); } else { teCombo.fireEvent("onchange"); } }
-}
-document.addEventListener('DOMContentLoaded', () => { var div = document.createElement('div'); div.id = 'google_translate_element'; div.style.display = 'none'; document.body.appendChild(div); var script = document.createElement('script'); script.type = 'text/javascript'; script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'; document.body.appendChild(script); });
-</script>
 </body>
 </html>
