@@ -7,26 +7,9 @@
   <meta name="description" content="Apoie os projectos da HamirStudios. Transfira via Multicaixa Express ou IBAN.">
   <link rel="icon" href="../assets/logoonara.png">
   <link rel="stylesheet" href="../style.css">
-    <style>
-    .lang-selector {
-      background: var(--dark-2);
-      color: var(--text-muted);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 6px 10px;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      outline: none;
-      font-family: inherit;
-      transition: border-color 0.2s;
-      margin-left: 10px;
-    }
-    .lang-selector:hover, .lang-selector:focus {
-      border-color: var(--red);
-      color: var(--white);
-    }
-    /* Esconder a barra feia do Google Translate */
+      <style>
+    .lang-selector { background: var(--dark-2); color: var(--text-muted); border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; font-size: 14px; font-weight: 500; cursor: pointer; outline: none; font-family: inherit; transition: border-color 0.2s; margin-left: 15px; }
+    .lang-selector:hover, .lang-selector:focus { border-color: var(--red); color: var(--white); }
     .goog-te-banner-frame { display: none !important; }
     body { top: 0 !important; }
     #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
@@ -55,6 +38,13 @@
       <a href="../index.html#servicos">Serviços</a>
       <a href="../index.html#portfolio">Portfólio</a>
       <a href="index.html">Apoie</a>
+          <select class="lang-selector" onchange="doGTranslate(this.value);">
+        <option value="">🌐 Idioma</option>
+        <option value="pt">🇵🇹 PT</option>
+        <option value="en">🇬🇧 EN</option>
+        <option value="fr">🇫🇷 FR</option>
+        <option value="es">🇪🇸 ES</option>
+      </select>
     </nav>
   </div>
 </header>
@@ -277,45 +267,15 @@ function copyMulticaixa(btn) {
 <script src="../toggleDropdown.js"></script>
 
 <script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'pt', autoDisplay: false}, 'google_translate_element');
-}
-
+function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'pt', autoDisplay: false}, 'google_translate_element'); }
 function doGTranslate(lang_pair) {
-  if(lang_pair == 'pt' || lang_pair == '') {
-    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + location.hostname;
-    location.reload();
-    return;
-  }
-  var teCombo;
-  var sel = document.getElementsByTagName('select');
+  if(lang_pair == 'pt' || lang_pair == '') { document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + location.hostname; location.reload(); return; }
+  var teCombo; var sel = document.getElementsByTagName('select');
   for(var i = 0; i < sel.length; i++) if(sel[i].className == 'goog-te-combo') teCombo = sel[i];
   if(document.getElementById('google_translate_element') == null ) return;
-  if(document.getElementById('google_translate_element').innerHTML.length == 0 || teCombo.length == 0 || teCombo.innerHTML.length == 0) {
-    setTimeout(function(){doGTranslate(lang_pair)},500)
-  } else {
-    teCombo.value = lang_pair;
-    if(document.createEvent) {
-      var evt = document.createEvent("HTMLEvents");
-      evt.initEvent("change", true, true);
-      teCombo.dispatchEvent(evt);
-    } else {
-      teCombo.fireEvent("onchange");
-    }
-  }
+  if(document.getElementById('google_translate_element').innerHTML.length == 0 || teCombo.length == 0 || teCombo.innerHTML.length == 0) { setTimeout(function(){doGTranslate(lang_pair)},500) } else { teCombo.value = lang_pair; if(document.createEvent) { var evt = document.createEvent("HTMLEvents"); evt.initEvent("change", true, true); teCombo.dispatchEvent(evt); } else { teCombo.fireEvent("onchange"); } }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  var div = document.createElement('div');
-  div.id = 'google_translate_element';
-  div.style.display = 'none';
-  document.body.appendChild(div);
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-  document.body.appendChild(script);
-});
+document.addEventListener('DOMContentLoaded', () => { var div = document.createElement('div'); div.id = 'google_translate_element'; div.style.display = 'none'; document.body.appendChild(div); var script = document.createElement('script'); script.type = 'text/javascript'; script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'; document.body.appendChild(script); });
 </script>
 </body>
 </html>
