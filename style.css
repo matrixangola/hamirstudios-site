@@ -1383,3 +1383,47 @@ body {
   .service-conditions, .launch-offer { padding: 24px; }
   .portfolio-grid { grid-template-columns: 1fr; }
 }
+
+/* ─────────────────────────────────────────
+   Modo Claro (Light Mode)
+   ───────────────────────────────────────── */
+body.light-mode {
+  --black: #F8F9FA;      /* Fundo principal branco/cinza claro */
+  --dark-1: #FFFFFF;     /* Fundo secundário */
+  --dark-2: #F1F3F5;     /* Cards e blocos */
+  --dark-3: #E9ECEF;
+  --white: #0A0A0A;      /* Texto principal passa a preto */
+  --text: #212529;       /* Texto geral */
+  --text-muted: #6C757D; /* Texto secundário */
+  --border: rgba(0, 0, 0, 0.1); /* Bordas mais escuras para contraste */
+}
+
+/* Ajustes específicos para o modo claro */
+body.light-mode .site-header { background: rgba(248, 249, 250, 0.85); }
+body.light-mode .site-header.scrolled { background: rgba(248, 249, 250, 0.95); }
+body.light-mode .hero { background: var(--black); }
+body.light-mode .hero::before { background: radial-gradient(circle, rgba(227, 6, 19, 0.08) 0%, transparent 70%); }
+body.light-mode .hero .watermark { filter: brightness(0); opacity: 0.05; } /* Inverte a marca de água */
+body.light-mode .hero-logo, body.light-mode .splash-logo { box-shadow: 0 0 40px rgba(0, 0, 0, 0.1); }
+body.light-mode .section-title { background: linear-gradient(135deg, #000 0%, #555 100%); -webkit-background-clip: text; }
+body.light-mode .btn-secondary { border-color: rgba(0, 0, 0, 0.2); }
+body.light-mode .btn-secondary:hover { border-color: var(--red); color: var(--red); }
+body.light-mode .footer-social a { background: var(--dark-2); }
+
+/* Botão de Alternar Tema */
+.theme-toggle {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 18px;
+  cursor: pointer;
+  margin-left: 15px;
+  transition: transform 0.3s, color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.theme-toggle:hover {
+  color: var(--white);
+  transform: scale(1.1);
+}

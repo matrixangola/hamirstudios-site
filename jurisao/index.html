@@ -111,7 +111,8 @@
         <option value="fr">🇫🇷 FR</option>
         <option value="es">🇪🇸 ES</option>
       </select>
-    </nav>
+          <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema" title="Alternar modo claro/escuro">🌙</button>
+</nav>
   </div>
 </header>
 
@@ -317,6 +318,34 @@ function doGTranslate(lang_pair) {
   if(document.getElementById('google_translate_element').innerHTML.length == 0 || teCombo.length == 0 || teCombo.innerHTML.length == 0) { setTimeout(function(){doGTranslate(lang_pair)},500) } else { teCombo.value = lang_pair; if(document.createEvent) { var evt = document.createEvent("HTMLEvents"); evt.initEvent("change", true, true); teCombo.dispatchEvent(evt); } else { teCombo.fireEvent("onchange"); } }
 }
 document.addEventListener('DOMContentLoaded', () => { var div = document.createElement('div'); div.id = 'google_translate_element'; div.style.display = 'none'; document.body.appendChild(div); var script = document.createElement('script'); script.type = 'text/javascript'; script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'; document.body.appendChild(script); });
+</script>
+<script>
+  // Lógica do Tema
+  (function() {
+    const currentTheme = localStorage.getItem('theme') || 'light'; // Padrão é 'light'
+    if (currentTheme === 'light') {
+      document.body.classList.add('light-mode');
+    }
+    
+    // Atualizar o ícone do botão assim que o DOM carregar
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.getElementById('theme-toggle');
+      if (toggleBtn) {
+        toggleBtn.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
+        
+        toggleBtn.addEventListener('click', () => {
+          document.body.classList.toggle('light-mode');
+          const isLight = document.body.classList.contains('light-mode');
+          
+          // Mudar o ícone
+          toggleBtn.textContent = isLight ? '☀️' : '🌙';
+          
+          // Guardar a preferência
+          localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        });
+      }
+    });
+  })();
 </script>
 </body>
 </html>

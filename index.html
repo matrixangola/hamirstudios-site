@@ -84,7 +84,8 @@
         <option value="fr">🇫🇷 FR</option>
         <option value="es">🇪🇸 ES</option>
       </select>
-    </nav>
+          <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema" title="Alternar modo claro/escuro">🌙</button>
+</nav>
   </div>
 </header>
 
@@ -495,6 +496,34 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, 2000); // 2 segundos
   });
+</script>
+<script>
+  // Lógica do Tema
+  (function() {
+    const currentTheme = localStorage.getItem('theme') || 'light'; // Padrão é 'light'
+    if (currentTheme === 'light') {
+      document.body.classList.add('light-mode');
+    }
+    
+    // Atualizar o ícone do botão assim que o DOM carregar
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.getElementById('theme-toggle');
+      if (toggleBtn) {
+        toggleBtn.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
+        
+        toggleBtn.addEventListener('click', () => {
+          document.body.classList.toggle('light-mode');
+          const isLight = document.body.classList.contains('light-mode');
+          
+          // Mudar o ícone
+          toggleBtn.textContent = isLight ? '☀️' : '🌙';
+          
+          // Guardar a preferência
+          localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        });
+      }
+    });
+  })();
 </script>
 </body>
 </html>
